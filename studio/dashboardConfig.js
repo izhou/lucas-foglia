@@ -38,5 +38,10 @@ export default {
       }
     },
     {name: 'project-users', layout: {height: 'auto'}},
+    {
+      name: 'project-list',
+      options: {title: 'Projects', types: ['project']},
+      layout: {width: 'medium'}
+    }
   ]
 }

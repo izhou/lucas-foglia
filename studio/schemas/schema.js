@@ -6,23 +6,27 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 // document schemas
 import siteSettings from './documents/siteSettings'
+import project from './documents/project'
 
 // Object types
 import bodyPortableText from './objects/bodyPortableText'
 import excerptPortableText from './objects/excerptPortableText'
+import photo from './objects/photo'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   // We name our schema
-  name: 'blog',
+  name: 'website',
   // Then proceed to concatenate our our document type
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
     // The following are document types which will appear
     // in the studio.
     siteSettings,
+    project,
     bodyPortableText,
-    excerptPortableText
+    excerptPortableText,
+    photo
 
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
