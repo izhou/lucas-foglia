@@ -2,7 +2,7 @@ export default {
   name: 'siteSettings',
   type: 'document',
   title: 'Site Settings',
-  __experimental_actions: ['update', /* 'create', 'delete', */ 'publish'],
+  __experimental_actions: ['update', /*'create', 'delete',*/ 'publish'],
   fields: [
     {
       name: 'title',
@@ -13,24 +13,31 @@ export default {
       name: 'description',
       type: 'text',
       title: 'Description',
-      description: 'Describe your blog for search engines and social media.'
+      description: 'Describe your website for search engines and social media.'
     },
+
     {
-      name: 'keywords',
+      name: 'sidebar',
       type: 'array',
-      title: 'Keywords',
-      description: 'Add keywords that describes your blog.',
-      of: [{type: 'string'}],
-      options: {
-        layout: 'tags'
-      }
+      title: 'Sidebar',
+      description: 'Add the contents of your sidebar ',
+      of: [
+        {
+          title: 'Heading',
+          type: 'object',
+          fields: [
+            {
+              title: 'Header String',
+              name: 'header',
+              type: 'string'
+            }
+          ]
+        },
+        {
+          type: 'reference',
+          to: [{ type: 'project' }]
+        }
+      ],
     },
-    {
-      name: 'author',
-      type: 'reference',
-      description: 'Publish an author and set a reference to them here.',
-      title: 'Author',
-      to: [{type: 'author'}]
-    }
   ]
 }
