@@ -56,3 +56,34 @@ a {
 .l-grid-right {
   grid-area: b;
 }
+
+
+.l-grid-index-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  /* grid-auto-rows: max(320px); */
+  justify-items: center;
+  grid-gap: 16px;
+}
+
+.l-grid-index-item {
+  align-self: center;
+  justify-self: center;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  aspect-ratio: 4/3;
+}
+
+.l-grid-index-item:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.lazyload,.lazyloading {
+    opacity: 0;
+}
+
+.lazyloaded {
+    transition: opacity 1s;
+}

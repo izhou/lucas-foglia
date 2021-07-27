@@ -1,6 +1,8 @@
 const { DateTime } = require("luxon");
 const util = require('util')
 const CleanCSS = require("clean-css");
+const urlFor = require('./utils/imageUrl');
+
 
 module.exports = function(eleventyConfig) {
 
@@ -38,6 +40,16 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.setLibrary("md", markdownIt(options)
     .use(markdownItAnchor, opts)
   );
+
+  eleventyConfig.addShortcode('imageUrlFor', (image, width = "400") => {
+    return urlFor(image)
+      .width(width)
+      .auto('format')
+  })
+
+  eleventyConfig.addPassthroughCopy({
+    "node_modules/lazysizes/lazysizes.min.js": "assets/lazysizes.min.js",
+  });
 
   eleventyConfig.addFilter("markdownify", function(value) {
     const md = new markdownIt(options)

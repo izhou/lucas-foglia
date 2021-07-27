@@ -14,7 +14,22 @@
 {%endblock%}
 
 {% block main %}
+<div class="l-grid-index-container ">
+  {%- for photo in project.gallery -%}
+  <img class="lazyload l-grid-index-item" src="{% imageUrlFor photo, 10 %}" data-src="{% imageUrlFor photo, 1600 %}" alt={{photo.alt}}/>
+  {%- endfor -%}
+</div>
 
-this will be the content!
+<div id="project-gallery" class="l-grid-right is-hidden">
+  <div class="project-gallery-nav-wrapper">
+    <div class="project-gallery-nav-left" onclick="goLeft()"></div>
+    <div class="project-gallery-nav-right" onclick="goRight()"></div>
+  </div>
+  {%- for photo in project.gallery -%}
+    <img class="lazyload l-grid-index-item" src="{% imageUrlFor photo, 1600 %}" data-src="{% imageUrlFor photo, 6400 %}" alt={{photo.alt}}/>
+  {%- endfor -%}
+</div>
+
+<div id="project-statement" class="l-grid-right is-hidden"></div>
 
 {%endblock%}
