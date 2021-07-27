@@ -8,7 +8,7 @@ const hasToken = !!client.config().token
 function generateProject (project) {
   return {
     ...project,
-    body: BlocksToMarkdown(project.body, { serializers, ...client.config() })
+    statement: BlocksToMarkdown(project.statement, { serializers, ...client.config() })
   }
 }
 
@@ -19,7 +19,7 @@ async function getProjects () {
     _id,
     title,
     slug,
-    body[]{
+    statement[]{
       ...,
       children[]{
         ...,
@@ -30,7 +30,7 @@ async function getProjects () {
   const docs = await client.fetch(query).catch(err => console.error(err))
   const reducedDocs = overlayDrafts(hasToken, docs)
   const prepareProjects = reducedDocs.map(generateProject)
-  console.log('prepare Projects:' + prepareProjects);
+  console.log('prepare Projects:' + JSON.stringify(prepareProjects));
   return prepareProjects
 }
 

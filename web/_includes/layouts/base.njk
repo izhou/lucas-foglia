@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ renderData.title or title or metadata.title }}</title>
-    <meta name="Description" content="{{ renderData.description or description or metadata.description }}">
+    {# <title>{{ renderData.title or title or metadata.title }}</title> #}
+    {# <meta name="Description" content="{{ renderData.description or description or metadata.description }}"> #}
     {% set css %}
       {% include "style.css" %}
     {% endset %}
@@ -13,23 +13,17 @@
     </style>
   </head>
   <body>
-    <header>
-      <h1 class="home"><a href="{{ '/' | url }}">{{ metadata.title }}</a></h1>
-      <ul class="nav">
-        {%- for nav in collections.nav | reverse -%}
-        <li class="nav-item{% if nav.url == page.url %} nav-item-active{% endif %}"><a href="{{ nav.url | url }}">{{ nav.data.navtitle }}</a></li>
-        {%- endfor -%}
-      </ul>
-    </header>
-
-    <main{% if templateClass %} class="{{ templateClass }}"{% endif %}>
-      {{ content | safe }}
-    </main>
-
-    <footer>
-        <p><em>This is an <a href="https://www.11ty.io/">Eleventy</a> + <a href="https://www.sanity.io">Sanity.io</a> project inspired by the <a href="https://github.com/11ty/eleventy-base-blog"><code>eleventy-base-blog</code> repo</a>.</em></p>
-    </footer>
-
-    <!-- Current page: {{ page.url | url }} -->
+    <div class="{% if templateClass %} {{ templateClass }} {% endif %} container l-grid">
+      <div class="l-grid-top">
+        {% block sidebarTop %}{%endblock%}
+      </div>
+      <div class="l-grid-bottom">
+        {% block sidebarBottom %}{%endblock%}
+      </div>
+      
+      <div class="l-grid-right">
+      {% block main %}{%endblock%}
+      </div>
+    </div>
   </body>
 </html>
