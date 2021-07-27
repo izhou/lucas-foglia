@@ -1,0 +1,9 @@
+---
+layout: layouts/base.njk
+templateClass: tmpl-project
+---
+<article>
+  <h1>{{ project.title }}</h1>
+  {{ project.statement | markdownify | safe }}
+  <p><a href="{{ '/' | url }}">← Home</a></p>
+</article>

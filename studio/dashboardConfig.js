@@ -39,7 +39,7 @@ export default {
     },
     {name: 'project-users', layout: {height: 'auto'}},
     {
-      name: 'project-list',
+      name: 'document-list',
       options: {title: 'Projects', types: ['project']},
       layout: {width: 'medium'}
     }
