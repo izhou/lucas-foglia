@@ -5,7 +5,17 @@
 {%endblock%}
 
 {% block sidebarBottom %}
+
+  <div id="project-info--photo" class="is-hidden">
+    {%- for photo in project.gallery -%}
+      <div class="project-gallery-image-info is-hidden" data-gallery-index="{{loop.index0}}">
+        <h3 class="project-gallery-image-title">{{photo.title}}</h3>
+        <div class="project-gallery-image-caption">{{photo.caption}}</div>
+      </div>
+    {%- endfor -%}
+  </div>
   <h1 class="project-info--title">{{project.title}}</h1>
+
   <div class="project-info--links">
     <a class="project-info--link" onclick="showContainer('project-gallery')" data-container="project-gallery">Gallery</a> / 
     <a class="project-info--link container-active" onclick="showContainer('project-index')" data-container="project-index">Index</a> /

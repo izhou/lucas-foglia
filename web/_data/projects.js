@@ -6,10 +6,18 @@ const overlayDrafts = require('../utils/overlayDrafts')
 const hasToken = !!client.config().token
 
 function generateProject (project) {
+  const gallery = project.gallery;
+  
   return {
     ...project,
-    statement: BlocksToMarkdown(project.statement, { serializers, ...client.config() })
-  }
+    statement: BlocksToMarkdown(project.statement, { serializers, ...client.config() }),
+    gallery: gallery.map((photo)=>{
+      return {
+        ...photo,
+        caption: BlocksToMarkdown(photo.caption, { serializers, ...client.config() }),
+      }
+    })
+  };
 }
 
 async function getProjects () {
@@ -32,7 +40,6 @@ async function getProjects () {
   const docs = await client.fetch(query).catch(err => console.error(err))
   const reducedDocs = overlayDrafts(hasToken, docs)
   const prepareProjects = reducedDocs.map(generateProject)
-  console.log('prepare Projects:' + JSON.stringify(prepareProjects));
   return prepareProjects
 }
 

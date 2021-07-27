@@ -29,7 +29,7 @@ a {
 /* Layout */
 .l-grid {
   display: grid;
-  grid-template-columns: minmax(200px, 20%) auto;
+  grid-template-columns: minmax(216px, 20%) auto;
   grid-template-rows: 50% 50%;
   height: 100%;
   grid-template-areas: "a b""c b";
@@ -51,12 +51,22 @@ a {
   align-self: start;
   grid-area: a;
   padding-bottom:16px;
+  padding-right:16px;
 }
 
 .l-grid-bottom {
   align-self: end;
   grid-area: c;
   padding-top:16px;
+  padding-right:16px;
+  
+}
+
+.project-gallery-image-caption {
+  max-height: 13ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
 }
 
 .l-grid-right {
@@ -114,6 +124,10 @@ a {
 
 .project-info div{
   padding-top: 6px;
+}
+
+#project-info--photo {
+  padding: 16px 0;
 }
 
 .project-info--title{
