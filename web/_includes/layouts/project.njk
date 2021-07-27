@@ -1,26 +1,31 @@
 {% extends "layouts/base.njk" %}
 
-{% block sidebarTop %}
+{%block sidebarContent %}
+            
+<div class="l-grid-top">
   <a style="font-weight: bold;" href="onBack()"> < Back</a>
-{%endblock%}
+</div>
 
-{% block sidebarBottom %}
-
-  <div id="project-info--photo" class="is-hidden">
+<div class="l-grid-bottom">
+  <div class="project-info--photo" class="is-hidden">
     {%- for photo in project.gallery -%}
-      <div class="project-gallery-image-info is-hidden" data-gallery-index="{{loop.index0}}">
+      <div class="project-gallery-image-info is-hidden hide-on-mobile" data-gallery-index="{{loop.index0}}">
         <h3 class="project-gallery-image-title">{{photo.title}}</h3>
         <div class="project-gallery-image-caption">{{photo.caption}}</div>
       </div>
     {%- endfor -%}
   </div>
-  <h1 class="project-info--title">{{project.title}}</h1>
 
-  <div class="project-info--links">
-    <a class="project-info--link" onclick="showContainer('project-gallery')" data-container="project-gallery">Gallery</a> / 
-    <a class="project-info--link container-active" onclick="showContainer('project-index')" data-container="project-index">Index</a> /
-    <a class="project-info--link" onclick="showContainer('project-statement')" data-container="project-statement">Statement</a>
+  <div class="project-info--footer">
+    <h1 class="project-info--title">{{project.title}}</h1>
+
+    <div class="project-info--links">
+      <a class="project-info--link" onclick="showContainer('project-gallery')" data-container="project-gallery">Gallery</a> / 
+      <a class="project-info--link container-active" onclick="showContainer('project-index')" data-container="project-index">Index</a> /
+      <a class="project-info--link" onclick="showContainer('project-statement')" data-container="project-statement">Statement</a>
+    </div>
   </div>
+</div>
 {%endblock%}
 
 {% block main %}
@@ -39,6 +44,11 @@
     <div class="project-gallery-image-container is-hidden" data-gallery-index={{loop.index0}}>
       <img class="lazyload blur-up l-grid-index-item" src="{% imageUrlFor photo, 100 %}" data-src="{% imageUrlFor photo, 6400 %}" alt={{photo.alt}}/>
     </div>
+
+      <div class="project-gallery-image-info is-hidden show-on-mobile" data-gallery-index="{{loop.index0}}">
+        <h3 class="project-gallery-image-title">{{photo.title}}</h3>
+        <div class="project-gallery-image-caption">{{photo.caption}}</div>
+      </div>
   {%- endfor -%}
 </div>
 

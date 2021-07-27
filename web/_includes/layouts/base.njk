@@ -14,11 +14,8 @@
   </head>
   <body>
     <div class="{% if templateClass %} {{ templateClass }} {% endif %} container l-grid">
-      <div class="l-grid-top">
-        {% block sidebarTop %}{%endblock%}
-      </div>
-      <div class="l-grid-bottom">
-        {% block sidebarBottom %}{%endblock%}
+      <div class="l-grid-left">
+      {% block sidebarContent %}{%endblock%}
       </div>
       
       <div class="l-grid-right">
@@ -27,6 +24,5 @@
     </div>
 
     <script src="{{ "/assets/lazysizes.min.js" | url }}"></script>
-
   </body>
 </html>
