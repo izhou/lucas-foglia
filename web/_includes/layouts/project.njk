@@ -14,22 +14,25 @@
 {%endblock%}
 
 {% block main %}
-<div class="l-grid-index-container ">
+<div id="project-index" class="l-grid-index-container l-grid-content-container l-scroll-wrapper">
   {%- for photo in project.gallery -%}
-  <img class="lazyload l-grid-index-item" src="{% imageUrlFor photo, 10 %}" data-src="{% imageUrlFor photo, 1600 %}" alt={{photo.alt}}/>
+  <img class="lazyload fade-in l-grid-index-item" src="{% imageUrlFor photo, 100 %}" data-src="{% imageUrlFor photo, 1600 %}" data-gallery-index={{loop.index0}} alt="{{photo.alt}}" onclick="onIndexClick({{loop.index0}})"/>
   {%- endfor -%}
 </div>
 
-<div id="project-gallery" class="l-grid-right is-hidden">
+<div id="project-gallery" class="l-grid-content-container is-hidden">
   <div class="project-gallery-nav-wrapper">
     <div class="project-gallery-nav-left" onclick="goLeft()"></div>
     <div class="project-gallery-nav-right" onclick="goRight()"></div>
   </div>
   {%- for photo in project.gallery -%}
-    <img class="lazyload l-grid-index-item" src="{% imageUrlFor photo, 1600 %}" data-src="{% imageUrlFor photo, 6400 %}" alt={{photo.alt}}/>
+    <div class="project-gallery-image-container is-hidden" data-gallery-index={{loop.index0}}>
+      <img class="lazyload blur-up l-grid-index-item" src="{% imageUrlFor photo, 100 %}" data-src="{% imageUrlFor photo, 6400 %}" alt={{photo.alt}}/>
+    </div>
   {%- endfor -%}
 </div>
 
-<div id="project-statement" class="l-grid-right is-hidden"></div>
+<div id="project-statement" class="l-grid-content-container is-hidden"></div>
 
+<script>{% include "js/gallery.js" %}</script>
 {%endblock%}

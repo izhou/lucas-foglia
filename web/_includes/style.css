@@ -36,6 +36,10 @@ a {
 }
 
 @media (max-width: 920px) {
+  body {
+    padding: 24px;
+  }
+
   .l-grid {
     grid-template-columns: 100%;
     grid-template-rows: auto minmax(0,100%) auto;
@@ -46,24 +50,32 @@ a {
 .l-grid-top {
   align-self: start;
   grid-area: a;
+  padding-bottom:16px;
 }
 
 .l-grid-bottom {
   align-self: end;
   grid-area: c;
+  padding-top:16px;
 }
 
 .l-grid-right {
   grid-area: b;
 }
 
-
 .l-grid-index-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   /* grid-auto-rows: max(320px); */
   justify-items: center;
   grid-gap: 16px;
+
+  overflow: auto;
+  padding-right: 16px;
+}
+
+.l-grid-content-container {
+  height: 100%;
 }
 
 .l-grid-index-item {
@@ -80,10 +92,91 @@ a {
   cursor: pointer;
 }
 
-.lazyload,.lazyloading {
+.lazyload.fade-in,.lazyloading.fade-in {
     opacity: 0;
 }
 
+.blur-up {
+  -webkit-filter: blur(5px);
+  filter: blur(5px)
+}
+
+
+.blur-up.lazyloaded {
+  -webkit-filter: blur(0);
+  filter: blur(0);
+}
+
+
 .lazyloaded {
-    transition: opacity 1s;
+    transition: opacity 1s, filter 200ms, -webkit-filter 200ms;
+}
+
+.project-info div{
+  padding-top: 6px;
+}
+
+.project-info--title{
+  font-weight: bold;
+  font-size: 1.6rem;
+  margin: 1rem 0;
+}
+
+/* State  */
+a.is-active {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.project-gallery-image.is-active {
+  display: block;
+}
+
+div.is-hidden,
+img.is-hidden {
+  display: none;
+}
+
+#project-gallery {
+  position: relative;
+}
+.project-gallery-image-container {
+  width: 100%;
+  height: 100%;
+}
+
+.project-gallery-image {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.project-gallery-nav-wrapper {
+  height: 100%;
+  width: 100%;
+  position:absolute;
+  display: flex;
+  justify-content: space-between;
+}
+
+.project-gallery-nav-left,
+.project-gallery-nav-right {
+  height: 100%;
+  width: 33%;
+  z-index: 1;
+}
+
+.project-gallery-nav-left {
+  cursor: w-resize;
+}
+
+.project-gallery-nav-right {
+  cursor: e-resize;
+}
+
+.container-active {
+  pointer-events: none;
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: default;
 }
