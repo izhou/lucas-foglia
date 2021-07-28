@@ -1,3 +1,5 @@
+import { MdPerson } from "react-icons/md";
+
 export default {
   name: 'project',
   type: 'document',
@@ -48,4 +50,24 @@ export default {
       }]
     }
   ],
+  preview: {
+    select: {
+      title: 'title',
+      gallery: 'gallery',
+    },
+    prepare(selection) {
+      const {title, gallery } = selection;
+      
+      if (gallery && gallery[0] && gallery[0].asset) {
+        return {
+          title: title,
+          media: gallery[0].asset
+        };
+      }
+
+      return {
+        title: title,
+      }
+    }
+  }
 }

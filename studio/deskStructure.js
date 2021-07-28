@@ -2,7 +2,7 @@ import S from '@sanity/desk-tool/structure-builder'
 import { MdSettings } from "react-icons/md";
 
 const hiddenDocTypes = listItem =>
-  !['project'].includes(listItem.getId())
+  !['project', 'siteSettings'].includes(listItem.getId())
 
 export default () =>
   S.list()

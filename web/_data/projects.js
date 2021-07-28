@@ -10,7 +10,9 @@ function generateProject (project) {
   
   return {
     ...project,
-    statement: BlocksToMarkdown(project.statement, { serializers, ...client.config() }),
+    statement: BlocksToMarkdown(project.statement, { serializers: {
+      hardBreak: `aaaa`,
+    }, ...client.config() }),
     gallery: gallery.map((photo)=>{
       return {
         ...photo,
@@ -35,11 +37,14 @@ async function getProjects () {
       }
     },
     gallery
-  }`
+  }`;
+
   const query = [filter, projection ].join(' ')
   const docs = await client.fetch(query).catch(err => console.error(err))
   const reducedDocs = overlayDrafts(hasToken, docs)
   const prepareProjects = reducedDocs.map(generateProject)
+  console.log(JSON.stringify(prepareProjects.statement));
+
   return prepareProjects
 }
 

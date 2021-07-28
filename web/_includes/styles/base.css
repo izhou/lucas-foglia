@@ -14,9 +14,26 @@ body {
   font-family: 'helvetica-neue', sans-serif; 
   box-sizing: border-box;
   position: relative;
-  font-size: 0.8rem;
+  font-size: 1rem;
   color: #666;
   padding: 48px;
+}
+
+h1 {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight:bold;
+}
+
+h3 {
+  font-weight: bold;
+  font-size: 1rem; 
 }
 
 a {
@@ -25,9 +42,11 @@ a {
   cursor: pointer;
 }
 
+a:hover {
+  color: royalblue;
+}
 
 /* Layout */
-
 .l-grid-scroll-wrapper {
   height: 100%;
   overflow: auto;
@@ -53,6 +72,10 @@ a {
   flex-grow: 1;
 }
 
+.l-grid-content-container {
+  height: 100%;
+}
+
 .l-grid-index-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -61,10 +84,6 @@ a {
 
   overflow: auto;
   padding-right: 16px;
-}
-
-.l-grid-content-container {
-  height: 100%;
 }
 
 .l-grid-index-item {
@@ -141,12 +160,10 @@ a {
   filter: blur(5px)
 }
 
-
 .blur-up.lazyloaded {
   -webkit-filter: blur(0);
   filter: blur(0);
 }
-
 
 .lazyloaded {
     transition: opacity 1s, filter 200ms, -webkit-filter 200ms;
@@ -158,12 +175,6 @@ a {
 
 #project-info--photo {
   padding: 16px 0;
-}
-
-.project-info--title{
-  font-weight: bold;
-  font-size: 1.6rem;
-  margin: 1rem 0;
 }
 
 /* State  */
@@ -224,3 +235,15 @@ img.is-hidden {
   text-decoration: underline;
   cursor: default;
 }
+
+.l-grid-content-container {
+  height: 100%;
+}
+
+/* Sidebar */
+
+.sidebar-link {
+  display: block;
+  padding-bottom: 0.4rem;
+}
+

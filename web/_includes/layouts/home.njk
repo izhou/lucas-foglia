@@ -1,5 +1,16 @@
----
-layout: layouts/base.njk
-templateClass: tmpl-home
----
-{{ content | safe }}
+{% extends "layouts/base.njk" %}
+
+{%block sidebarContent %}
+
+<div class="l-grid-top">
+<h1>{{metadata.title}}</h1>
+  {%- for item in metadata.sidebar -%}
+    {%if item.header %}<h2>{{item.header}}</h2>{% endif %}
+    {%if item._type== "project" %}
+      <a class="sidebar-link" href="/projects/{{item.slug}}">{{item.title}}</a>
+    {% endif %}
+
+
+  {%- endfor -%}
+</div>
+{%endblock%}

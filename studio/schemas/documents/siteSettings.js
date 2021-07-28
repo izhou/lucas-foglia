@@ -31,9 +31,10 @@ export default {
               name: 'header',
               type: 'string'
             }
-          ]
+          ],
         },
         {
+          name: 'project',
           type: 'reference',
           to: [{ type: 'project' }]
         }
