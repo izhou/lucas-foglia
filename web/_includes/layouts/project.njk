@@ -3,11 +3,11 @@
 {%block sidebarContent %}
             
 <div class="l-grid-top">
-  <a style="font-weight: bold;" href="onBack()"> < Back</a>
+  <a style="font-weight: bold;" href="onBack()"> < Baack</a>
 </div>
 
 <div class="l-grid-bottom">
-  <div class="project-info--photo" class="is-hidden">
+  <div class="project-info--photo is-hidden">
     {%- for photo in project.gallery -%}
       <div class="project-gallery-image-info is-hidden hide-on-mobile" data-gallery-index="{{loop.index0}}">
         <h3 class="project-gallery-image-title">{{photo.title}}</h3>
@@ -52,7 +52,9 @@
   {%- endfor -%}
 </div>
 
-<div id="project-statement" class="l-grid-content-container is-hidden"></div>
+<div id="project-statement" class="l-grid-content-container is-hidden">
+  {{project.statement}}
+</div>
 
 <script>{% include "js/gallery.js" %}</script>
 {%endblock%}
