@@ -1,29 +1,5 @@
-/* Base */
-@font-face {
-    font-family: 'Gotham Light';
-    /* src: url("/assets/fonts/gotham-light/Gotham Extra Light.otf") format("opentype"); */
-    src: url("/assets/fonts/gotham-light/Gotham Thin.otf") format("opentype");
-    font-weight: 100;
-}
-
-@font-face {
-    font-family: 'Gotham Light';
-    src: url("/assets/fonts/gotham-light/Gotham Light Regular.otf") format("opentype");
-    /* src: url("/assets/fonts/gotham-light/Gotham Book.otf") format("opentype"); */
-    font-weight: normal;
-}
-
-@font-face {
-    font-family: 'Gotham Light';
-    src: url("/assets/fonts/gotham-light/Gotham Book.otf") format("opentype");
-    /* src: url("/assets/fonts/gotham-light/Gotham Medium.otf") format("opentype"); */
-
-    font-weight: bold;
-}
-
 @font-face {
     font-family: 'Gotham Narrow';
-    /* src: url("/assets/fonts/gotham-narrow/Gotham Narrow Extra Light.otf") format("opentype"); */
     src: url("/assets/fonts/gotham-narrow/Gotham Narrow Thin.otf") format("opentype");
     font-weight: 100;
 }
@@ -31,15 +7,12 @@
 @font-face {
     font-family: 'Gotham Narrow';
     src: url("/assets/fonts/gotham-narrow/Gotham Narrow Light.otf") format("opentype");
-    /* src: url("/assets/fonts/gotham-narrow/Gotham Narrow Book.otf") format("opentype"); */
     font-weight: normal;
 }
 
 @font-face {
     font-family: 'Gotham Narrow';
     src: url("/assets/fonts/gotham-narrow/Gotham Narrow Book.otf") format("opentype");
-    /* src: url("/assets/fonts/gotham-narrow/Gotham Narrow Medium.otf") format("opentype"); */
-
     font-weight: bold;
 }
 
@@ -49,9 +22,7 @@ html {
 
 html,
 body {
-  /* font-family: "helvetica neue", sans-serif; */
-  /* font-family: 'Gotham Narrow'; */
-   font-family: 'Gotham Light';
+  font-family: 'Gotham Narrow';
   width: 100%;
   height: 100%;
   margin: 0;
@@ -80,7 +51,7 @@ h2 {
 }
 
 h3 {
-  font-weight: normal;
+  font-weight: bold;
   font-size: 1rem; 
 }
 
@@ -226,10 +197,6 @@ a:hover {
 }
 
 /* State  */
-a.is-active {
-  text-decoration: underline;
-
-}
 
 .project-gallery-image.is-active {
   display: block;
@@ -281,6 +248,7 @@ img.is-hidden {
   pointer-events: none;
   text-decoration: underline;
   cursor: default;
+  font-weight: bold;
 }
 
 .l-grid-content-container {

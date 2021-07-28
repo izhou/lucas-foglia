@@ -3,14 +3,14 @@
 {%block sidebarContent %}
             
 <div class="l-grid-top">
-  <a href="/"> < Home</a>
+  <a href="/" style="font-weight: bold;"> < Home</a>
 </div>
 
 <div class="l-grid-bottom">
   <div class="project-info--photo is-hidden">
     {%- for photo in project.gallery -%}
       <div class="project-gallery-image-info is-hidden" data-gallery-index="{{loop.index0}}">
-        <div class="project-gallery-image-title">{{photo.title}}</div>
+        <h3 class="project-gallery-image-title">{{photo.title}}</h3>
         <div class="project-gallery-image-caption hide-on-mobile">{{photo.caption}}</div>
       </div>
     {%- endfor -%}
