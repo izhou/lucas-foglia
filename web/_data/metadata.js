@@ -1,8 +1,9 @@
 const groq = require('groq')
 const client = require('../utils/sanityClient')
 
- async function test() {
-  const a = await client.fetch(groq`
+
+module.exports = async function() {
+  return await client.fetch(groq`
     *[_id == "siteSettings"]{
       ...,
       sidebar[] {
@@ -14,10 +15,4 @@ const client = require('../utils/sanityClient')
       }
     }[0]
   `)
-
-  console.log(JSON.stringify(a));
-  return a;
-
 }
-
-module.exports = test;
