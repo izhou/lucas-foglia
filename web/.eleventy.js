@@ -48,6 +48,7 @@ module.exports = function(eleventyConfig) {
   })
 
   eleventyConfig.addPassthroughCopy({
+    "_includes/styles/fonts": "assets/fonts",
     "node_modules/lazysizes/lazysizes.min.js": "assets/lazysizes.min.js",
   });
 

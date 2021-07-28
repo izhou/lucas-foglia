@@ -1,17 +1,63 @@
 /* Base */
+@font-face {
+    font-family: 'Gotham Light';
+    /* src: url("/assets/fonts/gotham-light/Gotham Extra Light.otf") format("opentype"); */
+    src: url("/assets/fonts/gotham-light/Gotham Thin.otf") format("opentype");
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: 'Gotham Light';
+    src: url("/assets/fonts/gotham-light/Gotham Light Regular.otf") format("opentype");
+    /* src: url("/assets/fonts/gotham-light/Gotham Book.otf") format("opentype"); */
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Gotham Light';
+    src: url("/assets/fonts/gotham-light/Gotham Book.otf") format("opentype");
+    /* src: url("/assets/fonts/gotham-light/Gotham Medium.otf") format("opentype"); */
+
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Gotham Narrow';
+    /* src: url("/assets/fonts/gotham-narrow/Gotham Narrow Extra Light.otf") format("opentype"); */
+    src: url("/assets/fonts/gotham-narrow/Gotham Narrow Thin.otf") format("opentype");
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: 'Gotham Narrow';
+    src: url("/assets/fonts/gotham-narrow/Gotham Narrow Light.otf") format("opentype");
+    /* src: url("/assets/fonts/gotham-narrow/Gotham Narrow Book.otf") format("opentype"); */
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Gotham Narrow';
+    src: url("/assets/fonts/gotham-narrow/Gotham Narrow Book.otf") format("opentype");
+    /* src: url("/assets/fonts/gotham-narrow/Gotham Narrow Medium.otf") format("opentype"); */
+
+    font-weight: bold;
+}
+
 html {
   position: fixed;
 }
 
 html,
 body {
+  /* font-family: "helvetica neue", sans-serif; */
+  /* font-family: 'Gotham Narrow'; */
+   font-family: 'Gotham Light';
   width: 100%;
   height: 100%;
   margin: 0;
 }
 
 body {
-  font-family: 'helvetica-neue', sans-serif; 
   box-sizing: border-box;
   position: relative;
   font-size: 1rem;
@@ -21,18 +67,20 @@ body {
 
 h1 {
   font-size: 1.6rem;
-  font-weight: bold;
-  margin-top: 0;
+  margin: 0;
 }
 
 h2 {
   font-size: 1rem;
   text-transform: uppercase;
-  font-weight:bold;
+  font-weight: lighter;
+  margin: 0;
+  line-height: 1.75rem;
+  padding-top: 0.5rem
 }
 
 h3 {
-  font-weight: bold;
+  font-weight: normal;
   font-size: 1rem; 
 }
 
@@ -43,7 +91,7 @@ a {
 }
 
 a:hover {
-  color: royalblue;
+  color: darkgreen;
 }
 
 /* Layout */
@@ -179,8 +227,8 @@ a:hover {
 
 /* State  */
 a.is-active {
-  font-weight: bold;
   text-decoration: underline;
+
 }
 
 .project-gallery-image.is-active {
@@ -231,7 +279,6 @@ img.is-hidden {
 
 .container-active {
   pointer-events: none;
-  font-weight: bold;
   text-decoration: underline;
   cursor: default;
 }
@@ -244,6 +291,6 @@ img.is-hidden {
 
 .sidebar-link {
   display: block;
-  padding-bottom: 0.4rem;
+  line-height: 1.675rem;
 }
 

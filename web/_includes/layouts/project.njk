@@ -3,7 +3,7 @@
 {%block sidebarContent %}
             
 <div class="l-grid-top">
-  <a style="font-weight: bold;" href="/"> < Home</a>
+  <a href="/"> < Home</a>
 </div>
 
 <div class="l-grid-bottom">
@@ -40,7 +40,7 @@
   </div>
   {%- for photo in project.gallery -%}
     <div class="project-gallery-image-container is-hidden" data-gallery-index={{loop.index0}}>
-      <img class="lazyload blur-up l-grid-index-item" src="{% imageUrlFor photo, 100 %}" data-src="{% imageUrlFor photo, 6400 %}" alt={{photo.alt}}/>
+      <img class="lazyload l-grid-index-item" src="{% imageUrlFor photo, 100 %}" data-src="{% imageUrlFor photo, 1600 %}" alt={{photo.alt}}/>
     </div>
   {%- endfor -%}
 </div>
