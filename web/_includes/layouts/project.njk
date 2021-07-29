@@ -6,7 +6,7 @@
   <a href="/" style="font-weight: bold;"> < Home</a>
 </div>
 
-<div class="l-grid-bottom">
+<div class="l-grid-middle">
   <div class="project-info--photo is-hidden">
     {%- for photo in project.gallery -%}
       <div class="project-gallery-image-info is-hidden" data-gallery-index="{{loop.index0}}">
@@ -15,7 +15,9 @@
       </div>
     {%- endfor -%}
   </div>
+</div>
 
+<div class="l-grid-bottom">
   <h1 class="project-info--title">{{project.title}}</h1>
 
   <div class="project-info--links">
