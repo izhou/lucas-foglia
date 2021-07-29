@@ -3,11 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% set css %}
+    {% set baseCss %}
       {% include "styles/base.css" %}
+      {% if css %} {{css}}{% endif %}
     {% endset %}
     <style>
-      {{ css | cssmin | safe }}
+      {{ baseCss | cssmin | safe }}
+
     </style>
   </head>
   <body>

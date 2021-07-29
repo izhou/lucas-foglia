@@ -1,0 +1,136 @@
+/* Project Page */
+
+.project-index-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  justify-items: center;
+  grid-gap: 16px;
+
+  overflow: auto;
+  padding-right: 16px;
+}
+
+.project-index-photo {
+  align-self: center;
+  justify-self: center;
+  max-height: 100%;
+  width: 100%;
+  object-fit: contain;
+  aspect-ratio: 4/3;
+}
+
+.project-index-photo:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.project-info div{
+  padding-top: 6px;
+}
+
+.project-info--title {
+  padding-bottom: 0.5rem;
+}
+
+#project-gallery {
+  position: relative;
+}
+.project-gallery-photo-container {
+  width: 100%;
+  height: 100%;
+}
+
+.project-gallery-photo {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.project-gallery-photo {
+  align-self: center;
+  justify-self: center;
+  max-height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.project-gallery-nav-wrapper {
+  height: 100%;
+  width: 100%;
+  position:absolute;
+  display: flex;
+  justify-content: space-between;
+}
+
+.project-gallery-nav-left,
+.project-gallery-nav-right {
+  height: 100%;
+  width: 33%;
+  z-index: 1;
+}
+
+.project-gallery-nav-left {
+  cursor: w-resize;
+}
+
+.project-gallery-nav-right {
+  cursor: e-resize;
+}
+
+.container-active {
+  pointer-events: none;
+  text-decoration: underline;
+  cursor: default;
+  font-weight: bold;
+}
+
+@media (min-width: 920px) {
+  .show-on-mobile {
+    display: none !important;
+  }
+}
+
+@media (max-width: 920px) {
+  .hide-on-mobile {
+    display: none !important;
+  }
+
+  body {
+    padding: 24px;
+  }
+
+  .l-grid {
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .l-grid-right {
+    flex-shrink: 1;
+    flex-grow: 0;
+    order: 2;
+    overflow: auto;
+  }
+
+  .l-grid-left {
+    display: contents;
+  }
+
+  #project-gallery {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .l-grid-top {
+    padding-bottom: 16px;
+    order: 1;
+  }
+
+  .l-grid-bottom {
+    padding-top: 16px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+    order: 3;
+  }
+}
