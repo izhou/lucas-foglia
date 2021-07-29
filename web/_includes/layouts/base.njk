@@ -3,8 +3,6 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {# <title>{{ renderData.title or title or metadata.title }}</title> #}
-    {# <meta name="Description" content="{{ renderData.description or description or metadata.description }}"> #}
     {% set css %}
       {% include "styles/base.css" %}
     {% endset %}
@@ -13,16 +11,30 @@
     </style>
   </head>
   <body>
-    <div class="{% if templateClass %} {{ templateClass }} {% endif %} container l-grid">
-      <div class="l-grid-left">
-      {% block sidebarContent %}{%endblock%}
+    <div class="{% if templateClass %} {{ templateClass }} {% endif %} grid-container">
+      <div class="grid-top-left">
+        {% block gridTopLeft %}{%endblock%}
       </div>
-      
-      <div class="l-grid-right">
-      {% block main %}{%endblock%}
+
+      <div class="grid-middle">
+        <div class="grid-middle-left">
+          {% block gridMiddleLeft %}{%endblock%}
+
+          <div class="grid-middle-left-spacer"></div>
+        </div>
+
+        <div class="grid-middle-right">
+          {% block gridMiddleRight %}{%endblock%}
+
+          <div class="grid-middle-right-spacer"></div>
+        </div>
+      </div>
+
+      <div class="grid-bottom-left">
+          {% block gridBottomLeft %}{%endblock%}
       </div>
     </div>
 
-    <script src="{{ "/assets/lazysizes.min.js" | url }}"></script>
+    {% block js %}{%endblock%}
   </body>
 </html>

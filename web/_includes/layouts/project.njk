@@ -1,23 +1,45 @@
 {% extends "layouts/base.njk" %}
 
-{%block sidebarContent %}
-            
-<div class="l-grid-top">
-  <a href="/" style="font-weight: bold;"> < Home</a>
-</div>
+{% block gridTopLeft %}
+  <a href=  "/" style="font-weight: bold;"> < Home</a>
+{%endblock%}
 
-<div class="l-grid-middle">
-  <div class="project-info--photo is-hidden">
+{% block gridMiddleLeft %}
+  <div class="project-photo-info grid-left-content is-hidden">
+  {%- for photo in project.gallery -%}
+    <div class="project-photo-info-container is-hidden" data-gallery-index="{{loop.index0}}">
+      <h3 class="project-photo-title">{{photo.title}}</h3>
+      <div class="project-photo-caption hide-on-mobile">{{photo.caption}}</div>
+    </div>
+  {%- endfor -%}
+  </div>
+{%endblock%}
+
+{% block gridMiddleRight %}
+  <div id="project-index" class="project-index-container grid-right-content">
     {%- for photo in project.gallery -%}
-      <div class="project-gallery-image-info is-hidden" data-gallery-index="{{loop.index0}}">
-        <h3 class="project-gallery-image-title">{{photo.title}}</h3>
-        <div class="project-gallery-image-caption hide-on-mobile">{{photo.caption}}</div>
+    <img class="lazyload fade-in project-index-photo" src="{% imageUrlFor photo, 100 %}" data-src="{% imageUrlFor photo, 1600 %}" data-gallery-index={{loop.index0}} alt="{{photo.alt}}" onclick="onIndexClick({{loop.index0}})"/>
+    {%- endfor -%}
+  </div>
+
+  <div id="project-gallery" class="grid-right-content is-hidden">
+    <div class="project-gallery-nav-wrapper">
+      <div class="project-gallery-nav-left" onclick="goLeft()"></div>
+      <div class="project-gallery-nav-right" onclick="goRight()"></div>
+    </div>
+    {%- for photo in project.gallery -%}
+      <div class="project-gallery-photo-container is-hidden" data-gallery-index={{loop.index0}}>
+        <img class="lazyload project-gallery-photo" src="{% imageUrlFor photo, 100 %}" data-src="{% imageUrlFor photo, 1600 %}" alt={{photo.alt}}/>
       </div>
     {%- endfor -%}
   </div>
-</div>
 
-<div class="l-grid-bottom">
+  <div id="project-statement" class="grid-right-content is-hidden">
+    {{ project.statement | markdownify | safe }}
+  </div>
+{%endblock%}
+
+{% block gridBottomLeft %}
   <h1 class="project-info--title">{{project.title}}</h1>
 
   <div class="project-info--links">
@@ -25,31 +47,9 @@
     <a class="project-info--link container-active" onclick="showContainer('project-index')" data-container="project-index">Index</a> /
     <a class="project-info--link" onclick="showContainer('project-statement')" data-container="project-statement">Statement</a>
   </div>
-</div>
 {%endblock%}
 
-{% block main %}
-<div id="project-index" class="l-grid-index-container l-grid-content-container l-scroll-wrapper">
-  {%- for photo in project.gallery -%}
-  <img class="lazyload fade-in l-grid-index-item" src="{% imageUrlFor photo, 100 %}" data-src="{% imageUrlFor photo, 1600 %}" data-gallery-index={{loop.index0}} alt="{{photo.alt}}" onclick="onIndexClick({{loop.index0}})"/>
-  {%- endfor -%}
-</div>
-
-<div id="project-gallery" class="l-grid-content-container is-hidden">
-  <div class="project-gallery-nav-wrapper">
-    <div class="project-gallery-nav-left" onclick="goLeft()"></div>
-    <div class="project-gallery-nav-right" onclick="goRight()"></div>
-  </div>
-  {%- for photo in project.gallery -%}
-    <div class="project-gallery-image-container is-hidden" data-gallery-index={{loop.index0}}>
-      <img class="lazyload l-grid-index-item" src="{% imageUrlFor photo, 100 %}" data-src="{% imageUrlFor photo, 1600 %}" alt={{photo.alt}}/>
-    </div>
-  {%- endfor -%}
-</div>
-
-<div id="project-statement" class="l-grid-content-container is-hidden">
-  {{ project.statement | markdownify | safe }}
-</div>
-
-<script>{% include "js/gallery.js" %}</script>
-{%endblock%}
+{% block js %}
+  <script src="{{ "/assets/lazysizes.min.js" | url }}"></script>
+  <script>{% include "js/gallery.js" %}</script>
+{% endblock %}
