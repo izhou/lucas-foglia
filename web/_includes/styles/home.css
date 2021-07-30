@@ -1,12 +1,11 @@
 /* Sidebar */
-.sidebar-header {
+.sidebar {
+  line-height: 1.675;
 }
 
 .sidebar-subheader {
-  line-height: 1.75rem;
   padding-top: 0.5rem;
 }
 .sidebar-item {
   display: block;
-  line-height: 1.675rem;
 }

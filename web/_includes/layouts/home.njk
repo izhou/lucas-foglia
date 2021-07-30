@@ -5,12 +5,13 @@
 {%endset%}
 
 {%block gridTopLeft %}
-
-<h1 class="sidebar-header">{{metadata.title}}</h1>
-  {%- for item in metadata.sidebar -%}
-    {%if item.header %}<h2 class="sidebar-subheader">{{item.header}}</h2>{% endif %}
-    {%if item._type== "project" %}
-      <a class="sidebar-item" href="/projects/{{item.slug}}">{{item.title}}</a>
-    {% endif %}
-  {%- endfor -%}
-{%endblock%}
+<div class="sidebar">
+  <h1 class="sidebar-header">{{metadata.title}}</h1>
+    {%- for item in metadata.sidebar -%}
+      {%if item.header %}<h2 class="sidebar-subheader">{{item.header}}</h2>{% endif %}
+      {%if item._type== "project" %}
+        <a class="sidebar-item" href="/projects/{{item.slug}}">{{item.title}}</a>
+      {% endif %}
+    {%- endfor -%}
+</div>
+  {%endblock%}
