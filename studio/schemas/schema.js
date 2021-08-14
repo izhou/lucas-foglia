@@ -10,6 +10,7 @@ import project from './documents/project'
 
 // Object types
 import bodyPortableText from './objects/bodyPortableText'
+import accordionText from './objects/accordionText'
 import excerptPortableText from './objects/excerptPortableText'
 import photo from './objects/photo'
 
@@ -25,6 +26,7 @@ export default createSchema({
     siteSettings,
     project,
     bodyPortableText,
+    accordionText,
     excerptPortableText,
     photo
 

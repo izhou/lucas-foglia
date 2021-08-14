@@ -1,7 +1,7 @@
 export default {
   name: 'bodyPortableText',
   type: 'array',
-  title: 'Statement body',
+  title: 'Statement Body',
   of: [
     {
       type: 'block',
@@ -41,6 +41,10 @@ export default {
         ]
       },
     },
+    {
+      type: 'accordionText',
+      title: 'Accordion Text', 
+    }
     // You can add additional types here. Note that you can't use
     // primitive types such as 'string' and 'number' in the same array
     // as a block type.

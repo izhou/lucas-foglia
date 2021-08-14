@@ -10,8 +10,7 @@ function generateProject (project) {
   
   return {
     ...project,
-    statement: BlocksToMarkdown(project.statement, { serializers: {
-    }, ...client.config() }),
+    statement: BlocksToMarkdown(project.statement, { serializers, ...client.config() }),
     gallery: gallery.map((photo)=>{
       return {
         ...photo,
