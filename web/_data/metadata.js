@@ -6,6 +6,14 @@ module.exports = async function() {
   return await client.fetch(groq`
     *[_id == "siteSettings"]{
       ...,
+      timeline[] -> {
+        _id,
+        title,
+        gallery[] {
+          _key,
+          asset
+        }
+      },
       sidebar[] {
         ...,
         _type == "project" => {

@@ -15,3 +15,25 @@
     {%- endfor -%}
 </div>
   {%endblock%}
+
+{% block gridMiddleRight %}
+  <div class="home-timeline grid-right-content">
+    {%- for project in metadata.timeline -%}
+      <div class="home-timeline-project">
+        <div class="home-timeline-project-gallery">
+          {%- for photo in project.gallery  -%}
+            <div class="home-timeline-project-tile is-hidden">
+              <img class="lazyload home-timeline-project-photo" src="{% imageUrlFor photo, 100 %}" data-src="{% imageUrlFor photo, 1600 %}" data-gallery-index={{loop.index0}} alt="{{photo.alt}}" onclick="onIndexClick({{loop.index0}})"/>
+            </div>
+          {%- endfor -%}
+        </div>
+        <div class="home-timeline-project-title">{{ project.title}}</div>
+      </div>
+    {%- endfor -%}
+</div>
+{%endblock%}
+
+{% block js %}
+  <script src="{{ "/assets/lazysizes.min.js" | url }}"></script>
+  <script>{% include "js/home.js" %}</script>
+{% endblock %}

@@ -36,7 +36,6 @@ export default {
       description:
         'The full project statement.'
     },
-
     {
       name: 'gallery',
       type: 'array',

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% set baseCss %}
       {% include "styles/base.css" %}
-      {% if css %} {{css}}{% endif %}
+      {% if css %} {{css | safe}}{% endif %}
     {% endset %}
     <style>
       {{ baseCss | cssmin | safe }}

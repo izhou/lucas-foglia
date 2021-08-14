@@ -2,6 +2,7 @@ const { DateTime } = require("luxon");
 const util = require('util')
 const CleanCSS = require("clean-css");
 const urlFor = require('./utils/imageUrl');
+const chooseTileImages = require('./utils/tileImages');
 
 
 module.exports = function(eleventyConfig) {
@@ -45,6 +46,10 @@ module.exports = function(eleventyConfig) {
     return urlFor(image)
       .width(width)
       .auto('format')
+  })
+
+  eleventyConfig.addFilter('chooseTileImages', (gallery) => {
+    return chooseTileImages(gallery);
   })
 
   eleventyConfig.addPassthroughCopy({

@@ -40,5 +40,19 @@ export default {
         }
       ],
     },
+
+    {
+      name: 'timeline',
+      type: 'array',
+      title: 'Homepage Timeline',
+      description: 'The items will appear in order on your timeline',
+      of: [
+        {
+          name: 'project',
+          type: 'reference',
+          to: [{type: 'project'}]
+        }
+      ]
+    }
   ]
 }
