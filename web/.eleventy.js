@@ -42,6 +42,9 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.setLibrary("md", md);
 
+
+  eleventyConfig.addPlugin(require('eleventy-plugin-heroicons'));
+
   eleventyConfig.addShortcode('imageUrlFor', (image, width = "400") => {
     return urlFor(image)
       .width(width)

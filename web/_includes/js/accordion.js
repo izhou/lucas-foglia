@@ -1,16 +1,13 @@
 class Accordion {
-  constructor(el) {
+  constructor(el, summary) {
     this.el = el;
-    this.summary = el.querySelector('summary');
-    this.content = el.querySelectorAll(':not(content)');
+    this.summary = el.querySelector(summary);
     this.animation = null;
-    
     this.summary.addEventListener('click', (e) => this.onClick(e));
   }
 
   onClick(e) {
     e.preventDefault();
-    this.el.style.overflow = 'hidden';
     if (!this.el.open) {
       this.open();
     } else if (this.el.open) {
@@ -30,8 +27,9 @@ class Accordion {
       easing: 'ease-out'
     });
 
-    this.animation.onfinish = () =>  {
+    this.animation.onfinish = () => {
       this.el.open = false;
+      this.summary.classList.remove('open');
       this.animation = null;
     }
   }
@@ -40,10 +38,12 @@ class Accordion {
     const startHeight = this.el.offsetHeight;
     // explicitly set for animation calculation
     this.el.style.height = `${startHeight}px`;
-
     this.el.open = true;
-    const contentHeight = Array.from(this.content).map((el) => el.offsetHeight).reduce((a, b) => a + b, 0);
-    const endHeight = `${this.summary.offsetHeight + contentHeight}px`;
+    this.summary.classList.add('open');
+
+    // Calculate height based on children.
+    const contentHeight = Array.from(this.el.children).map((el) => el.offsetHeight).reduce((a, b) => a + b, 0);
+    const endHeight = `${contentHeight}px`;
 
     this.animation = this.el.animate({
       height: [startHeight, endHeight]
@@ -60,5 +60,7 @@ class Accordion {
 }
 
 document.querySelectorAll('details').forEach((el) => {
-  new Accordion(el);
+  new Accordion(el, 'summary');
 });
+
+new Accordion(document.querySelector('.sidebar'), '.sidebar-header');

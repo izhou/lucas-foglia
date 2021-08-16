@@ -9,7 +9,7 @@
 
 @media (max-width: 768px) {
   .page-content {
-    width: 100%;
+    width: auto;
     padding-right:1rem;
   }
 }

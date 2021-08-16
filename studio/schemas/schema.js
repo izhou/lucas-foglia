@@ -7,6 +7,7 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 // document schemas
 import siteSettings from './documents/siteSettings'
 import project from './documents/project'
+import page from './documents/page'
 
 // Object types
 import bodyPortableText from './objects/bodyPortableText'
@@ -25,6 +26,7 @@ export default createSchema({
     // in the studio.
     siteSettings,
     project,
+    page,
     bodyPortableText,
     accordionText,
     excerptPortableText,

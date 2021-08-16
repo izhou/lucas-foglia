@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% set baseCss %}
       {% include "styles/base.css" %}
+      {% include "styles/sidebar.css" %}
       {% if css %} {{css | safe}}{% endif %}
     {% endset %}
     <style>
@@ -20,7 +21,15 @@
         {% block gridTopLeft %}
         {# Show sidebar by default #}
         <div class="sidebar">
-          <h1 class="sidebar-header">{{metadata.title}}</h1>
+          <div class="sidebar-header">
+          <h1>{{metadata.title}}</h1>
+            <div class="sidebar-icon-container">
+              <div class="sidebar-icon sidebar-icon-open">{% heroicon_outline "menu" %}</div>
+              <div class="sidebar-icon sidebar-icon-close">{% heroicon_outline "x" %}</div>
+            </div>
+
+          </div>
+          <div class="sidebar-dropdown">
             {%- for item in metadata.sidebar -%}
               {%if item.header %}<h2 class="sidebar-subheader">{{item.header}}</h2>{% endif %}
               {%if item._type== "project" %}
@@ -30,6 +39,7 @@
                 <a class="sidebar-item" href="/{{item.slug}}">{{item.title}}</a>
               {% endif %}
             {%- endfor -%}
+          </div>
         </div>
         {%endblock%}
       </div>
@@ -54,5 +64,6 @@
     </div>
 
     {% block js %}{%endblock%}
+    <script>{% include "js/accordion.js" %}</script>
   </body>
 </html>

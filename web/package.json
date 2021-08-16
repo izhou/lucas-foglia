@@ -19,6 +19,7 @@
     "@sanity/client": "^2.14.0",
     "clean-css": "^4.2.3",
     "dotenv": "^8.6.0",
+    "eleventy-plugin-heroicons": "^0.2.0",
     "groq": "^0.142.0",
     "luxon": "^1.28.0",
     "markdown-it": "^10.0.0",

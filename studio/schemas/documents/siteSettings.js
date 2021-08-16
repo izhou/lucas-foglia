@@ -37,6 +37,11 @@ export default {
           name: 'project',
           type: 'reference',
           to: [{ type: 'project' }]
+        },
+        {
+          name: 'page',
+          type: 'reference',
+          to: [{ type: 'page' }]
         }
       ],
     },
