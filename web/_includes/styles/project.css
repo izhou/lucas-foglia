@@ -5,8 +5,13 @@
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   justify-items: center;
   grid-gap: 1rem;
-  overflow: auto;
   padding-right: 1rem;
+}
+
+#project-gallery {
+  height: initial;
+  overflow: initial;
+  max-height: 100%;
 }
 
 .project-index-photo {

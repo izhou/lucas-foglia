@@ -19,6 +19,10 @@ module.exports = async function() {
         _type == "project" => {
           "title": @->title,
           "slug": @->slug.current,
+        },
+        _type == "page" => {
+          "title": @->title,
+          "slug": @->slug.current,
         }
       }
     }[0]

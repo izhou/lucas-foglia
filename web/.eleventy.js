@@ -3,6 +3,7 @@ const util = require('util')
 const CleanCSS = require("clean-css");
 const urlFor = require('./utils/imageUrl');
 const chooseTileImages = require('./utils/tileImages');
+const markdownItCollapsible = require("markdown-it-collapsible");
 
 
 module.exports = function(eleventyConfig) {
@@ -27,20 +28,19 @@ module.exports = function(eleventyConfig) {
 
   let markdownIt = require("markdown-it");
   let markdownItAnchor = require("markdown-it-anchor");
-  let options = {
+  let markdownItCollapsible = require("markdown-it-collapsible");
+
+  const md = markdownIt({
     html: true,
     breaks: true,
     linkify: true
-  };
-  let opts = {
+  }).use(markdownItAnchor, {
     permalink: true,
     permalinkClass: "direct-link",
     permalinkSymbol: "#"
-  };
+  }).use(markdownItCollapsible);
 
-  eleventyConfig.setLibrary("md", markdownIt(options)
-    .use(markdownItAnchor, opts)
-  );
+  eleventyConfig.setLibrary("md", md);
 
   eleventyConfig.addShortcode('imageUrlFor', (image, width = "400") => {
     return urlFor(image)
@@ -58,9 +58,9 @@ module.exports = function(eleventyConfig) {
   });
 
   eleventyConfig.addFilter("markdownify", function(value) {
-    const md = new markdownIt(options)
     return md.render(value)
-  })
+  });
+
   return {
     templateFormats: [
       "md",

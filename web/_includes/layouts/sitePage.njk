@@ -1,0 +1,16 @@
+{% extends "layouts/base.njk" %}
+
+{% set css %}
+  {% include "styles/sitePage.css" %}
+{%endset%}
+
+{% block gridMiddleRight %}
+  <div class="page-content grid-right-content">
+    {{ sitePage.contents | markdownify | safe }}
+  </div>
+{%endblock%}
+
+{% block js %}
+  <script src="{{ "/assets/lazysizes.min.js" | url }}"></script>
+  <script>{% include "js/sitePage.js" %}</script>
+{% endblock %}
