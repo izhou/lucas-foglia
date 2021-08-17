@@ -39,6 +39,7 @@
   }
 
   .sidebar-dropdown {
+    padding-bottom: 1rem;
     border-bottom: black solid 1px;
   }
 

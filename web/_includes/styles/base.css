@@ -66,7 +66,7 @@ h3 {
   font-weight: bold;
 }
 
-p {
+p, ol {
   margin: 0;
   padding: 0.5rem 0;
 }
@@ -124,7 +124,6 @@ a:hover, summary:hover {
 
 .grid-middle-right {
   overflow: auto;
-  padding-right: 1rem;
 }
 
 .grid-middle-left-spacer {
@@ -141,6 +140,7 @@ a:hover, summary:hover {
 }
 
 .grid-right-content {
+  overflow: auto;
   height: 100%;
   flex: 1 0 auto;
 }
@@ -201,7 +201,6 @@ a:hover, summary:hover {
     flex: 1 1 auto;
     grid-template-columns: auto;
     grid-auto-rows: auto;
-    overflow: scroll;
   }
 
   .grid-middle-right {

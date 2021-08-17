@@ -63,4 +63,6 @@ document.querySelectorAll('details').forEach((el) => {
   new Accordion(el, 'summary');
 });
 
-new Accordion(document.querySelector('.sidebar'), '.sidebar-header');
+const sidebar = document.querySelector('.sidebar');
+
+if (sidebar) new Accordion(sidebar, '.sidebar-header');

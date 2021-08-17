@@ -5,8 +5,10 @@
 {%endset%}
 
 {% block gridMiddleRight %}
-  <div class="page-content grid-right-content">
+  <div class="grid-right-content">
+    <div class="page-content">
     {{ sitePage.contents | markdownify | safe }}
+    </div>
   </div>
 {%endblock%}
 
