@@ -17,7 +17,7 @@ export default {
     },
     {
       name: 'caption',
-      type: 'excerptPortableText',
+      type: 'blockPortableText',
       title: 'Caption',
       options: {
         isHighlighted: true,

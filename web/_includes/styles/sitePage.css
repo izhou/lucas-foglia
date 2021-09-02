@@ -5,13 +5,7 @@
 .page-content {
   width: 80%;
   max-width: 768px;
-}
-
-@media (max-width: 768px) {
-  .page-content {
-    width: auto;
-    padding-right:1rem;
-  }
+  margin-top: 3rem;
 }
 
 summary {
@@ -34,7 +28,7 @@ summary:before {
 details {
   border-top: black solid 1px;
   border-bottom: black solid 1px;
-  margin-top: -1px;
+  margin-bottom: -1px;
   overflow: hidden;
 }
 
@@ -44,4 +38,12 @@ details[open] > summary:before {
 
 .details-marker, summary::-webkit-details-marker {
   display:none;
+}
+
+@media (max-width: 768px) {
+  .page-content {
+    width: auto;
+    padding-right:1rem;
+    margin-top: 0rem;
+  }
 }

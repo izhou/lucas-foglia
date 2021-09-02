@@ -189,7 +189,7 @@ a:hover, summary:hover {
 }
 
 /* Tablets */
-@media (max-width: 768px) {
+@media (max-width: 100px) and (min-height: 768px){
   .grid-top-left,
   .grid-bottom-left {
     position: initial;

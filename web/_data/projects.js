@@ -6,17 +6,19 @@ const overlayDrafts = require('../utils/overlayDrafts')
 const hasToken = !!client.config().token
 
 function generateProject (project) {
-  const gallery = project.gallery;
+  let gallery = project.gallery;
+
+  if (gallery) gallery = gallery.map((photo)=> {
+      return {
+        ...photo,
+        caption: BlocksToMarkdown(photo.caption, { serializers, ...client.config() }),
+      };
+    });
   
   return {
     ...project,
     statement: BlocksToMarkdown(project.statement, { serializers, ...client.config() }),
-    gallery: gallery.map((photo)=>{
-      return {
-        ...photo,
-        caption: BlocksToMarkdown(photo.caption, { serializers, ...client.config() }),
-      }
-    })
+    gallery: gallery
   };
 }
 

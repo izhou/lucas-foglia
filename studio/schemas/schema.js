@@ -11,8 +11,8 @@ import page from './documents/page'
 
 // Object types
 import bodyPortableText from './objects/bodyPortableText'
+import blockPortableText from './objects/blockPortableText'
 import accordionText from './objects/accordionText'
-import excerptPortableText from './objects/excerptPortableText'
 import photo from './objects/photo'
 
 // Then we give our schema to the builder and provide the result to Sanity
@@ -28,10 +28,9 @@ export default createSchema({
     project,
     page,
     bodyPortableText,
+    blockPortableText,
     accordionText,
-    excerptPortableText,
     photo
-
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
   ])
