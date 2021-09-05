@@ -21,17 +21,21 @@ export default {
       title: 'Caption',
       options: {
         isHighlighted: true,
-        maxLength: 140,
-      }
-    },
-    {
-      name: 'alt',
-      type: 'string',
-      title: 'Alternative text',
-      description: 'Important for SEO and accessiblity.',
-      options: {
-        isHighlighted: true
-      }
+      },
+      validation: Rule => Rule.custom(blocks => {
+        if (!blocks) return true;
+        let children = blocks.map(block => block.children);
+        if (!children) return true;
+        let text_length = children.map(
+          block => block.map(
+            span => span._type === 'span' ? span.text.length : 0)
+          )
+          .reduce((a,b) => a + b)
+          .reduce((a,b) => a + b);
+        return text_length <= 440
+          ? true
+          : 'Must be less than 440 characters';
+      })
     }
   ],
   preview: {
