@@ -83,3 +83,7 @@
   cursor: default;
   font-weight: bold;
 }
+
+.project-photo-caption {
+  overflow-wrap: break-word;
+}

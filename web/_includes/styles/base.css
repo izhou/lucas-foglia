@@ -145,6 +145,13 @@ a:hover, summary:hover {
   flex: 1 0 auto;
 }
 
+.grid-right-text-content {
+  /* position: absolute;
+  top: 4.25rem; */
+  padding-right: var(--padding);
+  max-width: 768px;
+}
+
 /* Images and Utilities */
 .is-hidden {
   display: none !important;
@@ -189,7 +196,7 @@ a:hover, summary:hover {
 }
 
 /* Tablets */
-@media (max-width: 100px) and (min-height: 768px){
+@media (max-width: 768px) and (min-height: 415px){
   .grid-top-left,
   .grid-bottom-left {
     position: initial;
@@ -216,6 +223,10 @@ a:hover, summary:hover {
   .grid-middle-left-spacer,
   .grid-middle-right-spacer {
     display: none;
+  }
+
+  .grid-right-text-content {
+    position: initial;
   }
 }
 

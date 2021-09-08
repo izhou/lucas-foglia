@@ -2,6 +2,17 @@
   height: 100%;
 }
 
+.grid-middle-right {
+  padding-top: 2.75rem;
+}
+
+/* Small desktops  */
+@media only screen and (max-width: 992px) {
+  .grid-middle-right {
+    padding-top: 2.5rem;
+  }
+}
+
 .page-content {
   width: 80%;
   max-width: 768px;
@@ -38,12 +49,4 @@ details[open] > summary:before {
 
 .details-marker, summary::-webkit-details-marker {
   display:none;
-}
-
-@media (max-width: 768px) {
-  .page-content {
-    width: auto;
-    padding-right:1rem;
-    margin-top: 0rem;
-  }
 }
