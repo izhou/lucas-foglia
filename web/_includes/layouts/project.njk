@@ -39,7 +39,14 @@
   </div>
 
   <div id="project-statement" class="grid-right-content is-hidden">
-    {{ project.statement | markdownify | safe }}
+    <div class="grid-right-text-container">
+      <div class="grid-right-text-content">
+        <div class="grid-right-text-spacer"></div>
+        <div class="grid-right-text">
+          {{ project.statement | markdownify | safe }}
+        </div>
+      </div>
+    </div>
   </div>
 {%endblock%}
 

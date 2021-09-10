@@ -1,18 +1,3 @@
-.grid-middle {
-  height: 100%;
-}
-
-.grid-middle-right {
-  padding-top: 2.75rem;
-}
-
-/* Small desktops  */
-@media only screen and (max-width: 992px) {
-  .grid-middle-right {
-    padding-top: 2.5rem;
-  }
-}
-
 .page-content {
   width: 80%;
   max-width: 768px;
@@ -20,7 +5,7 @@
 }
 
 summary {
-  padding: 0.25rem 0;
+  padding: 0.25rem 1.25rem 0.25rem 0;
   display: block;
   position: relative;
   cursor: pointer;
@@ -38,11 +23,12 @@ summary:before {
 
 details {
   border-top: black solid 1px;
-  border-bottom: black solid 1px;
-  margin-bottom: -1px;
   overflow: hidden;
 }
 
+details:last-of-type {
+  border-bottom: black solid 1px;
+}
 details[open] > summary:before {
   transform: rotate(0deg);
 }

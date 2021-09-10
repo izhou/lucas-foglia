@@ -6,8 +6,13 @@
 
 {% block gridMiddleRight %}
   <div class="grid-right-content">
-    <div class="grid-right-text-content">
-    {{ sitePage.contents | markdownify | safe }}
+    <div class="grid-right-text-container">
+      <div class="grid-right-text-content">
+        <div class="grid-right-text-spacer"></div>
+        <div class="grid-right-text">
+          {{ sitePage.contents | markdownify | safe }}
+        </div>
+      </div>
     </div>
   </div>
 {%endblock%}

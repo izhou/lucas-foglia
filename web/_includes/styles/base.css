@@ -145,11 +145,22 @@ a:hover, summary:hover {
   flex: 1 0 auto;
 }
 
-.grid-right-text-content {
-  /* position: absolute;
-  top: 4.25rem; */
+.grid-right-text-container {
   padding-right: var(--padding);
   max-width: 768px;
+  max-height: 100%;
+  height: 100vw;
+}
+
+.grid-right-text-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.grid-right-text-spacer {
+    height: 3rem;
+    flex: 0 1 auto;
 }
 
 /* Images and Utilities */
@@ -193,6 +204,11 @@ a:hover, summary:hover {
     font-size: 0.875rem;
     margin: 0;
   }
+
+
+  .grid-right-text-spacer {
+      height: 2.5rem;
+  }
 }
 
 /* Tablets */
@@ -221,12 +237,9 @@ a:hover, summary:hover {
   }
 
   .grid-middle-left-spacer,
-  .grid-middle-right-spacer {
+  .grid-middle-right-spacer,
+  .grid-right-text-spacer {
     display: none;
-  }
-
-  .grid-right-text-content {
-    position: initial;
   }
 }
 
