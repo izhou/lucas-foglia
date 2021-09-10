@@ -1,3 +1,5 @@
+import { isUniqueAcrossAllDocuments } from '../lib/isUniqueAcrossAllDocuments'
+
 export default {
   name: 'project',
   type: 'document',
@@ -7,17 +9,18 @@ export default {
       name: 'title',
       type: 'string',
       title: 'Title',
-      validation: Rule => Rule.error('You must include a title.').required(),
+      validation: Rule => Rule.required(),
     },
     {
       name: 'slug',
       type: 'slug',
       title: 'Slug',
       description: 'The website URL ending.',
-      validation: Rule => Rule.error('You must include a slug.').required(),
+      validation: Rule => Rule.required(),
       options: {
         source: 'title',
-        maxLength: 96
+        maxLength: 96,
+        isUnique: isUniqueAcrossAllDocuments
       }
     },
 
