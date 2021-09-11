@@ -13,10 +13,6 @@
   color: darkgreen;
 }
 
-.sidebar-subheader {
-  padding-top: 0.5rem;
-}
-
 .sidebar-item {
   display: block;
 }
@@ -33,7 +29,6 @@
 .sidebar-header.open .sidebar-icon-container .sidebar-icon-open {
   display: none;
 }
-
 
 @media (max-width: 768px) and (min-height: 415px) {
   .sidebar {

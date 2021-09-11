@@ -32,7 +32,7 @@
       <div class="project-gallery-nav-right" onclick="goRight()"></div>
     </div>
     {%- for photo in project.gallery -%}
-      <div class="project-gallery-photo-container is-hidden" data-gallery-index={{loop.index0}}>
+      <div class="project-gallery-photo-container is-hidden" data-photo-key="{{photo._key}}" data-gallery-index={{loop.index0}}>
         <img class="lazyload project-gallery-photo" src="{% imageUrlFor photo, 100 %}" data-src="{% imageUrlFor photo, 1600 %}" alt={{photo.alt}}/>
       </div>
     {%- endfor -%}

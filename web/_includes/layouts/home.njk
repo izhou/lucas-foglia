@@ -5,7 +5,25 @@
 {%endset%}
 
 {% block gridMiddleRight %}
-  <div class="home-timeline grid-right-content">
+  {%- for project in metadata.timeline -%}
+    <div class="home-project" class="grid-right-content is-hidden">
+      <div class="home-gallery-nav-wrapper">
+        <div class="home-gallery-nav-left" onclick="goLeft()"></div>
+        <div class="home-gallery-nav-right" onclick="goRight()"></div>
+      </div>
+      <div class="home-project-gallery">
+        {%- for photo in project.gallery -%}
+          <div class="project-gallery-photo-container" data-photo-key="{{photo._key}}" data-gallery-index={{loop.index0}}>
+            <img class="lazyload project-gallery-photo" src="{% imageUrlFor photo, 100 %}" data-src="{% imageUrlFor photo, 1600 %}" alt={{photo.alt}}/>
+          </div>
+        {%- endfor -%}
+      </div>
+
+       <div class="home-gallery-project-title">{{project.title}}</div>
+    </div>
+   {%- endfor -%}
+
+  {# <div class="home-timeline grid-right-content">
     {%- for project in metadata.timeline -%}
       <div class="home-timeline-project">
         <div class="home-timeline-project-gallery">
@@ -18,7 +36,7 @@
         <div class="home-timeline-project-title">{{project.title}}</div>
       </div>
     {%- endfor -%}
-</div>
+  </div> #}
 {%endblock%}
 
 {% block js %}
