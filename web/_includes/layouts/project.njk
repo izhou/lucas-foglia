@@ -2,6 +2,7 @@
 
 {% set css %}
   {% include "styles/project.css" %}
+  {% include "styles/gallery.css" %}
 {%endset%}
 
 {% block gridTopLeft %}
@@ -9,11 +10,11 @@
 {%endblock%}
 
 {% block gridMiddleLeft %}
-  <div class="project-photo-info grid-left-content is-hidden">
+  <div id="project-gallery-captions" class="grid-left-content is-hidden">
   {%- for photo in project.gallery -%}
-    <div class="project-photo-info-container is-hidden" data-gallery-index="{{loop.index0}}">
-      <h3 class="project-photo-title">{{photo.title}}</h3>
-      <div class="project-photo-caption hide-on-mobile">{{photo.caption}}</div>
+    <div class="gallery-photo-caption-container is-hidden" data-gallery-index="{{loop.index0}}">
+      <h3 class="gallery-photo-title">{{photo.title}}</h3>
+      <div class="gallery-photo-caption hide-on-mobile">{{photo.caption}}</div>
     </div>
   {%- endfor -%}
   </div>
@@ -26,14 +27,14 @@
     {%- endfor -%}
   </div>
 
-  <div id="project-gallery" class="grid-right-content is-hidden">
-    <div class="project-gallery-nav-wrapper">
-      <div class="project-gallery-nav-left" onclick="goLeft()"></div>
-      <div class="project-gallery-nav-right" onclick="goRight()"></div>
+  <div id="project-gallery" class="gallery-photos grid-right-content is-hidden">
+    <div class="gallery-nav-wrapper">
+      <div class="gallery-nav-left" onclick="goLeft()"></div>
+      <div class="gallery-nav-right" onclick="goRight()"></div>
     </div>
     {%- for photo in project.gallery -%}
-      <div class="project-gallery-photo-container is-hidden" data-photo-key="{{photo._key}}" data-gallery-index={{loop.index0}}>
-        <img class="lazyload project-gallery-photo" src="{% imageUrlFor photo, 100 %}" data-src="{% imageUrlFor photo, 1600 %}" alt={{photo.alt}}/>
+      <div class="gallery-photo-container is-hidden" data-photo-key="{{photo._key}}" data-gallery-index={{loop.index0}}>
+        <img class="lazyload gallery-photo" src="{% imageUrlFor photo, 100 %}" data-src="{% imageUrlFor photo, 1600 %}" alt={{photo.alt}}/>
       </div>
     {%- endfor -%}
   </div>
@@ -62,5 +63,8 @@
 
 {% block js %}
   <script src="{{ "/assets/lazysizes.min.js" | url }}"></script>
-  <script>{% include "js/gallery.js" %}</script>
+  <script>
+    {% include "js/gallery.js" %}
+    {% include "js/project.js" %}
+  </script>
 {% endblock %}

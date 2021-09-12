@@ -2,44 +2,33 @@
 
 {% set css %}
   {% include "styles/home.css" %}
+  {% include "styles/gallery.css" %}
 {%endset%}
 
 {% block gridMiddleRight %}
+
+<div class="home-projects">
   {%- for project in metadata.timeline -%}
-    <div class="home-project" class="grid-right-content is-hidden">
-      <div class="home-gallery-nav-wrapper">
-        <div class="home-gallery-nav-left" onclick="goLeft()"></div>
-        <div class="home-gallery-nav-right" onclick="goRight()"></div>
-      </div>
-      <div class="home-project-gallery">
+    <div class="home-project" data-project-index="{{loop.index0}}">
+      <div class="project-gallery" class="grid-right-content">
         {%- for photo in project.gallery -%}
-          <div class="project-gallery-photo-container" data-photo-key="{{photo._key}}" data-gallery-index={{loop.index0}}>
+          <div class="project-gallery-photo-container {% if loop.index0 !=0 %}is-hidden{% endif %}" data-photo-key="{{photo._key}}" data-gallery-index={{loop.index0}}>
             <img class="lazyload project-gallery-photo" src="{% imageUrlFor photo, 100 %}" data-src="{% imageUrlFor photo, 1600 %}" alt={{photo.alt}}/>
           </div>
         {%- endfor -%}
       </div>
 
-       <div class="home-gallery-project-title">{{project.title}}</div>
+      <div class="home-project-title">{{project.title}}</div>
     </div>
-   {%- endfor -%}
+  {%- endfor -%}
+</div>
 
-  {# <div class="home-timeline grid-right-content">
-    {%- for project in metadata.timeline -%}
-      <div class="home-timeline-project">
-        <div class="home-timeline-project-gallery">
-          {%- for photo in project.gallery  -%}
-            <div class="home-timeline-project-tile is-hidden">
-              <img class="lazyload home-timeline-project-photo" src="{% imageUrlFor photo, 100 %}" data-src="{% imageUrlFor photo, 1600 %}" data-gallery-index={{loop.index0}} alt="{{photo.alt}}" onclick="onIndexClick({{loop.index0}})"/>
-            </div>
-          {%- endfor -%}
-        </div>
-        <div class="home-timeline-project-title">{{project.title}}</div>
-      </div>
-    {%- endfor -%}
-  </div> #}
 {%endblock%}
 
 {% block js %}
   <script src="{{ "/assets/lazysizes.min.js" | url }}"></script>
-  <script>{% include "js/home.js" %}</script>
+  <script>
+    {% include "js/gallery.js" %}
+    {% include "js/home.js" %}
+  </script>
 {% endblock %}

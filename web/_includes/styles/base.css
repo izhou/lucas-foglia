@@ -260,7 +260,7 @@ a:hover, summary:hover {
 }
 
 /* Mobile */
-@media (max-width: 480px) and (max-height: 415px) {
+@media (max-width: 500px) and (max-height: 415px) {
   h1 {
     font-size: 1rem;
     margin: 0;

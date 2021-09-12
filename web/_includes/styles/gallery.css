@@ -1,0 +1,41 @@
+.gallery-photo-container {
+  width: 100%;
+  height: 100%;
+}
+
+.gallery-photo {
+  align-self: center;
+  justify-self: center;
+  max-height: 100%;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  object-position: bottom;
+}
+
+.gallery-nav-wrapper {
+  height: 100%;
+  width: 100%;
+  position:absolute;
+  display: flex;
+  justify-content: space-between;
+}
+
+.gallery-nav-left,
+.gallery-nav-right {
+  height: 100%;
+  width: 33%;
+  z-index: 1;
+}
+
+.gallery-nav-left {
+  cursor: w-resize;
+}
+
+.gallery-nav-right {
+  cursor: e-resize;
+}
+
+.gallery-photo-caption {
+  overflow-wrap: break-word;
+}

@@ -1,89 +1,42 @@
-/* .home-timeline {
+.home-projects {
   overflow: scroll;
-}
-
-.home-timeline-project {
-  height: 90%;
   display: flex;
   flex-direction: column;
+  scroll-snap-type: y mandatory;
 }
 
-.home-timeline-project-gallery {
-  flex: 1 1 auto;
-  display: grid;
-  /* ASSUMES MIN 6X6 */
-  /* grid-template-columns: repeat(36, 16px);
-  grid-template-rows: repeat(28, 16px);
-  height: 100vh;
-  max-height: 100%;
-  overflow:hidden;
-  width: 100%;
-}
-
-.home-timeline-project-tile {
-  height: min-content;
-  opacity: 0;
-  transition: opacity 1s, filter 200ms, -webkit-filter 200ms;
-  grid-column: span 2;
-  grid-row: span 2;
-  /* display: none; */
-}
-
-.home-timeline-project-photo {
-  max-height: 100%;
-  width: 100%;
-  object-fit: contain;
-} */
-
-
-#project-gallery { */
-  position: relative;
-}
-.project-gallery-photo-container {
-  width: 100%;
-  height: 100%;
-}
-
-.project-gallery-photo {
-  align-self: center;
-  justify-self: center;
-  max-height: 100%;
-  height: 100%;
-  width: 100%;
-  object-fit: contain;
-  object-position: bottom;
-}
-
-.project-gallery-nav-wrapper {
-  height: 100%;
-  width: 100%;
-  position:absolute;
+.home-project {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  max-height: 90%;
+  scroll-snap-align: center;
+  opacity: 0.5;
+  transition: opacity 1s, filter 200ms, -webkit-filter 200ms;
 }
 
-.project-gallery-nav-left,
-.project-gallery-nav-right {
-  height: 100%;
-  width: 33%;
-  z-index: 1;
+.home-project.is-active {
+  opacity: 1;
 }
 
-.project-gallery-nav-left {
-  cursor: w-resize;
+.home-project.is-active .home-project-title{
+  opacity: 1;
 }
 
-.project-gallery-nav-right {
-  cursor: e-resize;
+.home-project:first-child {
+  margin-top: 10%;
 }
 
-.container-active {
-  pointer-events: none;
-  text-decoration: underline;
-  cursor: default;
-  font-weight: bold;
+.project-gallery {
+  flex: 0 1 auto;
+  overflow: hidden;
 }
 
-.project-photo-caption {
-  overflow-wrap: break-word;
+.home-project .project-gallery-photo {
+  object-position: bottom left;
+}
+
+.home-project-title {
+  opacity: 0;
+  margin: 1rem 0;
+  transition: opacity 1s, filter 200ms, -webkit-filter 200ms;
 }
