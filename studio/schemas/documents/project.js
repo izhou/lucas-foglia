@@ -50,6 +50,12 @@ export default {
       of: [{
         type: 'photo'
       }]
+    },
+    {
+      name: 'aspect_ratio',
+      type: 'number',
+      description: `The forced aspect ratio that should be displayed, e.g. for the index. Leave blank to dynamically resize.`,
+      validation: Rule => Rule.positive(),
     }
   ],
   preview: {

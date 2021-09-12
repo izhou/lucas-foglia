@@ -1,80 +1,61 @@
-// async function displayGalleries() {
-//   const galleries = document.getElementsByClassName(`home-timeline-project-gallery`);
-  
-//   let resp = await fetch('/timeline.json');
-//   let data = await resp.json();
-
-//   Array.from(galleries).forEach((gallery) => 
-//   {
-//     const tiles = chooseRandomTiles(gallery);
-//     displayTiles(tiles);
-//   });
-// }
-
-// function chooseRandomTiles(gallery) {
-//   const tiles = gallery.getElementsByClassName(`home-timeline-project-tile`);
-//   const shuffled = Array.from(tiles).sort(() => 0.5 - Math.random());
-//   // Randomly select 3-5 images
-//   const num_images = Math.floor(Math.random() * 6) + 3;
-//   const random = shuffled.slice(0, num_images);
-//   return random;
-
-// }
-
-// function displayTiles(tiles) {
-//   Array.from(tiles).forEach((elem, index ) => {
-
-//     elem.classList.remove('is-hidden'); 
-//     window.setTimeout(()=> {elem.style.opacity = "1";}, index * 300);
-//   });
-// }
-
-// displayGalleries();
-
-
 var _container = document.querySelector('.home-projects');
 var _projects = document.querySelectorAll('.home-projects > .home-project');
-var _active_project_index = 0;
+var _project_length = _projects.length;
+var _active_project;
+var _active_project_index;
 
 
 var observer = new IntersectionObserver(function (entries) {
   // find the entry with the largest intersection ratio
   var active_project = entries.reduce(function (max, entry) {
-    console.log(entry);
     return (entry.intersectionRatio > max.intersectionRatio) ? entry : max;
   }).target;
 
-  Array.from(_projects).forEach((elem) => { elem.classList.remove('is-active') });
-  active_project.classList.add('is-active');
-  _active_project_index = active_project.getAttribute('data-project-index');
+  setActiveProject(active_project);
 }, {
-  root: _container, threshold: 0.8
+  root: _container, threshold: 1
 });
 
 for (var i = 0; i < _projects.length; i++) {
   observer.observe(_projects[i]);
 }
 
+function setActiveProject(project) {
+  if (_active_project) _active_project.classList.remove('is-active');
+  _active_project = project;
+  _active_project_index = project.getAttribute('data-project-index');
+  
+  _active_project.classList.add('is-active');
+}
 
-// var carousel = document.querySelector('.carousel');
-// var elements = document.querySelectorAll('.carousel > *');
-// var currentIndex = 0;
+// function setActiveProjectByIndex(index) {
+//   let project = _projects.querySelector(`[data-project-index="${index}"]`);
 
-
-// var observer = new IntersectionObserver(function (entries, observer) {
-//   // find the entry with the largest intersection ratio
-//   var activated = entries.reduce(function (max, entry) {
-//     return (entry.intersectionRatio > max.intersectionRatio) ? entry : max;
-//   });
-//   if (activated.intersectionRatio > 0) {
-//     currentIndex = elementIndices[activated.target.getAttribute("id")];
-//     renderIndicator();
-//   }
-// }, {
-//   root: carousel, threshold: 0.5
-// });
-// var elementIndices = {};
-// for (var i = 0; i < elements.length; i++) {
-//   elementIndices[elements[i].getAttribute("id")] = i;
-//   observer.observe(elements[i]);
+//   if (project) return setActiveProject(project);
 // }
+
+// function goDown() {
+//   if (_active_project_index < _project_length - 1) return setActiveProject(_active_project_index + 1);
+// }
+
+Array.from(document.querySelectorAll('.home-project')).forEach((elem) => {
+  elem.gallery = new Gallery(elem);
+});
+
+document.onkeyup = function (e) {
+  switch (e.key) {
+    case 'ArrowLeft':
+      if (_active_project.gallery) _active_project.gallery.goLeft();
+      break;
+    case 'ArrowRight':
+      if (_active_project.gallery) _active_project.gallery.goRight();
+      break;
+    case 'ArrowDown':
+      _container.scroll();
+      break;
+    case 'Escape':
+      // return showContainer('project-index');
+  }
+};
+
+document.querySelector('.home-projects').click();

@@ -10,10 +10,11 @@
 <div class="home-projects">
   {%- for project in metadata.timeline -%}
     <div class="home-project" data-project-index="{{loop.index0}}">
-      <div class="project-gallery" class="grid-right-content">
+      <div class="home-project-spacer"></div>
+      <div class="home-project-gallery" class="grid-right-content">
         {%- for photo in project.gallery -%}
-          <div class="project-gallery-photo-container {% if loop.index0 !=0 %}is-hidden{% endif %}" data-photo-key="{{photo._key}}" data-gallery-index={{loop.index0}}>
-            <img class="lazyload project-gallery-photo" src="{% imageUrlFor photo, 100 %}" data-src="{% imageUrlFor photo, 1600 %}" alt={{photo.alt}}/>
+          <div class="gallery-photo-container {% if loop.index0 !=0 %}is-hidden{% endif %}" data-photo-key="{{photo._key}}" data-gallery-index={{loop.index0}}>
+            <img class="lazyload gallery-photo" src="{% imageUrlFor photo, 100 %}" data-src="{% imageUrlFor photo, 1600 %}" alt={{photo.alt}}/>
           </div>
         {%- endfor -%}
       </div>

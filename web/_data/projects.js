@@ -36,7 +36,8 @@ async function getProjects () {
         
       }
     },
-    gallery
+    gallery,
+    aspect_ratio,
   }`;
 
   const query = [filter, projection ].join(' ')

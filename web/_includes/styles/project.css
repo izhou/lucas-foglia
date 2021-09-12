@@ -20,7 +20,6 @@
   max-height: 100%;
   width: 100%;
   object-fit: contain;
-  aspect-ratio: 4/3;
 }
 
 .project-index-photo:hover {

@@ -3,15 +3,16 @@
   display: flex;
   flex-direction: column;
   scroll-snap-type: y mandatory;
+  -webkit-overflow-scrolling: touch;
 }
 
 .home-project {
   display: flex;
   flex-direction: column;
   max-height: 90%;
-  scroll-snap-align: center;
   opacity: 0.5;
   transition: opacity 1s, filter 200ms, -webkit-filter 200ms;
+  scroll-snap-align: center;
 }
 
 .home-project.is-active {
@@ -26,12 +27,12 @@
   margin-top: 10%;
 }
 
-.project-gallery {
+.home-project-gallery {
   flex: 0 1 auto;
   overflow: hidden;
 }
 
-.home-project .project-gallery-photo {
+.home-project .gallery-photo {
   object-position: bottom left;
 }
 

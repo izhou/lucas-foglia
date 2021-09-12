@@ -5,7 +5,7 @@ class Gallery {
     this.length = this.el.getElementsByClassName('gallery-photo-container').length;
 
     this.active_photo_index = 0;
-    this.active_photo_container;
+    this.active_photo_container = this.el.querySelector(`.gallery-photo-container[data-gallery-index="0"]`);
     this.active_photo_info;
   }
 
@@ -16,7 +16,6 @@ class Gallery {
 
     // Set new active photo
     this.active_photo_container = this.el.querySelector(`.gallery-photo-container[data-gallery-index="${index}"]`);
-    if (!this.active_photo_container) return;
 
     this.active_photo_container.classList.remove('is-hidden');
 
