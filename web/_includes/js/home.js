@@ -15,7 +15,6 @@ function setActiveProjectIndex(index, scroll) {
   
   _active_project.classList.add('is-active');
   if (scroll) _active_project.scrollIntoView({ behavior: "smooth", block: "center" });
-  console.log(project.innerText);
 }
 
 Array.from(document.querySelectorAll('.home-project')).forEach((elem) => {
@@ -42,6 +41,16 @@ document.onkeydown = function (e) {
   }
 };
 
+
+document.addEventListener('swiped-left', function (e) {
+  if (_active_project.gallery) _active_project.gallery.goLeft();
+});
+
+
+document.addEventListener('swiped-right', function (e) {
+  if (_active_project.gallery) _active_project.gallery.goRight();
+});
+
 //  After load to prevent unintended scroll behavior on initial  
 window.onload = (event) => {
     Array.from(document.querySelectorAll('.home-project')).forEach((elem) => {
@@ -50,6 +59,8 @@ window.onload = (event) => {
 
   let observer = new IntersectionObserver((entries) => {
     let active_project = entries.reduce((entry, max) => {
+      console.log('entry: '+ entry.target.innerText + ' ' + entry.intersectionRatio);
+      console.log('max: ' + max.target.innerText + ' ' + max.intersectionRatio);
       return entry.intersectionRatio > max.intersectionRatio ? entry : max;
     });
 
@@ -57,7 +68,7 @@ window.onload = (event) => {
     setActiveProjectIndex(index);
   }, {
     root: _container,
-    threshold: 0.9
+    threshold: [0.9, 1]
   });
 
   Array.from(document.querySelectorAll('.home-project')).forEach((elem) => {

@@ -74,6 +74,18 @@ document.onkeyup = function (e) {
   }
 };
 
+document.addEventListener('swiped-left', function (e) {
+  gallery.goLeft();
+  return setWindowHash();
+});
+
+
+document.addEventListener('swiped-right', function (e) {
+  gallery.goRight();
+  return setWindowHash();
+});
+
+
 window.addEventListener("load", init);
 
 function init() {
