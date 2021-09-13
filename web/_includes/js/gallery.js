@@ -5,8 +5,10 @@ class Gallery {
     this.length = this.el.getElementsByClassName('gallery-photo-container').length;
 
     this.active_photo_index = 0;
-    this.active_photo_container = this.el.querySelector(`.gallery-photo-container[data-gallery-index="0"]`);
+    this.active_photo_container;
     this.active_photo_info;
+
+    this.setIndex(this.active_photo_index);
   }
 
   setIndex(index) {
@@ -19,14 +21,13 @@ class Gallery {
 
     this.active_photo_container.classList.remove('is-hidden');
 
-    console.log('info');
     // Set new active info 
     if (this.caption_el) {
       this.active_photo_info = this.caption_el.querySelector(`.gallery-photo-caption-container[data-gallery-index='${index}']`);
       this.active_photo_info.classList.remove('is-hidden');
     }
 
-    this.active_photo_index = index;
+    this.active_photo_index = parseInt(index);
   }
 
   getIndex() {

@@ -73,3 +73,30 @@ document.onkeyup = function (e) {
       return showContainer('project-index');
   }
 };
+
+window.addEventListener("load", init);
+
+function init() {
+  let gallery_el = gallery.el;
+  const dimensions = gallery_el.getBoundingClientRect();
+  const half_width = (dimensions.left + dimensions.right) / 2;
+  let onClick;
+
+  gallery_el.addEventListener("mousemove", function (e) {
+    const xPos = e.pageX;
+
+    if (xPos > half_width) {
+      this.classList.add("gallery--nav-right");
+      this.classList.remove("gallery--nav-left");
+      onClick = gallery.goRight.bind(gallery);
+    } else {
+      this.classList.add("gallery--nav-left");
+      this.classList.remove("gallery--nav-right");
+      onClick = gallery.goLeft.bind(gallery);
+    }
+  });
+
+  gallery_el.addEventListener("click", function(e) {
+    return onClick();
+  })
+}

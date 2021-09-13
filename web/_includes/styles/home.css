@@ -2,8 +2,8 @@
   overflow: scroll;
   display: flex;
   flex-direction: column;
+  height: 100%;
   scroll-snap-type: y mandatory;
-  -webkit-overflow-scrolling: touch;
 }
 
 .home-project {
@@ -12,7 +12,11 @@
   max-height: 90%;
   opacity: 0.5;
   transition: opacity 1s, filter 200ms, -webkit-filter 200ms;
-  scroll-snap-align: center;
+  /* scroll-snap-align: center; */
+}
+
+.scroll-snap {
+    scroll-snap-align: center;
 }
 
 .home-project.is-active {

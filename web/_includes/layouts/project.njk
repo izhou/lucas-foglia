@@ -28,10 +28,6 @@
   </div>
 
   <div id="project-gallery" class="gallery-photos grid-right-content is-hidden">
-    <div class="gallery-nav-wrapper">
-      <div class="gallery-nav-left" onclick="goLeft()"></div>
-      <div class="gallery-nav-right" onclick="goRight()"></div>
-    </div>
     {%- for photo in project.gallery -%}
       <div class="gallery-photo-container is-hidden" data-photo-key="{{photo._key}}" data-gallery-index={{loop.index0}}>
         <img class="lazyload gallery-photo" src="{% imageUrlFor photo, 100 %}" data-src="{% imageUrlFor photo, 1600 %}" alt={{photo.alt}}/>

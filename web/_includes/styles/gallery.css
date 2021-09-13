@@ -13,29 +13,16 @@
   object-position: bottom;
 }
 
-.gallery-nav-wrapper {
-  height: 100%;
-  width: 100%;
-  position:absolute;
-  display: flex;
-  justify-content: space-between;
-}
-
-.gallery-nav-left,
-.gallery-nav-right {
-  height: 100%;
-  width: 33%;
-  z-index: 1;
-}
-
-.gallery-nav-left {
-  cursor: w-resize;
-}
-
-.gallery-nav-right {
-  cursor: e-resize;
-}
 
 .gallery-photo-caption {
   overflow-wrap: break-word;
+}
+
+.gallery--nav-left {
+  cursor: url(../assets/img/chevron-left.svg), auto;
+  color: gray;
+}
+
+.gallery--nav-right {
+  cursor: url(../assets/img/chevron-right.svg), auto;
 }
