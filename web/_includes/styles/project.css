@@ -39,6 +39,12 @@
   position: relative;
 }
 
+.gallery-photo-title {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
 .container-active {
   pointer-events: none;
   text-decoration: underline;

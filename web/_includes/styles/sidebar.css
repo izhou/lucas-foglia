@@ -13,10 +13,6 @@
   color: darkgreen;
 }
 
-.sidebar-item {
-  display: block;
-}
-
 .sidebar-icon-container {
   display: none;
   position:absolute;

@@ -6,14 +6,14 @@
 {%endset%}
 
 {% block gridTopLeft %}
-  <a href=  "/" style="font-weight: bold;"> < Home</a>
+  <h3><a href=  "/" style="font-weight: bold;"> < Home</a></h3>
 {%endblock%}
 
 {% block gridMiddleLeft %}
   <div id="project-gallery-captions" class="grid-left-content is-hidden">
   {%- for photo in project.gallery -%}
     <div class="gallery-photo-caption-container is-hidden" data-gallery-index="{{loop.index0}}">
-      <h3 class="gallery-photo-title">{{photo.title}}</h3>
+      <div class="gallery-photo-title">{{photo.title}}</div>
       <div class="gallery-photo-caption hide-on-mobile">{{photo.caption}}</div>
     </div>
   {%- endfor -%}
@@ -50,11 +50,11 @@
 {% block gridBottomLeft %}
   <h1 class="project-info--title">{{project.title}}</h1>
 
-  <div class="project-info--links">
+  <h3 class="project-info--links">
     <a class="project-info--link" onclick="showContainer('project-gallery')" data-container="project-gallery">Gallery</a> / 
     <a class="project-info--link container-active" onclick="showContainer('project-index')" data-container="project-index">Index</a> /
     <a class="project-info--link" onclick="showContainer('project-statement')" data-container="project-statement">Statement</a>
-  </div>
+  </h3>
 {%endblock%}
 
 {% block js %}

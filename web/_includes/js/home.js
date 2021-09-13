@@ -11,7 +11,7 @@ function setActiveProjectIndex(index, scroll) {
 
   if (_active_project) _active_project.classList.remove('is-active');
   _active_project = project;
-  _active_project_index = index;
+  _active_project_index = parseInt(index);
   
   _active_project.classList.add('is-active');
   if (scroll) _active_project.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -57,7 +57,7 @@ window.onload = (event) => {
     setActiveProjectIndex(index);
   }, {
     root: _container,
-    threshold: 1
+    threshold: 0.9
   });
 
   Array.from(document.querySelectorAll('.home-project')).forEach((elem) => {
