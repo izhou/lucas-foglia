@@ -18,7 +18,7 @@ function setActiveProjectIndex(index, scroll) {
 }
 
 Array.from(document.querySelectorAll('.home-project')).forEach((elem) => {
-  elem.gallery = new Gallery(elem);
+  elem.gallery = new Gallery(elem, null, true);
 });
 
 document.onkeydown = function (e) {
@@ -49,7 +49,9 @@ document.addEventListener('swiped-right', function (e) {
   if (_active_project.gallery) _active_project.gallery.goRight();
 });
 
-
+window.setInterval(() => {
+  _active_project.gallery.goRight();
+}, 5000);
 //  After load to prevent unintended scroll behavior on initial  
 window.onload = (event) => {
     Array.from(document.querySelectorAll('.home-project')).forEach((elem) => {

@@ -1,6 +1,19 @@
+.gallery {
+  display: grid;
+  grid-auto-rows: 100%;
+}
+
 .gallery-photo-container {
   width: 100%;
   height: 100%;
+  grid-row-start: 1;
+  grid-column-start: 1;
+  transition: opacity 1000ms, filter 1000ms, -webkit-filter 1000ms;
+}
+
+.gallery-photo-container.is-transitioning,
+.gallery-photo-container.is-hidden {
+  opacity: 0;
 }
 
 .gallery-photo {
