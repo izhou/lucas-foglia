@@ -31,6 +31,12 @@ if (opening_hash == 'statement') {
 } else if (/^\d+$/.test(opening_hash) && opening_hash < gallery.getLength()) {
   gallery.setIndex(opening_hash);
   showContainer('project-gallery');
+} else if (/^i[\d]+/.test(opening_hash)) {
+  let photo_index = opening_hash.slice(1);
+  let elem = document.querySelector(`.project-index-photo[data-gallery-index="${photo_index}"]`);
+  console.log('ha');
+  showContainer('project-index');
+  if (elem) elem.scrollIntoView();
 } else {
   showContainer('project-index');
 }
@@ -75,16 +81,15 @@ document.onkeyup = function (e) {
 };
 
 document.addEventListener('swiped-left', function (e) {
-  gallery.goLeft();
+  gallery.goRight();
   return setWindowHash();
 });
 
 
 document.addEventListener('swiped-right', function (e) {
-  gallery.goRight();
+  gallery.goLeft();
   return setWindowHash();
 });
-
 
 window.addEventListener("load", init);
 

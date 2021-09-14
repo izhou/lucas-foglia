@@ -41,15 +41,14 @@ document.onkeydown = function (e) {
   }
 };
 
-
 document.addEventListener('swiped-left', function (e) {
   if (_active_project.gallery) _active_project.gallery.goLeft();
 });
 
-
 document.addEventListener('swiped-right', function (e) {
   if (_active_project.gallery) _active_project.gallery.goRight();
 });
+
 
 //  After load to prevent unintended scroll behavior on initial  
 window.onload = (event) => {

@@ -13,13 +13,13 @@
       <div class="home-project-spacer"></div>
       <div class="home-project-gallery" class="grid-right-content">
         {%- for photo in project.gallery -%}
-          <div class="gallery-photo-container {% if loop.index0 !=0 %}is-hidden{% endif %}" data-photo-key="{{photo._key}}" data-gallery-index={{loop.index0}}>
-            <img class="lazyload gallery-photo" src="{% imageUrlFor photo, 100 %}" data-src="{% imageUrlFor photo, 1600 %}" alt={{photo.alt}}/>
-          </div>
+          <a class="gallery-photo-container {% if loop.index0 !=0 %}is-hidden{% endif %}"  href="/{{project.slug.current}}/#i{{loop.index0}}" data-gallery-index="{{loop.index0}}">
+            <img class="lazyload gallery-photo" src="{% imageUrlFor photo, 100 %}" data-src="{% imageUrlFor photo, 1600 %}" alt="{{photo.alt}}"/>
+          </a>
         {%- endfor -%}
       </div>
 
-      <h3 class="home-project-title">{{project.title}}</h3>
+      <h3 class="home-project-title"><a href="/{{project.slug.current}}">{{project.title}}</a></h3>
     </div>
   {%- endfor -%}
 </div>

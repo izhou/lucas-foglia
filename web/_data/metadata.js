@@ -9,10 +9,11 @@ module.exports = async function() {
       timeline[] -> {
         _id,
         title,
+        slug,
         gallery[] {
           _key,
           asset
-        }
+        },
       },
       sidebar[] {
         ...,
