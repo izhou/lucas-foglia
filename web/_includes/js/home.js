@@ -23,12 +23,6 @@ Array.from(document.querySelectorAll('.home-project')).forEach((elem) => {
 
 document.onkeydown = function (e) {
   switch (e.key) {
-    case 'ArrowLeft':
-      if (_active_project.gallery) _active_project.gallery.goLeft();
-      break;
-    case 'ArrowRight':
-      if (_active_project.gallery) _active_project.gallery.goRight();
-      break;
     case 'ArrowDown':
       e.preventDefault();
       setActiveProjectIndex(_active_project_index + 1, true);
@@ -41,17 +35,9 @@ document.onkeydown = function (e) {
   }
 };
 
-document.addEventListener('swiped-left', function (e) {
-  if (_active_project.gallery) _active_project.gallery.goLeft();
-});
-
-document.addEventListener('swiped-right', function (e) {
-  if (_active_project.gallery) _active_project.gallery.goRight();
-});
-
 window.setInterval(() => {
   _active_project.gallery.goRight();
-}, 5000);
+}, 4000);
 //  After load to prevent unintended scroll behavior on initial  
 window.onload = (event) => {
     Array.from(document.querySelectorAll('.home-project')).forEach((elem) => {

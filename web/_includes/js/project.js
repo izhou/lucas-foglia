@@ -34,7 +34,6 @@ if (opening_hash == 'statement') {
 } else if (/^i[\d]+/.test(opening_hash)) {
   let photo_index = opening_hash.slice(1);
   let elem = document.querySelector(`.project-index-photo[data-gallery-index="${photo_index}"]`);
-  console.log('ha');
   showContainer('project-index');
   if (elem) elem.scrollIntoView();
 } else {
@@ -94,13 +93,14 @@ document.addEventListener('swiped-right', function (e) {
 window.addEventListener("load", init);
 
 function init() {
+  let right_el = document.querySelector('.grid-middle-right');
   let gallery_el = gallery.el;
-  const dimensions = gallery_el.getBoundingClientRect();
-  const half_width = (dimensions.left + dimensions.right) / 2;
   let onClick;
 
   gallery_el.addEventListener("mousemove", function (e) {
     const xPos = e.pageX;
+    const dimensions = gallery_el.getBoundingClientRect();
+    const half_width = (dimensions.left + dimensions.right) / 2;
 
     if (xPos > half_width) {
       this.classList.add("gallery--nav-right");

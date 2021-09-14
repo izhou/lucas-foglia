@@ -21,9 +21,6 @@
 }
 
 /* Variable Declarations */
-:focus {
-  background-color: pink;
-}
 :root {
   --padding: 24px;
 }

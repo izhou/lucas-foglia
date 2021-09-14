@@ -22,11 +22,6 @@
   object-fit: contain;
 }
 
-.project-index-photo:hover {
-  opacity: 0.6;
-  cursor: pointer;
-}
-
 .project-info div{
   padding-top: 6px;
 }
@@ -50,4 +45,11 @@
   text-decoration: underline;
   cursor: default;
   font-weight: bold;
+}
+
+@media (hover:hover) {
+  .project-index-photo:hover {
+    opacity: 0.6;
+    cursor: pointer;
+  }
 }
