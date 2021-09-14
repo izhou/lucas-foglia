@@ -23,13 +23,13 @@ class Gallery {
 
       // Inactivate current photo
       if (old_container) old_container.classList.add('is-transitioning'); 
-      new_container.classList.remove('is-hidden');
       new_container.classList.add('is-transitioning');
+      new_container.classList.remove('is-hidden');
       this.in_transition = true;
       
       window.setTimeout(()=> {
         new_container.classList.remove('is-transitioning')
-      }, 0);
+      }, 1);
 
       window.setTimeout(() => {
         console.log('hi');
@@ -40,7 +40,7 @@ class Gallery {
 
         this.active_photo_container = new_container;
         this.in_transition = false;
-      }, 1100);
+      }, 5100);
     
     } else {
       if (old_container) old_container.classList.add('is-hidden');

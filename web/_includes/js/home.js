@@ -36,6 +36,7 @@ document.onkeydown = function (e) {
 };
 
 window.setInterval(() => {
+  console.log('go right');
   _active_project.gallery.goRight();
 }, 4000);
 //  After load to prevent unintended scroll behavior on initial  
