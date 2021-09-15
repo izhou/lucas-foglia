@@ -16,11 +16,11 @@
 
 /* Set so that scroll is correct onload */
 .home-project:first-of-type {
-  scroll-snap-align: center;
+  scroll-snap-align: start;
 }
 
 .scroll-snap {
-    scroll-snap-align: center;
+    scroll-snap-align: start;
 }
 
 .home-project.is-active {

@@ -56,10 +56,12 @@
       </div>
     </div>
 
-    {% block js %}{%endblock%}
     <script>
       {% include "js/accordion.js" %}
       {% include "js/swiped-events.min.js" %}
+      {% include "js/smoothscroll-polyfill.min.js" %}
     </script>
+
+    {% block js %}{%endblock%}
   </body>
 </html>
