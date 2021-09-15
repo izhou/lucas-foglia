@@ -1,9 +1,6 @@
 let _active_container;
 
-var gallery = new Gallery(
-  document.getElementById('project-gallery'),
-  document.getElementById('project-gallery-captions')
-);
+var gallery = new Gallery(document.getElementById('project-gallery'));
 
 function showContainer(container) {
   _active_container = container;
@@ -23,7 +20,6 @@ function showContainer(container) {
   setWindowHash();
 };
 
-// Read location hash
 let opening_hash = window.location.hash.slice(1);
 
 if (opening_hash == 'statement') {
@@ -84,7 +80,6 @@ document.addEventListener('swiped-left', function (e) {
   return setWindowHash();
 });
 
-
 document.addEventListener('swiped-right', function (e) {
   gallery.goLeft();
   return setWindowHash();
@@ -93,7 +88,6 @@ document.addEventListener('swiped-right', function (e) {
 window.addEventListener("load", init);
 
 function init() {
-  let right_el = document.querySelector('.grid-middle-right');
   let gallery_el = gallery.el;
   let onClick;
 

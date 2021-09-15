@@ -173,22 +173,12 @@ a:hover, summary:hover {
   display: none !important;
 }
 
+img.fade-in {
+    transition: opacity 1s, filter 200ms, -webkit-filter 200ms;
+}
+
 .lazyload.fade-in,.lazyloading.fade-in {
     opacity: 0;
-}
-
-.blur-up {
-  -webkit-filter: blur(5px);
-  filter: blur(5px)
-}
-
-.blur-up.lazyloaded {
-  -webkit-filter: blur(0);
-  filter: blur(0);
-}
-
-.lazyloaded {
-    transition: opacity 1s, filter 200ms, -webkit-filter 200ms;
 }
 
 /* Small desktops  */

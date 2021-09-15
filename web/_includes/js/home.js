@@ -35,10 +35,10 @@ document.onkeydown = function (e) {
   }
 };
 
-window.setInterval(() => {
-  console.log('go right');
-  _active_project.gallery.goRight();
-}, 4000);
+onImageClick = function(url) {
+  window.location = url;
+}
+
 //  After load to prevent unintended scroll behavior on initial  
 window.onload = (event) => {
     Array.from(document.querySelectorAll('.home-project')).forEach((elem) => {
@@ -65,3 +65,7 @@ window.onload = (event) => {
 
   setActiveProjectIndex(0);
 }
+
+window.setInterval((e) => {
+  _active_project.gallery.goRight();
+}, 1000);

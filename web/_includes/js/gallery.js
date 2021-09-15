@@ -1,16 +1,18 @@
 class Gallery {
-  constructor (el, caption_el, slideshow) {
+  constructor (el) {
     this.el = el;
-    this.caption_el = caption_el;
-    this.length = this.el.getElementsByClassName('gallery-photo-container').length;
 
-    this.active_photo_index = 0;
+    this.active_photo_index;
     this.active_photo_container;
     this.active_photo_info;
-    this.slideshow = slideshow;
-    this.in_transition;
+    this.length = this.el.getElementsByClassName('gallery-photo-container').length;
 
-    this.setIndex(this.active_photo_index);
+    let caption_attr = this.el.getAttribute('data-caption-el');
+    if (caption_attr) {
+      this.caption_el = document.getElementById(caption_attr);
+    }
+
+    this.setIndex(0);
   }
 
   setIndex(index) {
@@ -18,35 +20,9 @@ class Gallery {
     let new_container = this.el.querySelector(`.gallery-photo-container[data-gallery-index="${index}"]`);
     let old_container = this.active_photo_container;
 
-    if (this.slideshow) {
-      if (this.in_transition) return;
-
-      // Inactivate current photo
-      if (old_container) old_container.classList.add('is-transitioning'); 
-      new_container.classList.add('is-transitioning');
-      new_container.classList.remove('is-hidden');
-      this.in_transition = true;
-      
-      window.setTimeout(()=> {
-        new_container.classList.remove('is-transitioning')
-      }, 1);
-
-      window.setTimeout(() => {
-        console.log('hi');
-        if (old_container) {
-          old_container.classList.remove('is-transitioning');
-          old_container.classList.add('is-hidden');
-        }
-
-        this.active_photo_container = new_container;
-        this.in_transition = false;
-      }, 5100);
-    
-    } else {
-      if (old_container) old_container.classList.add('is-hidden');
-      new_container.classList.remove('is-hidden');
-      this.active_photo_container = new_container;
-    }
+    if (old_container) old_container.classList.add('is-hidden');
+    new_container.classList.remove('is-hidden');
+    this.active_photo_container = new_container;
 
     // Set new active info 
     if (this.caption_el) {
@@ -58,6 +34,45 @@ class Gallery {
     this.active_photo_index = parseInt(index);
   }
 
+
+
+  setSlideshow() {
+
+  // if (this.in_transition) return;
+
+  // // Inactivate current photo
+  // if (old_container) old_container.classList.add('is-transitioning');
+  // new_container.classList.add('is-transitioning');
+  // new_container.classList.remove('is-hidden');
+  // this.in_transition = true;
+
+  // window.setTimeout(() => {
+  //   new_container.classList.remove('is-transitioning')
+  // }, 1);
+
+  // window.setTimeout(() => {
+  //   console.log('hi');
+  //   if (old_container) {
+  //     old_container.classList.remove('is-transitioning');
+  //     old_container.classList.add('is-hidden');
+  //   }
+
+  //   this.active_photo_container = new_container;
+  //   this.in_transition = false;
+  // }, 5100);
+
+  }
+
+  goLeft() {
+    let index = this.active_photo_index == 0 ? this.length - 1 : this.active_photo_index - 1;
+    return this.setIndex(index);
+  }
+
+  goRight() {
+    let index = this.active_photo_index == this.length - 1 ? 0 : this.active_photo_index + 1;
+    return this.setIndex(index);
+  }
+
   getIndex() {
     return this.active_photo_index;
   }
@@ -65,15 +80,4 @@ class Gallery {
   getLength() {
     return this.length;
   }
-
-  goLeft() {
-    let index = this.active_photo_index == 0 ? this.length - 1 : this.active_photo_index - 1;
-    return this.setIndex(index);
-  }
-  
-  goRight() {
-    let index = this.active_photo_index == this.length - 1 ? 0 : this.active_photo_index + 1;
-    return this.setIndex(index);
-  }
-
 }

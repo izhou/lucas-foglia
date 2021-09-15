@@ -45,10 +45,8 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addPlugin(require('eleventy-plugin-heroicons'));
 
-  eleventyConfig.addShortcode('imageUrlFor', (image, width = "400") => {
-    return urlFor(image)
-      .width(width)
-      .auto('format')
+  eleventyConfig.addShortcode('imageUrlFor', (image, thumb) => {
+    return urlFor(image, thumb);
   })
 
   eleventyConfig.addFilter('chooseTileImages', (gallery) => {

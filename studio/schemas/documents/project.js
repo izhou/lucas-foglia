@@ -52,7 +52,13 @@ export default {
       }]
     },
     {
-      name: 'aspect_ratio',
+      name: 'aspect_ratio_numerator',
+      type: 'number',
+      description: `The forced aspect ratio that should be displayed, e.g. for the index. Leave blank to dynamically resize.`,
+      validation: Rule => Rule.positive(),
+    },
+    {
+      name: 'aspect_ratio_denominator',
       type: 'number',
       description: `The forced aspect ratio that should be displayed, e.g. for the index. Leave blank to dynamically resize.`,
       validation: Rule => Rule.positive(),

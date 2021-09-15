@@ -11,11 +11,17 @@
   {%- for project in metadata.timeline -%}
     <div class="home-project" data-project-index="{{loop.index0}}">
       <div class="home-project-spacer"></div>
-      <div class="home-project-gallery gallery" class="grid-right-content">
+      <div class="home-project-gallery gallery gallery-slideshow" class="grid-right-content">
         {%- for photo in project.gallery -%}
-          <a class="gallery-photo-container {% if loop.index0 !=0 %}is-hidden{% endif %}"  href="/{{project.slug.current}}/#i{{loop.index0}}" data-gallery-index="{{loop.index0}}">
-            <img class="lazyload gallery-photo" src="{% imageUrlFor photo, 100 %}" data-src="{% imageUrlFor photo, 1600 %}" alt="{{photo.alt}}"/>
-          </a>
+          <div class="gallery-photo-container {% if loop.index0 !=0 %}is-hidden{% endif %}" data-gallery-index="{{loop.index0}}">
+            <img 
+              class="lazyload gallery-photo home-gallery-photo gallery-photo-link"
+              src="{% imageUrlFor photo, true %}"
+              data-src="{% imageUrlFor photo %}"
+              alt="{{photo.alt}}"
+              onclick="onImageClick('/{{project.slug.current}}/#i{{loop.index0}}');"
+              style="aspect-ratio: {{project.aspect_ratio_numerator}}/{{project.aspect_ratio_denominator}};"/>
+          </div>
         {%- endfor -%}
       </div>
 
