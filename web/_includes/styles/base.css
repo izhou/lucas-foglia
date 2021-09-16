@@ -173,7 +173,29 @@ a:hover, summary:hover {
   display: none !important;
 }
 
-img.fade-in {
+div.photo-container--aspect-ratio {
+  padding-top: var(--aspect-ratio-top-padding);
+  position: relative;
+  width: 100%;
+  height: 0px;
+}
+
+.photo-container--aspect-ratio .photo {
+  position: absolute;
+  height: auto;
+  top: 0;
+}
+
+.photo {
+  align-self: center;
+  justify-self: center;
+  width: 1600px;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.photo.fade-in {
     transition: opacity 1s, filter 200ms, -webkit-filter 200ms;
 }
 

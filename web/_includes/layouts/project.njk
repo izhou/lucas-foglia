@@ -25,22 +25,23 @@
 {% block gridMiddleRight %}
   <div id="project-index" class="project-index-container grid-right-content">
     {%- for photo in project.gallery -%}
-    <img 
-      class="lazyload fade-in gallery-photo gallery-photo-link"
-      src="{% imageUrlFor photo, true %}"
-      data-src="{% imageUrlFor photo %}"
-      data-gallery-index={{loop.index0}}
-      alt="{{photo.alt}}"
-      onclick="onIndexClick({{loop.index0}})"
-      style="aspect-ratio: {{project.aspect_ratio_numerator}}/{{project.aspect_ratio_denominator}};"
-    />
+    <div class="project-index-photo-container {% if project.aspect_ratio|length %}photo-container--aspect-ratio{%endif%}" {% if project.aspect_ratio|length %} style="--aspect-ratio-top-padding: {{project.aspect_ratio.height/project.aspect_ratio.width * 100}}%; position: relative; width: 100%; height: 0px;" {% endif %}>
+      <img 
+        class="photo project-index-photo lazyload fade-in"
+        src="{% imageUrlFor photo, true %}"
+        data-src="{% imageUrlFor photo %}"
+        data-gallery-index={{loop.index0}}
+        alt="{{photo.alt}}"
+        onclick="onIndexClick({{loop.index0}})"
+      />
+      </div>
     {%- endfor -%}
   </div>
 
   <div id="project-gallery" class="gallery grid-right-content is-hidden" data-caption-el="project-gallery-captions">
     {%- for photo in project.gallery -%}
       <div class="gallery-photo-container is-hidden" data-photo-key="{{photo._key}}" data-gallery-index={{loop.index0}}>
-        <img class="lazyload gallery-photo slight-fade-in" src="{% imageUrlFor photo, true %}" data-src="{% imageUrlFor photo %}" alt={{photo.alt}}/>
+        <img class="lazyload photo gallery-photo" src="{% imageUrlFor photo, true %}" data-src="{% imageUrlFor photo %}" alt={{photo.alt}}/>
       </div>
     {%- endfor -%}
   </div>

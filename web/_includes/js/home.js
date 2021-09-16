@@ -66,6 +66,6 @@ window.onload = (event) => {
   setActiveProjectIndex(0);
 }
 
-window.setInterval((e) => {
+window.setTimeout((e) => {
   _active_project.gallery.goRight();
-}, 1000);
+}, 5000);

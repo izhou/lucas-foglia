@@ -37,8 +37,7 @@ async function getProjects () {
       }
     },
     gallery,
-    aspect_ratio_numerator,
-    aspect_ratio_denominator
+    aspect_ratio
   }`;
 
   const query = [filter, projection ].join(' ')

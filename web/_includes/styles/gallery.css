@@ -17,16 +17,8 @@
 }
 
 .gallery-photo {
-  align-self: center;
-  justify-self: center;
-  max-height: 100%;
   height: 100%;
-  width: 1600px;
-  max-width: 100%;
-  object-fit: contain;
-  object-position: bottom;
 }
-
 
 .gallery-photo-caption {
   overflow-wrap: break-word;

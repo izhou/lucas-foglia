@@ -52,17 +52,27 @@ export default {
       }]
     },
     {
-      name: 'aspect_ratio_numerator',
-      type: 'number',
+      name: 'aspect_ratio',
+      type: 'object',
       description: `The forced aspect ratio that should be displayed, e.g. for the index. Leave blank to dynamically resize.`,
-      validation: Rule => Rule.positive(),
+      fields: [
+        {
+          name: 'width',
+          type: 'number',
+          validation: Rule => Rule.positive()
+        },
+        {
+          name: 'height',
+          type: 'number',
+          validation: Rule => Rule.positive()
+        },
+      ],
+      validation: Rule => Rule.custom( fields => {
+        if (!!fields.width !== !!fields.height) return "You must have both a width AND height";
+        if (fields.height == 0 || fields.width == 0) return "The width and height cannot be 0";
+        return true;
+      })
     },
-    {
-      name: 'aspect_ratio_denominator',
-      type: 'number',
-      description: `The forced aspect ratio that should be displayed, e.g. for the index. Leave blank to dynamically resize.`,
-      validation: Rule => Rule.positive(),
-    }
   ],
   preview: {
     select: {

@@ -13,14 +13,22 @@
       <div class="home-project-spacer"></div>
       <div class="home-project-gallery gallery gallery-slideshow" class="grid-right-content">
         {%- for photo in project.gallery -%}
-          <div class="gallery-photo-container {% if loop.index0 !=0 %}is-hidden{% endif %}" data-gallery-index="{{loop.index0}}">
+
+          <div 
+            class="gallery-photo-container
+              {% if loop.index0 !=0 %}is-hidden{% endif %}
+              {% if project.aspect_ratio|length %}photo-container--aspect-ratio{%endif%}
+            "
+            data-gallery-index="{{loop.index0}}"
+            {% if project.aspect_ratio|length %} style="--aspect-ratio-top-padding: {{project.aspect_ratio.height/project.aspect_ratio.width * 100}}%"{% endif %}
+          >
             <img 
-              class="lazyload gallery-photo home-gallery-photo gallery-photo-link"
+              class="lazyload photo gallery-photo gallery-photo-link"
               src="{% imageUrlFor photo, true %}"
               data-src="{% imageUrlFor photo %}"
               alt="{{photo.alt}}"
               onclick="onImageClick('/{{project.slug.current}}/#i{{loop.index0}}');"
-              style="aspect-ratio: {{project.aspect_ratio_numerator}}/{{project.aspect_ratio_denominator}};"/>
+              {%if project.aspect_ratio %}style="aspect-ratio: {{project.aspect_ratio.width}}/{{project.aspect_ratio.height}};{%endif%}"/>
           </div>
         {%- endfor -%}
       </div>
