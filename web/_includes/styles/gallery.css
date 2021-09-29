@@ -1,6 +1,7 @@
 .gallery {
   display: grid;
   grid-auto-rows: 100%;
+  position: relative;
 }
 
 .gallery-photo-container {
