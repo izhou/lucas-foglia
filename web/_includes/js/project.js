@@ -25,7 +25,7 @@ let opening_hash = window.location.hash.slice(1);
 if (opening_hash == 'statement') {
   showContainer('project-statement');
 } else if (/^\d+$/.test(opening_hash) && opening_hash < gallery.getLength()) {
-  gallery.setIndex(opening_hash);
+  gallery.setActiveIndex(opening_hash);
   showContainer('project-gallery');
 } else if (/^i[\d]+/.test(opening_hash)) {
   let photo_index = opening_hash.slice(1);
@@ -37,7 +37,7 @@ if (opening_hash == 'statement') {
 }
 
 function onIndexClick(index) {
-  gallery.setIndex(index);
+  gallery.setActiveIndex(index);
   showContainer('project-gallery');
 }
 

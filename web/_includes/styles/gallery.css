@@ -9,11 +9,12 @@
   height: 100%;
   grid-row-start: 1;
   grid-column-start: 1;
-  transition: opacity 5000ms, filter 5000ms, -webkit-filter 5000ms;
+  transition: opacity 1500ms, filter 1500ms, -webkit-filter 1500ms;
 }
 
 .gallery-photo-container.is-transitioning,
 .gallery-photo-container.is-hidden {
+  display: initial !important;
   opacity: 0;
 }
 
