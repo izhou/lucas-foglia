@@ -36,7 +36,7 @@ class Gallery {
   }
 
   setSlideshow() {
-    console.log('slideshow!' + this.active_photo_index);
+    // console.log('slideshow!' + this.active_photo_index);
     let next_photo = this.getRightPhoto(this.active_photo_index);
     let next_photo_image = next_photo.querySelector('.photo');
     let next_index = next_photo.getAttribute('data-gallery-index');
