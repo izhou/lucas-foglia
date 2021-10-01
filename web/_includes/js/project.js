@@ -17,6 +17,13 @@ function showContainer(container) {
   document.getElementById(container).classList.remove('is-hidden');
   document.querySelector(`[data-container="${_active_container}"]`).classList.add('container-active');
 
+
+  if (_active_container == 'project-index') {
+    let photo_index = gallery.getActiveIndex();
+    let elem = document.querySelector(`.project-index-photo[data-gallery-index="${photo_index}"]`);
+    if (elem) elem.scrollIntoView();
+  }
+
   setWindowHash();
 };
 
@@ -28,10 +35,8 @@ if (opening_hash == 'statement') {
   gallery.setActivePhotoByIndex(opening_hash);
   showContainer('project-gallery');
 } else if (/^i[\d]+/.test(opening_hash)) {
-  let photo_index = opening_hash.slice(1);
-  let elem = document.querySelector(`.project-index-photo[data-gallery-index="${photo_index}"]`);
+  gallery.setActivePhotoByIndex(opening_hash);
   showContainer('project-index');
-  if (elem) elem.scrollIntoView();
 } else {
   showContainer('project-index');
 }
