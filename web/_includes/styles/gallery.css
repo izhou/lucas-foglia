@@ -12,8 +12,7 @@
   transition: opacity 1500ms, filter 1500ms, -webkit-filter 1500ms;
 }
 
-.gallery-photo-container.is-transitioning,
-.gallery-photo-container.is-hidden {
+.gallery-slideshow .gallery-photo-container.is-hidden {
   display: initial !important;
   opacity: 0;
 }

@@ -73,7 +73,7 @@ _container.addEventListener('scroll', function (event) {
         break;
       }
     }
-  }, 300);
+  }, 10);
 }, false);
 
 _projects.forEach((elem) => {
