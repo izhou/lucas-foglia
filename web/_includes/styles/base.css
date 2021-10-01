@@ -185,7 +185,6 @@ div.photo-container--aspect-ratio {
 .photo-container--aspect-ratio .photo {
   position: absolute;
   height: auto;
-  max-height: calc(100vh - 2 * var(--padding));
   top: 0;
 }
 
