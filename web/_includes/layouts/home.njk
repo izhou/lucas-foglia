@@ -27,7 +27,7 @@
                 src="{% imageUrlFor photo, true %}"
                 data-src="{% imageUrlFor photo %}"
                 alt="{{photo.alt}}"
-                onclick="onImageClick({{project_index}}, '/{{project.slug.current}}/#i{{loop.index0}}');"
+                onclick="onImageClick({{project_index}}, '{{project.slug.current}}');"
                 {%if project.aspect_ratio %}style="aspect-ratio: {{project.aspect_ratio.width}}/{{project.aspect_ratio.height}};{%endif%}"/>
             </div>
           {%- endfor -%}

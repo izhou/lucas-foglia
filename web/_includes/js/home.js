@@ -4,10 +4,12 @@ var _project_length = _projects.length;
 var _active_project;
 var _active_project_index;
 
-function onImageClick(project_index, url) {
-  if (_active_project_index == project_index) return window.location = url;
 
-  return setActiveProjectByIndex(project_index, true);
+function onImageClick(project_index, slug) {
+  if (_active_project_index !== project_index) return setActiveProjectByIndex(project_index, true);
+
+  let active_photo_index = _active_project.gallery.getActiveIndex();
+  window.location = `/${slug}/#i${active_photo_index}`;
 }
 
 function setActiveProject(elem, index, scroll) {
@@ -75,15 +77,6 @@ _container.addEventListener('scroll', function (event) {
     }
   }, 10);
 }, false);
-
-_projects.forEach((elem) => {
-  elem.addEventListener('mouseover', function (event) {
-    if (elem.classList.contains('is-visible') && elem !== _active_project) {
-      event.preventDefault();
-      setActiveProjectByElem(elem);
-    }
-  });
-});
 
 // Observes whether image is fullly visible in dom. 
 var observer = new IntersectionObserver(function (entries) {

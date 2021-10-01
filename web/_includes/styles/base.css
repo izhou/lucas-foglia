@@ -203,7 +203,7 @@ div.photo-container--aspect-ratio {
 }
 
 /* Small desktops  */
-@media only screen and (max-width: 992px) {
+@media (max-width: 992px) {
   :root {
     --padding: 16px;  
   }

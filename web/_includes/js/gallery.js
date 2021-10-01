@@ -88,7 +88,7 @@ class Gallery {
     return this.active_photo_index == this.length - 1 ? 0 : this.active_photo_index + 1;
   }
 
-  getIndex() {
+  getActiveIndex() {
     return this.active_photo_index;
   }
 

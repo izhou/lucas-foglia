@@ -48,7 +48,7 @@ function setWindowHash() {
       hash = "";
       break;
     case 'project-gallery':
-      hash = gallery.getIndex().toString();
+      hash = gallery.getActiveIndex().toString();
       break;
     case 'project-statement':
       hash = "statement";
