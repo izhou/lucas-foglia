@@ -23,6 +23,9 @@
 /* Variable Declarations */
 :root {
   --padding: 24px;
+  --h1-font-size: 1.6rem;
+  --h2-font-size: 1rem;
+  --body-font-size: 0.875rem;
 }
 
 /* Base */
@@ -43,18 +46,18 @@ body {
   position: relative;
   color: #666;
   padding: var(--padding);
-  font-size: 0.875rem;
+  font-size: var(--body-font-size);
   line-height: 1.3;
 }
 
 h1 {
-  font-size: 1.6rem;
+  font-size: var(--h1-font-size);
   padding-bottom: 0.25rem;
   margin: 0;
 }
 
 h2, h3 {
-  font-size: 1rem;
+  font-size: var(--h2-font-size);
   margin: 0;
 }
 
@@ -206,15 +209,12 @@ div.photo-container--aspect-ratio {
 @media (max-width: 992px) {
   :root {
     --padding: 16px;  
+    --h1-font-size: 1.4rem;
+    --h2-font-size: 0.975rem;
+    --body-font-size: 0.875rem;
   }
 
-  h1 {
-    font-size: 1.4rem;
-    margin: 0;
-  }
-
-  h2, h3, body {
-    font-size: 0.875rem;
+  h1, h2, h3, body {
     margin: 0;
   }
 
@@ -271,18 +271,11 @@ div.photo-container--aspect-ratio {
 
 /* Mobile */
 @media (max-width: 500px) and (max-height: 415px) {
-  h1 {
-    font-size: 1rem;
-    margin: 0;
-  }
-
-  h2, h3, body {
-    font-size: 0.8rem;
-    margin: 0;
-  }
-
   :root {
     --padding: 8px;  
+    --h1-font-size: 1rem;
+    --h2-font-size: 0.875rem;
+    --body-font-size: 0.8rem;
   }
 
   .grid-middle-left-spacer,

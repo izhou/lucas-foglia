@@ -6,7 +6,11 @@
 {%endset%}
 
 {% block gridTopLeft %}
-  <h3><a href=  "/" style="font-weight: bold;"> < Home</a></h3>
+  <h3>
+    <a class="project-home" href=  "/">
+      {% include "assets/chevron-left.svg" %}Home
+    </a>
+  </h3>
 {%endblock%}
 
 {% block gridMiddleLeft %}
