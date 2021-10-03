@@ -32,10 +32,11 @@ let opening_hash = window.location.hash.slice(1);
 if (opening_hash == 'statement') {
   showContainer('project-statement');
 } else if (/^\d+$/.test(opening_hash) && opening_hash < gallery.getLength()) {
-  gallery.setActivePhotoByIndex(opening_hash);
+  gallery.setActivePhotoByIndex(parseInt(opening_hash));
   showContainer('project-gallery');
 } else if (/^i[\d]+/.test(opening_hash)) {
-  gallery.setActivePhotoByIndex(opening_hash);
+  let index = parseInt(opening_hash.slice(1));
+  gallery.setActivePhotoByIndex(index);
   showContainer('project-index');
 } else {
   showContainer('project-index');
