@@ -31,6 +31,8 @@
 /* Base */
 html {
   position: fixed;
+  -webkit-text-size-adjust: 100%; /* Prevent font scaling in landscape while allowing user zoom */
+
 }
 
 html,
@@ -215,7 +217,6 @@ div.photo-container--aspect-ratio {
   }
 
   h1, h2, h3, body {
-    color: pink;
     margin: 0;
   }
 
@@ -277,10 +278,6 @@ div.photo-container--aspect-ratio {
     --h1-font-size: 1rem;
     --h2-font-size: 0.875rem;
     --body-font-size: 0.8rem;
-  }
-
-  h1, h2, h3, body {
-    color: green;
   }
 
   .grid-middle-left-spacer,
