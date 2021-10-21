@@ -44,40 +44,6 @@ Array.from(document.querySelectorAll('.home-project')).forEach((elem) => {
   elem.gallery = new Gallery(elem, null, true);
 });
 
-document.onkeydown = function (e) {
-  switch (e.key) {
-    case 'ArrowDown':
-      e.preventDefault();
-      setActiveProjectByIndex(_active_project_index + 1, true);
-      break;
-    case 'ArrowUp':
-      e.preventDefault();
-      setActiveProjectByIndex(_active_project_index - 1, true);
-      break;
-    case 'Escape':
-  }
-};
-
-let isScrolling;
-
-_container.addEventListener('scroll', function (event) {
-  // Clear our timeout throughout the scroll
-  window.clearTimeout(isScrolling);
-  // Set a timeout to run after scrolling ends
-  isScrolling = setTimeout(function () {
-    let endscroll = event.target.scrollTop + event.target.offsetTop;
-    for (let i = 0; i < _projects.length; i++) {
-      let elem = _projects[i];
-      let offset_top = elem.offsetTop;
-      // Sometimes scroll-snap is off by a few pixels
-      if (endscroll <= offset_top + 5 && endscroll >= offset_top - 5) {
-        setActiveProjectByElem(elem);
-        break;
-      }
-    }
-  }, 10);
-}, false);
-
 // Observes whether image is fullly visible in dom. 
 var observer = new IntersectionObserver(function (entries) {
   // element is fully visible, some room for error for off-by-one pixels
@@ -101,4 +67,38 @@ window.onload = (event) => {
   _projects.forEach((elem) => {
     observer.observe(elem);
   });
+
+  document.onkeydown = function (e) {
+    switch (e.key) {
+      case 'ArrowDown':
+        e.preventDefault();
+        setActiveProjectByIndex(_active_project_index + 1, true);
+        break;
+      case 'ArrowUp':
+        e.preventDefault();
+        setActiveProjectByIndex(_active_project_index - 1, true);
+        break;
+      case 'Escape':
+    }
+  };
+
+  let isScrolling;
+
+  _container.addEventListener('scroll', function (event) {
+    // Clear our timeout throughout the scroll
+    window.clearTimeout(isScrolling);
+    // Set a timeout to run after scrolling ends
+    isScrolling = setTimeout(function () {
+      let endscroll = event.target.scrollTop + event.target.offsetTop;
+      for (let i = 0; i < _projects.length; i++) {
+        let elem = _projects[i];
+        let offset_top = elem.offsetTop;
+        // Sometimes scroll-snap is off by a few pixels
+        if (endscroll <= offset_top + 5 && endscroll >= offset_top - 5) {
+          setActiveProjectByElem(elem);
+          break;
+        }
+      }
+    }, 10);
+  }, false);
 }

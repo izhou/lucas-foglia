@@ -68,32 +68,7 @@ function setWindowHash() {
   }
 }
 
-document.onkeyup = function (e) {
-  switch (e.key) {
-    case 'ArrowLeft':
-      gallery.goLeft();
-      return setWindowHash();
-    case 'ArrowRight':
-      gallery.goRight();
-      return setWindowHash();
-    case 'Escape':
-      return showContainer('project-index');
-  }
-};
-
-document.addEventListener('swiped-left', function (e) {
-  gallery.goRight();
-  return setWindowHash();
-});
-
-document.addEventListener('swiped-right', function (e) {
-  gallery.goLeft();
-  return setWindowHash();
-});
-
-window.addEventListener("load", init);
-
-function init() {
+window.onload = (event) => {
   let gallery_el = gallery.el;
   let onClick;
 
@@ -116,4 +91,27 @@ function init() {
   gallery_el.addEventListener("click", function(e) {
     return onClick();
   })
+
+  document.onkeyup = function (e) {
+    switch (e.key) {
+      case 'ArrowLeft':
+        gallery.goLeft();
+        return setWindowHash();
+      case 'ArrowRight':
+        gallery.goRight();
+        return setWindowHash();
+      case 'Escape':
+        return showContainer('project-index');
+    }
+  };
+
+  document.addEventListener('swiped-left', function (e) {
+    gallery.goRight();
+    return setWindowHash();
+  });
+
+  document.addEventListener('swiped-right', function (e) {
+    gallery.goLeft();
+    return setWindowHash();
+  });
 }
