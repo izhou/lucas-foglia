@@ -20,6 +20,9 @@
       <div class="grid-top-left">
         {% block gridTopLeft %}
         {# Show sidebar by default #}
+
+        <div class="sidebar-spacer"></div>
+
         <div class="sidebar">
           <div class="sidebar-header">
           <h1>{{metadata.title}}</h1>
@@ -27,7 +30,6 @@
               <div class="sidebar-icon sidebar-icon-open">{% heroicon_outline "menu" %}</div>
               <div class="sidebar-icon sidebar-icon-close">{% heroicon_outline "x" %}</div>
             </div>
-
           </div>
           <div class="sidebar-dropdown">
             {%- for item in metadata.sidebar -%}
@@ -60,6 +62,9 @@
       {% include "js/accordion.js" %}
       {% include "js/swiped-events.min.js" %}
       {% include "js/smoothscroll-polyfill.min.js" %}
+
+      const sidebar = document.querySelector('.sidebar');
+      if (sidebar) new Accordion(sidebar, '.sidebar-header');
     </script>
 
     {% block js %}{%endblock%}

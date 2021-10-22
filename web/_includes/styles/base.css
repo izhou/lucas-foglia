@@ -37,7 +37,7 @@ html {
 
 html,
 body {
-  font-family: 'Gotham Narrow', "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, sans-serif;
+  font-family: 'Gotham Narrow', 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, -apple-system, BlinkMacSystemFont;
   width: 100%;
   height: 100%;
   margin: 0;
@@ -234,9 +234,18 @@ div.photo-container--aspect-ratio {
 @media (max-width: 768px) and (min-height: 415px) {
   .grid-top-left,
   .grid-bottom-left {
-    position: initial;
+    position: relative;
     flex: 0 0 auto;
     width: 100%;
+    top: 0;
+  }
+
+  .grid-top-left {
+    /* height: 41px; */
+  }
+
+  .grid-bottom-left {
+    padding: 0;
   }
 
   .grid-middle {

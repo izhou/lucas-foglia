@@ -1,7 +1,15 @@
 /* Sidebar  */
 .sidebar {
+  position: absolute;
+  top: 0;
   line-height: 1.675;
-  height: 37px;
+  background-color: white;
+  z-index: 1;
+  width: 100%;
+}
+
+.sidebar, .sidebar-spacer {
+  height: 41px;
 }
 
 .sidebar-header {
@@ -15,13 +23,13 @@
 
 .sidebar-icon-container {
   display: none;
-  position:absolute;
-  right: 0;
+  position: absolute;
+  right: 0rem;
   top: 0.25rem;
   width: 1.5rem;
 }
 
-.sidebar-header:not(.open) .sidebar-icon-container .sidebar-icon-closed,
+.sidebar-header:not(.open) .sidebar-icon-container .sidebar-icon-close,
 .sidebar-header.open .sidebar-icon-container .sidebar-icon-open {
   display: none;
 }

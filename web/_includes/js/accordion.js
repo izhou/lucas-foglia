@@ -62,7 +62,3 @@ class Accordion {
 document.querySelectorAll('details').forEach((el) => {
   new Accordion(el, 'summary');
 });
-
-const sidebar = document.querySelector('.sidebar');
-
-if (sidebar) new Accordion(sidebar, '.sidebar-header');

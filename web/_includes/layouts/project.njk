@@ -36,7 +36,6 @@
         data-src="{% imageUrlFor photo %}"
         data-gallery-index={{loop.index0}}
         alt="{{photo.alt}}"
-        onclick="onIndexClick({{loop.index0}})"
       />
       </div>
     {%- endfor -%}
@@ -68,9 +67,9 @@
   <h1 class="project-info--title">{{project.title}}</h1>
 
   <h3 class="project-info--links">
-    <a class="project-info--link" onclick="showContainer('project-gallery')" data-container="project-gallery">Gallery</a> / 
-    <a class="project-info--link container-active" onclick="showContainer('project-index')" data-container="project-index">Index</a> /
-    <a class="project-info--link" onclick="showContainer('project-statement')" data-container="project-statement">Statement</a>
+    <a class="project-info--link" data-container="project-gallery">Gallery</a> / 
+    <a class="project-info--link container-active" data-container="project-index">Index</a> /
+    <a class="project-info--link" data-container="project-statement">Statement</a>
   </h3>
 {%endblock%}
 

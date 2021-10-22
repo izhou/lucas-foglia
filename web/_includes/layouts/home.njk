@@ -11,7 +11,7 @@
   {%- for project in metadata.timeline -%}
     <div class="home-project-container">
      {% set project_index = loop.index0 %}
-      <div class="home-project" data-project-index="{{project_index}}">
+      <div class="home-project" data-project-index="{{project_index}}" data-project-slug="{{project.slug.current}}">
         <div class="home-project-gallery gallery gallery-slideshow" class="grid-right-content">
           {%- for photo in project.gallery -%}
             <div 
@@ -26,8 +26,10 @@
                 class="lazyload photo gallery-photo gallery-photo-link fade-in"
                 src="{% imageUrlFor photo, true %}"
                 data-src="{% imageUrlFor photo %}"
+                data-project-index="{{project_index}}"
+                data-project-slug="{{project.slug.current}}"
                 alt="{{photo.alt}}"
-                onclick="onImageClick({{project_index}}, '{{project.slug.current}}');"
+                {# onclick="onImageClick({{project_index}}, '{{project.slug.current}}');" #}
                 {%if project.aspect_ratio %}style="aspect-ratio: {{project.aspect_ratio.width}}/{{project.aspect_ratio.height}};{%endif%}"/>
             </div>
           {%- endfor -%}

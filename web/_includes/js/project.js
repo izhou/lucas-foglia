@@ -1,6 +1,5 @@
 let _active_container;
-
-var gallery = new Gallery(document.getElementById('project-gallery'));
+let _gallery = new Gallery(document.getElementById('project-gallery'));
 
 function showContainer(container) {
   _active_container = container;
@@ -19,7 +18,7 @@ function showContainer(container) {
 
 
   if (_active_container == 'project-index') {
-    let photo_index = gallery.getActiveIndex();
+    let photo_index = _gallery.getActiveIndex();
     let elem = document.querySelector(`.project-index-photo[data-gallery-index="${photo_index}"]`);
     if (elem) elem.scrollIntoView();
   }
@@ -27,23 +26,8 @@ function showContainer(container) {
   setWindowHash();
 };
 
-let opening_hash = window.location.hash.slice(1);
-
-if (opening_hash == 'statement') {
-  showContainer('project-statement');
-} else if (/^\d+$/.test(opening_hash) && opening_hash < gallery.getLength()) {
-  gallery.setActivePhotoByIndex(parseInt(opening_hash));
-  showContainer('project-gallery');
-} else if (/^i[\d]+/.test(opening_hash)) {
-  let index = parseInt(opening_hash.slice(1));
-  gallery.setActivePhotoByIndex(index);
-  showContainer('project-index');
-} else {
-  showContainer('project-index');
-}
-
 function onIndexClick(index) {
-  gallery.setActivePhotoByIndex(index);
+  _gallery.setActivePhotoByIndex(index);
   showContainer('project-gallery');
 }
 
@@ -54,7 +38,7 @@ function setWindowHash() {
       hash = "";
       break;
     case 'project-gallery':
-      hash = gallery.getActiveIndex().toString();
+      hash = _gallery.getActiveIndex().toString();
       break;
     case 'project-statement':
       hash = "statement";
@@ -68,9 +52,57 @@ function setWindowHash() {
   }
 }
 
+let opening_hash = window.location.hash.slice(1);
+
+if (opening_hash == 'statement') {
+  showContainer('project-statement');
+} else if (/^\d+$/.test(opening_hash) && opening_hash < _gallery.getLength()) {
+  _gallery.setActivePhotoByIndex(parseInt(opening_hash));
+  showContainer('project-gallery');
+} else if (/^i[\d]+/.test(opening_hash)) {
+  let index = parseInt(opening_hash.slice(1));
+  _gallery.setActivePhotoByIndex(index);
+  showContainer('project-index');
+} else {
+  showContainer('project-index');
+}
+
+document.onkeyup = function (e) {
+  switch (e.key) {
+    case 'ArrowLeft':
+      _gallery.goLeft();
+      return setWindowHash();
+    case 'ArrowRight':
+      _gallery.goRight();
+      return setWindowHash();
+    case 'Escape':
+      return showContainer('project-index');
+  }
+};
+
+document.addEventListener('swiped-left', function (e) {
+  _gallery.goRight();
+  return setWindowHash();
+});
+
+document.addEventListener('swiped-right', function (e) {
+  _gallery.goLeft();
+  return setWindowHash();
+});
+
+document.querySelectorAll('.project-info--link').forEach(item => {
+  let container = item.getAttribute('data-container');
+  item.addEventListener('click', event => showContainer(container));
+});
+
+document.querySelectorAll('.project-index-photo').forEach(item => {
+  let index = parseInt(item.getAttribute('data-gallery-index'));
+  item.addEventListener('click', event => onIndexClick(index));
+});
+
 window.onload = (event) => {
-  let gallery_el = gallery.el;
-  let onClick;
+  let gallery_el = _gallery.el;
+  let onImageClick;
 
   gallery_el.addEventListener("mousemove", function (e) {
     const xPos = e.pageX;
@@ -80,38 +112,15 @@ window.onload = (event) => {
     if (xPos > half_width) {
       this.classList.add("gallery--nav-right");
       this.classList.remove("gallery--nav-left");
-      onClick = gallery.goRight.bind(gallery);
+      onImageClick = _gallery.goRight.bind(_gallery);
     } else {
       this.classList.add("gallery--nav-left");
       this.classList.remove("gallery--nav-right");
-      onClick = gallery.goLeft.bind(gallery);
+      onImageClick = _gallery.goLeft.bind(_gallery);
     }
   });
 
   gallery_el.addEventListener("click", function(e) {
-    return onClick();
+    return onImageClick();
   })
-
-  document.onkeyup = function (e) {
-    switch (e.key) {
-      case 'ArrowLeft':
-        gallery.goLeft();
-        return setWindowHash();
-      case 'ArrowRight':
-        gallery.goRight();
-        return setWindowHash();
-      case 'Escape':
-        return showContainer('project-index');
-    }
-  };
-
-  document.addEventListener('swiped-left', function (e) {
-    gallery.goRight();
-    return setWindowHash();
-  });
-
-  document.addEventListener('swiped-right', function (e) {
-    gallery.goLeft();
-    return setWindowHash();
-  });
 }
