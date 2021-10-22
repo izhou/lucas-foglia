@@ -7,7 +7,6 @@ module.exports = {
     accordionText: ({node}) => {
       const body =  BlocksToMarkdown(node.body, { ...client.config() });
       return `+++${node.title}\n${body}\n+++`;
-
     },
   },
 }

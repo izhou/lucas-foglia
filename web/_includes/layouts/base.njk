@@ -25,14 +25,14 @@
 
         <div class="sidebar">
           <div class="sidebar-header">
-          <h1>{{metadata.title}}</h1>
+          <h1>{{home.title}}</h1>
             <div class="sidebar-icon-container">
               <div class="sidebar-icon sidebar-icon-open">{% heroicon_outline "menu" %}</div>
               <div class="sidebar-icon sidebar-icon-close">{% heroicon_outline "x" %}</div>
             </div>
           </div>
           <div class="sidebar-dropdown">
-            {%- for item in metadata.sidebar -%}
+            {%- for item in home.sidebar -%}
               {%if item.header %}<h2 class="sidebar-subheader">{{item.header}}</h2>{% endif %}
               {%if item._type == "project" or item._type == "page" %}
                 <h3><a class="sidebar-item" href="/{{item.slug}}">{{item.title}}</a></h3>

@@ -2,8 +2,6 @@ const { DateTime } = require("luxon");
 const util = require('util')
 const CleanCSS = require("clean-css");
 const urlFor = require('./utils/imageUrl');
-const chooseTileImages = require('./utils/tileImages');
-const markdownItCollapsible = require("markdown-it-collapsible");
 
 
 module.exports = function(eleventyConfig) {
@@ -47,10 +45,6 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addShortcode('imageUrlFor', (image, thumb) => {
     return urlFor(image, thumb);
-  })
-
-  eleventyConfig.addFilter('chooseTileImages', (gallery) => {
-    return chooseTileImages(gallery);
   })
 
   eleventyConfig.addPassthroughCopy({

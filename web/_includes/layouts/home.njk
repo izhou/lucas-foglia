@@ -8,7 +8,7 @@
 {% block gridMiddleRight %}
 
 <div class="home-projects">
-  {%- for project in metadata.timeline -%}
+  {%- for project in home.timeline -%}
     <div class="home-project-container">
      {% set project_index = loop.index0 %}
       <div class="home-project" data-project-index="{{project_index}}" data-project-slug="{{project.slug.current}}">
