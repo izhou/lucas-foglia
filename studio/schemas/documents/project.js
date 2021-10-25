@@ -25,9 +25,9 @@ export default {
     },
 
     {
-      name: 'excerpt',
+      name: 'description',
       type: 'blockPortableText',
-      title: 'Excerpt',
+      title: 'Description',
       description:
         'A short description of the project. This ends up on summary pages, on Google, when people share your post in social media.'
     },

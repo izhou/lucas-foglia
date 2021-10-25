@@ -5,6 +5,12 @@
   {% include "styles/gallery.css" %}
 {%endset%}
 
+{%set title %}{{project.title | safe}}{%endset%}
+
+{% if project.description %}
+  {%set description %}{{project.description | safe}}{%endset%}
+{%endif%}
+
 {% block gridTopLeft %}
   <h3>
     <a class="project-home" href=  "/">

@@ -17,6 +17,7 @@ function generateProject (project) {
   
   return {
     ...project,
+    description: BlocksToMarkdown(project.description, { serializers, ...client.config() }),
     statement: BlocksToMarkdown(project.statement, { serializers, ...client.config() }),
     gallery: gallery
   };
@@ -29,6 +30,7 @@ async function getProjects () {
     _id,
     title,
     slug,
+    description,
     statement[]{
       ...,
       children[]{

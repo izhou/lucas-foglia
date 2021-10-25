@@ -4,6 +4,12 @@
   {% include "styles/sitePage.css" %}
 {%endset%}
 
+{%set title %}{{sitePage.title | safe}}{%endset%}
+
+{% if sitePage.description %}
+  {%set description %}{{sitePage.description | safe}}{%endset%}
+{%endif%}
+
 {% block gridMiddleRight %}
   <div class="grid-right-content">
     <div class="grid-right-text-container">
