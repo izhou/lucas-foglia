@@ -10,7 +10,6 @@ export default {
       name: 'title',
       type: 'string',
       title: 'Title',
-      validation: Rule => Rule.error('You must include a title.').required(),
       options: {
         isHighlighted: true
       }
