@@ -8,12 +8,23 @@
       {% include "styles/sidebar.css" %}
       {% if css %} {{css | safe}}{% endif %}
     {% endset %}
+
     <style>
       {{ baseCss | cssmin | safe }}
     </style>
+
+    {# Fonts #}
     <link rel="preload" href="/assets/fonts/gotham-narrow/Gotham Narrow Thin.otf" as="font" type="font/otf" crossorigin="anonymous">
     <link rel="preload" href="/assets/fonts/gotham-narrow/Gotham Narrow Light.otf" as="font" type="font/otf" crossorigin="anonymous">
     <link rel="preload" href="/assets/fonts/gotham-narrow/Gotham Narrow Book.otf" as="font" type="font/otf" crossorigin="anonymous">
+
+    {# Favicons #}
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/svg+xml" href="/assets/img/favicons/favicon.svg">
+    <link rel="icon" sizes="any" href="/assets/img/favicons/favicon.ico">
+    <link rel="manifest" href="/assets/img/favicons/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
     <title>{{home.title}}{% if title %} | {{title}}{%endif%}</title>
     <meta name="description" content="{% if description %}{{description}}{%else%}{{home.description}}{%endif%}">
   </head>
@@ -27,6 +38,7 @@
 
         <div class="sidebar">
           <div class="sidebar-header">
+
           <h1>{{home.title}}</h1>
             <div class="sidebar-icon-container">
               <div class="sidebar-icon sidebar-icon-open">{% heroicon_outline "menu" %}</div>

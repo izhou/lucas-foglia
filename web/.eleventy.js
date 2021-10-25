@@ -1,8 +1,13 @@
-const { DateTime } = require("luxon");
 const util = require('util')
 const CleanCSS = require("clean-css");
 const urlFor = require('./utils/imageUrl');
 
+const markdownIt = require("markdown-it");
+const markdownItAnchor = require("markdown-it-anchor");
+const markdownItCollapsible = require("markdown-it-collapsible");
+
+const heroicons = require('eleventy-plugin-heroicons');
+const favicon = require('eleventy-favicon');
 
 module.exports = function(eleventyConfig) {
 
@@ -15,19 +20,6 @@ module.exports = function(eleventyConfig) {
     return util.inspect(value, {compact: false})
    });
 
-   eleventyConfig.addFilter("readableDate", dateObj => {
-    return new Date(dateObj).toDateString()
-  });
-
-  // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
-  eleventyConfig.addFilter('htmlDateString', (dateObj) => {
-    return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('yyyy-LL-dd');
-  });
-
-  let markdownIt = require("markdown-it");
-  let markdownItAnchor = require("markdown-it-anchor");
-  let markdownItCollapsible = require("markdown-it-collapsible");
-
   const md = markdownIt({
     html: true,
     breaks: true,
@@ -38,11 +30,15 @@ module.exports = function(eleventyConfig) {
     permalinkSymbol: "#"
   }).use(markdownItCollapsible);
 
+  eleventyConfig.addFilter("markdownify", function (value) {
+    return md.render(value)
+  });
+
   eleventyConfig.setLibrary("md", md);
 
-
-  eleventyConfig.addPlugin(require('eleventy-plugin-heroicons'));
-
+  eleventyConfig.addPlugin(heroicons);
+  eleventyConfig.addPlugin(favicon);
+  
   eleventyConfig.addShortcode('imageUrlFor', (image, thumb) => {
     return urlFor(image, thumb);
   })
@@ -53,10 +49,6 @@ module.exports = function(eleventyConfig) {
     "node_modules/lazysizes/lazysizes.min.js": "assets/lazysizes.min.js",
   });
 
-  eleventyConfig.addFilter("markdownify", function(value) {
-    return md.render(value)
-  });
-
   return {
     templateFormats: [
       "md",
@@ -65,10 +57,6 @@ module.exports = function(eleventyConfig) {
       "liquid"
     ],
 
-    // If your site lives in a different subdirectory, change this.
-    // Leading or trailing slashes are all normalized away, so don’t worry about it.
-    // If you don’t have a subdirectory, use "" or "/" (they do the same thing)
-    // This is only used for URLs (it does not affect your file structure)
     pathPrefix: "/",
 
     markdownTemplateEngine: "liquid",

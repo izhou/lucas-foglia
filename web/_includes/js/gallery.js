@@ -34,20 +34,21 @@ class Gallery {
   }
 
   setActivePhotoByIndex(index) {
-    if (this.active_photo_index == index) return;
+    if (this.active_photo_index == index || !this.length) return;
     let container = this.el.querySelector(`.gallery-photo-container[data-gallery-index="${index}"]`);
 
     return this.setActivePhoto(container, index);
   }
 
   setActivePhotoByContainer(container) {
-    if (this.active_photo_container == container) return;
+    if (this.active_photo_container == container || !this.length) return;
     let index = parseInt(container.getAttribute('data-gallery-index'));
 
     return this.setActivePhoto(container, index);
   }
 
   setSlideshow() {
+    if (!this.length) return;
     let next_index = this.getRightIndex(this.active_photo_index);
     let next_photo = this.getPhotoFromIndex(next_index);
     lazySizes.loader.unveil(next_photo);
