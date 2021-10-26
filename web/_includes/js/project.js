@@ -67,28 +67,29 @@ if (opening_hash == 'statement') {
   showContainer('project-index');
 }
 
+function goLeft() {
+  _gallery.goLeft();
+  return setWindowHash();
+}
+
+function goRight() {
+  _gallery.goRight();
+  return setWindowHash();
+}
+
 document.onkeyup = function (e) {
   switch (e.key) {
     case 'ArrowLeft':
-      _gallery.goLeft();
-      return setWindowHash();
+      return goLeft();
     case 'ArrowRight':
-      _gallery.goRight();
-      return setWindowHash();
+      return goRight();
     case 'Escape':
       return showContainer('project-index');
   }
 };
 
-document.addEventListener('swiped-left', function (e) {
-  _gallery.goRight();
-  return setWindowHash();
-});
-
-document.addEventListener('swiped-right', function (e) {
-  _gallery.goLeft();
-  return setWindowHash();
-});
+document.addEventListener('swiped-left', goLeft);
+document.addEventListener('swiped-left', goRight);
 
 document.querySelectorAll('.project-info--link').forEach(item => {
   let container = item.getAttribute('data-container');
@@ -109,14 +110,15 @@ window.onload = (event) => {
     const dimensions = gallery_el.getBoundingClientRect();
     const half_width = (dimensions.left + dimensions.right) / 2;
 
-    if (xPos > half_width) {
-      this.classList.add("gallery--nav-right");
-      this.classList.remove("gallery--nav-left");
-      onImageClick = _gallery.goRight.bind(_gallery);
-    } else {
+    if (xPos < half_width) {
       this.classList.add("gallery--nav-left");
       this.classList.remove("gallery--nav-right");
-      onImageClick = _gallery.goLeft.bind(_gallery);
+      onImageClick = goLeft;
+    } else {
+      this.classList.add("gallery--nav-right");
+      this.classList.remove("gallery--nav-left");
+
+      onImageClick = goRight;
     }
   });
 
