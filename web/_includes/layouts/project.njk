@@ -24,7 +24,7 @@
   {%- for photo in project.gallery -%}
     <div class="gallery-photo-caption-container is-hidden" data-gallery-index="{{loop.index0}}">
       <div class="gallery-photo-title">{{photo.title}}</div>
-      <div class="gallery-photo-caption hide-on-mobile">{{photo.caption}}</div>
+      <div class="gallery-photo-caption hide-on-mobile">{{photo.caption | markdownify | safe}}</div>
     </div>
   {%- endfor -%}
   </div>
