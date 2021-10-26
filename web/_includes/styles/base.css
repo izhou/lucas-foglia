@@ -207,6 +207,14 @@ div.photo-container--aspect-ratio {
     opacity: 0;
 }
 
+.inline-image {
+  max-width: 200px;
+  max-height: 200px;
+  width: 200px;
+  object-fit: contain;
+  object-position: top left;
+}
+
 /* Accordion */
 summary {
   padding: 0.25rem 1.25rem 0.25rem 0;
@@ -272,10 +280,6 @@ details[open] > summary:before {
     flex: 0 0 auto;
     width: 100%;
     top: 0;
-  }
-
-  .grid-top-left {
-    /* height: 41px; */
   }
 
   .grid-bottom-left {

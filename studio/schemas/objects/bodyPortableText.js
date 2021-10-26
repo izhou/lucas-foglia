@@ -51,14 +51,8 @@ export default {
       }
     },
     {
-      type: 'image',
-      title: 'Image',
-      blockEditor: {
-        icon: GoFoldDown,
-      }
+      type: 'image', 
+      title: 'Image'
     }
-    // You can add additional types here. Note that you can't use
-    // primitive types such as 'string' and 'number' in the same array
-    // as a block type.
   ]
 }

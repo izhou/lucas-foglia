@@ -28,8 +28,7 @@
                 data-src="{% imageUrlFor photo %}"
                 data-project-index="{{project_index}}"
                 data-project-slug="{{project.slug.current}}"
-                alt="{{photo.alt}}"
-                {# onclick="onImageClick({{project_index}}, '{{project.slug.current}}');" #}
+                alt="{{photo.title}}"
                 {%if project.aspect_ratio %}style="aspect-ratio: {{project.aspect_ratio.width}}/{{project.aspect_ratio.height}};{%endif%}"/>
             </div>
           {%- endfor -%}

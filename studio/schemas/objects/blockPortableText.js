@@ -41,5 +41,9 @@ export default {
         ]
       },
     },
+    {
+      type: 'image',
+      title: 'Image'
+    }
   ]
 }
