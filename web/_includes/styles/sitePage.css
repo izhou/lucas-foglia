@@ -3,36 +3,3 @@
   max-width: 768px;
   margin-top: 3rem;
 }
-
-summary {
-  padding: 0.25rem 1.25rem 0.25rem 0;
-  display: block;
-  position: relative;
-  cursor: pointer;
-}
-
-summary:before {
-  content: '\00d7';
-  font-weight: bold;
-  position: absolute;
-  right: 0.5rem;
-  transform: rotate(45deg);
-  transform-origin: 45% 45%;
-  transition: .25s transform ease;
-}
-
-details {
-  border-top: black solid 1px;
-  overflow: hidden;
-}
-
-details:last-of-type {
-  border-bottom: black solid 1px;
-}
-details[open] > summary:before {
-  transform: rotate(0deg);
-}
-
-.details-marker, summary::-webkit-details-marker {
-  display:none;
-}
