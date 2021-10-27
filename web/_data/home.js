@@ -10,7 +10,7 @@ module.exports = async function() {
         _id,
         title,
         slug,
-        gallery[] {
+        gallery[homepage == true] {
           _key,
           asset
         },
