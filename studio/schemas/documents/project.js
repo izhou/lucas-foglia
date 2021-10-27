@@ -49,7 +49,15 @@ export default {
       },
       of: [{
         type: 'photo'
-      }]
+      }],
+      validation: Rule => Rule.custom( gallery => {
+        let homepage_photos = (gallery || []).filter((photo) => photo.homepage);
+        let num_homepage = homepage_photos.length;
+
+        return (num_homepage > 0 && num_homepage <= 8) 
+          ? true
+          : 'You must include between 1-8 homepage images'
+      })
     },
     {
       name: 'aspect_ratio',

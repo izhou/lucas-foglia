@@ -1,3 +1,5 @@
+import React from 'react'
+
 export default {
   name: 'photo',
   type: 'image',
@@ -35,11 +37,31 @@ export default {
           ? true
           : 'Must be less than 440 characters';
       })
+    },
+    {
+      name: 'homepage',
+      title: 'Show on Homepage',
+      type: 'boolean',
+      options: {
+        isHighlighted: true,
+      },
     }
   ],
   preview: {
     select: {
-      imageUrl: 'asset.url',
+      url: 'asset.url',
+      homepage: 'homepage'
+    },
+    prepare: (selection) => {
+      const { url, homepage } = selection;
+      let style = homepage ? {
+        border: 'skyblue 4px solid',
+        boxSizing: 'border-box'
+      } : {};
+
+      return {
+        media: <img src={url} style={style} />
+      };
     }
   }
 }
