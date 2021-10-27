@@ -1,15 +1,20 @@
 /* Sidebar  */
+.sidebar-container {
+  height: 100%;
+  overflow-y: scroll;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+}
+.sidebar-container::-webkit-scrollbar { /* WebKit */
+    width: 0;
+    height: 0;
+}
+
 .sidebar {
-  position: absolute;
-  top: 0;
   line-height: 1.675;
   background-color: white;
   z-index: 1;
   width: 100%;
-}
-
-.sidebar, .sidebar-spacer {
-  height: 41px;
 }
 
 .sidebar-header {
@@ -35,8 +40,18 @@
 }
 
 @media (max-width: 768px) and (min-height: 415px) {
+  .sidebar-container {
+    height: auto;
+  }
+  
   .sidebar {
+    position: absolute;
+    top: 0;
     overflow: hidden;
+  }
+
+  .sidebar, .sidebar-spacer {
+    height: 41px;
   }
 
   .sidebar-dropdown {

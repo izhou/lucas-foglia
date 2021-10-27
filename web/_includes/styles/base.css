@@ -93,6 +93,7 @@ a:hover, summary:hover {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
 }
 .grid-top-left,
 .grid-bottom-left {
@@ -102,12 +103,11 @@ a:hover, summary:hover {
 }
 
 .grid-top-left {
-  top: var(--padding);
-  padding-bottom: var(--padding);
+  height: 100%;
 }
 
 .grid-bottom-left {
-  bottom: var(--padding);
+  bottom: 0;
   padding-top: var(--padding);
 }
 
@@ -279,11 +279,8 @@ details[open] > summary:before {
     position: relative;
     flex: 0 0 auto;
     width: 100%;
+    height: auto;
     top: 0;
-  }
-
-  .grid-bottom-left {
-    padding: 0;
   }
 
   .grid-middle {
