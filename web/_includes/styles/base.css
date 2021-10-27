@@ -186,7 +186,7 @@ div.photo-container--aspect-ratio {
 
 .photo-container--aspect-ratio .photo {
   position: absolute;
-  height: auto;
+  height: 100%;
   top: 0;
 }
 
