@@ -104,6 +104,7 @@ a:hover, summary:hover {
 
 .grid-top-left {
   height: 100%;
+  padding-bottom: var(--padding);
 }
 
 .grid-bottom-left {
