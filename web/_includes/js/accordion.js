@@ -19,7 +19,7 @@ class Accordion {
     const endHeight = `${this.summary.offsetHeight}px`;
     const startHeight = `${this.el.offsetHeight}px`;
 
-    this.el.style.height = endHeight;
+    this.el.style.minHeight = endHeight;
     this.animation = this.el.animate({
       height: [startHeight, endHeight]
     }, {
@@ -37,7 +37,7 @@ class Accordion {
   open() {
     const startHeight = this.el.offsetHeight;
     // explicitly set for animation calculation
-    this.el.style.height = `${startHeight}px`;
+    this.el.style.minHeight = `${startHeight}px`;
     this.el.open = true;
     this.summary.classList.add('open');
 
@@ -53,7 +53,7 @@ class Accordion {
     });
 
     this.animation.onfinish = () => {
-      this.el.style.height = endHeight;
+      this.el.style.minHeight = endHeight;
       this.animation = null;
     }
   }

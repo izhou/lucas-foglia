@@ -103,9 +103,12 @@ a:hover, summary:hover {
 }
 
 .grid-top-left {
-  height: 100%;
   padding-bottom: var(--padding);
-  z-index: -1;
+  height: auto;
+  max-height: 100%;
+  top: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .grid-bottom-left {

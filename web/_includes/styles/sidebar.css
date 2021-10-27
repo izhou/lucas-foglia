@@ -1,15 +1,4 @@
 /* Sidebar  */
-.sidebar-container {
-  height: 100%;
-  overflow-y: scroll;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none;  /* Internet Explorer 10+ */
-}
-.sidebar-container::-webkit-scrollbar { /* WebKit */
-    width: 0;
-    height: 0;
-}
-
 .sidebar {
   line-height: 1.675;
   background-color: white;
@@ -39,11 +28,22 @@
   display: none;
 }
 
+.sidebar-container {
+    overflow-y: scroll;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    
+}
+.sidebar-container::-webkit-scrollbar { /* WebKit */
+  width: 0;
+  height: 0;
+}
+
 @media (max-width: 768px) and (min-height: 415px) {
   .sidebar-container {
     height: auto;
   }
-  
+
   .sidebar {
     position: absolute;
     top: 0;
