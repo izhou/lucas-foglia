@@ -8,7 +8,7 @@
 
 .sidebar-header {
   position:relative;
- cursor: pointer;
+  pointer-events: none;
 }
 
 .sidebar-header:hover {
@@ -48,6 +48,11 @@
     position: absolute;
     top: 0;
     overflow: hidden;
+  }
+
+  .sidebar-header {
+    pointer-events: auto;
+    cursor: pointer;
   }
 
   .sidebar, .sidebar-spacer {
