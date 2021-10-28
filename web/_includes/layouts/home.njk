@@ -20,6 +20,7 @@
                 {% if project.aspect_ratio|length %}photo-container--aspect-ratio{%endif%}
               "
               data-gallery-index="{{loop.index0}}"
+              data-project-gallery-index="{{photo.project_index}}"
               {% if project.aspect_ratio|length %} style="--aspect-ratio-top-padding: {{project.aspect_ratio.height/project.aspect_ratio.width * 100}}%"{% endif %}
             >
               <img 

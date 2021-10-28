@@ -3,16 +3,17 @@ const client = require('../utils/sanityClient')
 
 
 module.exports = async function() {
-  return await client.fetch(groq`
+  const projection =  await client.fetch(groq`
     *[_id == "siteSettings"]{
       ...,
       timeline[] -> {
         _id,
         title,
         slug,
-        gallery[homepage == true] {
+        gallery[] {
           _key,
-          asset
+          asset,
+          homepage
         },
         aspect_ratio
       },
@@ -29,4 +30,19 @@ module.exports = async function() {
       }
     }[0]
   `)
+
+  // Filter here to maintain the photo index in the project
+  projection.timeline.forEach((project, index) => {
+    let gallery = project.gallery.map((photo, index) => {
+      return {
+        ...photo,
+        project_index : index,
+      };
+    });
+
+    gallery = gallery.filter((photo) => photo.homepage);
+    projection.timeline[index].gallery = gallery;
+  });
+
+  return projection;
 }

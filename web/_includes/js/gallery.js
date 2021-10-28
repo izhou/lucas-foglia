@@ -93,6 +93,10 @@ class Gallery {
     return this.active_photo_index;
   }
 
+  getActiveContainer() {
+    return this.active_photo_container;
+  }
+
   getLength() {
     return this.length;
   }

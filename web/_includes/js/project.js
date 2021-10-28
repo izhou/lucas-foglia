@@ -20,7 +20,7 @@ function showContainer(container) {
   if (_active_container == 'project-index') {
     let photo_index = _gallery.getActiveIndex();
     let elem = document.querySelector(`.project-index-photo[data-gallery-index="${photo_index}"]`);
-    if (elem) elem.scrollIntoView();
+    if (elem) elem.scrollIntoView({ block: "center" });
   }
 
   setWindowHash();
@@ -88,8 +88,8 @@ document.onkeyup = function (e) {
   }
 };
 
-document.addEventListener('swiped-left', goLeft);
-document.addEventListener('swiped-left', goRight);
+document.addEventListener('swiped-left', goLeft());
+document.addEventListener('swiped-left', goRight());
 
 document.querySelectorAll('.project-info--link').forEach(item => {
   let container = item.getAttribute('data-container');
