@@ -23,6 +23,7 @@
 /* Variable Declarations */
 :root {
   --padding: 24px;
+  --inline-padding: 16px;
   --h1-font-size: 1.6rem;
   --h2-font-size: 1rem;
   --body-font-size: 0.875rem;
@@ -73,7 +74,11 @@ h3 {
 
 p, ol {
   margin: 0;
-  padding: 1rem 0 0;
+  padding: var(--inline-padding) 0 0;
+}
+
+p:first-child, ol:first-child {
+  padding: 0;
 }
 
 a, summary {
@@ -174,7 +179,7 @@ a:hover, summary:hover {
 }
 
 .grid-right-text-spacer {
-    height: 2.75rem;
+    height: 3rem;
     flex: 0 1 auto;
 }
 
@@ -244,16 +249,16 @@ details {
 }
 
 details:first-of-type {
-  margin-top: 1rem; 
+  margin-top: var(--inline-padding); 
 }
 
 details:last-of-type {
   border-bottom: black solid 1px;
-  margin-bottom: 1rem;
+  margin-bottom: var(--inline-padding);
 }
 
 details[open] {
-  padding-bottom: 1rem;
+  padding-bottom: var(--inline-padding);
 }
 
 details[open] > summary:before {
@@ -268,6 +273,7 @@ details[open] > summary:before {
 @media (max-width: 992px) {
   :root {
     --padding: 16px;  
+    --inline-padding: 12px;
     --h1-font-size: 1.4rem;
     --h2-font-size: 0.975rem;
     --body-font-size: 0.875rem;
@@ -278,7 +284,7 @@ details[open] > summary:before {
   }
 
   .grid-right-text-spacer {
-    height: 2.5rem;
+    height: 2.75rem;
   }
 
   .grid-middle-left-spacer,
@@ -334,7 +340,8 @@ details[open] > summary:before {
 /* Mobile */
 @media (max-width: 500px) and (max-height: 415px) {
   :root {
-    --padding: 8px;  
+    --padding: 8px;
+    --inline-padding: 8px;
     --h1-font-size: 1.25rem;
     --h2-font-size: 0.875rem;
     --body-font-size: 0.8rem;
