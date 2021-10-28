@@ -243,8 +243,13 @@ details {
   overflow: hidden;
 }
 
+details:first-of-type {
+  margin-top: 1rem; 
+}
+
 details:last-of-type {
   border-bottom: black solid 1px;
+  margin-bottom: 1rem;
 }
 details[open] > summary:before {
   transform: rotate(0deg);
