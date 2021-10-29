@@ -8,14 +8,13 @@
 
 .sidebar-header {
   position:relative;
-  pointer-events: none;
 }
 
 .sidebar-header:hover {
   color: darkgreen;
 }
 
-.sidebar-icon-container {
+.sidebar-icons {
   display: none;
   position: absolute;
   right: 0rem;
@@ -23,8 +22,8 @@
   width: 1.5rem;
 }
 
-.sidebar-header:not(.open) .sidebar-icon-container .sidebar-icon-close,
-.sidebar-header.open .sidebar-icon-container .sidebar-icon-open {
+.sidebar-header:not(.open) .sidebar-icons .sidebar-icon-close,
+.sidebar-header.open .sidebar-icons .sidebar-icon-open {
   display: none;
 }
 
@@ -50,11 +49,6 @@
     overflow: hidden;
   }
 
-  .sidebar-header {
-    pointer-events: auto;
-    cursor: pointer;
-  }
-
   .sidebar, .sidebar-spacer {
     height: 41px;
   }
@@ -64,7 +58,7 @@
     border-bottom: black solid 1px;
   }
 
-  .sidebar-icon-container {
+  .sidebar-icons {
     display: inline-block;
   }
 }

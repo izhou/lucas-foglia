@@ -1,7 +1,7 @@
 const sidebar = document.querySelector('.sidebar');
 const sidebar_container = document.querySelector('.sidebar-container');
 if (sidebar) {
-  new Accordion(sidebar, '.sidebar-header');
+  new Accordion(sidebar, '.sidebar-icons');
 
   let scrollables = document.querySelectorAll('.grid-middle-right > div');
   last_scroll = 0;
@@ -15,5 +15,7 @@ if (sidebar) {
         last_scroll = scroll_top;
       }
     });
-  })
+  });
+
+  
 }
