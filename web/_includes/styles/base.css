@@ -231,6 +231,7 @@ summary {
   display: block;
   position: relative;
   cursor: pointer;
+  outline: none;
 }
 
 summary:before {
