@@ -27,6 +27,9 @@
 
     <title>{{home.title}}{% if title %} | {{title}}{%endif%}</title>
     <meta name="description" content="{% if description %}{{description}}{%else%}{{home.description}}{%endif%}">
+
+    <link rel="canonical" href="https://lucasfoglia.com{{page.url}}" />
+
   </head>
   <body>
     <div class="{% if templateClass %} {{ templateClass }} {% endif %} grid-container">
@@ -39,7 +42,7 @@
               <div class="sidebar">
                 <div class="sidebar-header">
 
-                <h1><a href="/">{{home.title}}</a></h1>
+                <h1><a {% if {{page.url}} != "/" %}href="/" {% endif %}>{{home.title}}</a></h1>
                   <div class="sidebar-icons">
                     <div class="sidebar-icon sidebar-icon-open">{% heroicon_outline "menu" %}</div>
                     <div class="sidebar-icon sidebar-icon-close">{% heroicon_outline "x" %}</div>
