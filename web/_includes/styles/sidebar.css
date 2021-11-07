@@ -55,7 +55,7 @@
 
   .sidebar-dropdown {
     padding-bottom: 1rem;
-    border-bottom: black solid 1px;
+    border-bottom: #666 solid 1px;
   }
 
   .sidebar-icons {

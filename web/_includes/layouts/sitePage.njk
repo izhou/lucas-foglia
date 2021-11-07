@@ -1,9 +1,5 @@
 {% extends "layouts/base.njk" %}
 
-{% set css %}
-  {% include "styles/sitePage.css" %}
-{%endset%}
-
 {%set title %}{{sitePage.title | safe}}{%endset%}
 
 {% if sitePage.description %}
