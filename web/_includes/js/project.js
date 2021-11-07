@@ -88,8 +88,8 @@ document.onkeyup = function (e) {
   }
 };
 
-document.addEventListener('swiped-left', goLeft);
-document.addEventListener('swiped-right', goRight);
+document.addEventListener('swiped-left', goRight);
+document.addEventListener('swiped-right', goLeft);
 
 document.querySelectorAll('.project-info--link').forEach(item => {
   let container = item.getAttribute('data-container');
