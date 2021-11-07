@@ -1,7 +1,7 @@
 /* Sidebar  */
 .sidebar {
   line-height: 1.675;
-  background-color: white;
+  background-color: var(--background-color);
   z-index: 1;
   width: 100%;
 }
@@ -11,7 +11,7 @@
 }
 
 .sidebar-header:hover {
-  color: darkgreen;
+  color: var(--hover-color);
 }
 
 .sidebar-icons {
@@ -55,7 +55,7 @@
 
   .sidebar-dropdown {
     padding-bottom: 1rem;
-    border-bottom: #666 solid 1px;
+    border-bottom: var(--font-color) solid 1px;
   }
 
   .sidebar-icons {
