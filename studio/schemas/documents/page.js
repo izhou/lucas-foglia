@@ -25,6 +25,13 @@ export default {
       }
     },
     {
+      name: 'description',
+      type: 'blockPortableText',
+      title: 'Description',
+      description:
+        'A short description of the page. This ends up on summary pages, on Google, when people share your post in social media.'
+    },
+    {
       name: 'contents',
       type: 'bodyPortableText',
       title: 'Contents',

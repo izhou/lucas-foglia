@@ -8,6 +8,7 @@ module.exports = async function () {
     *[_type == "page" && defined(slug)]{
       title,
       slug,
+      description,
       contents
     }
   `);
