@@ -41,7 +41,6 @@
 
               <div class="sidebar">
                 <div class="sidebar-header">
-
                 <h1><a {% if page.url != "/" %}href="/" {% endif %}>{{home.title}}</a></h1>
                   <div class="sidebar-icons">
                     <div class="sidebar-icon sidebar-icon-open">{% heroicon_outline "menu" %}</div>
@@ -73,7 +72,8 @@
       </div>
 
       <div class="grid-bottom-left">
-          {% block gridBottomLeft %}{%endblock%}
+          {% block gridBottomLeft %}
+          {%endblock%}
       </div>
     </div>
 

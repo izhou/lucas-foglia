@@ -46,7 +46,7 @@ function setWindowHash() {
   }
 
   if (hash) {
-    window.location.hash = hash
+    window.location.hash = hash;
   } else {
     history.replaceState(null, null, ' ');
   }

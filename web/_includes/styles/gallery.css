@@ -36,3 +36,12 @@
 .gallery-photo-link {
   cursor: pointer;
 }
+
+.gallery--presentation-mode {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: var(--background-color);
+  z-index: 1;
+}
