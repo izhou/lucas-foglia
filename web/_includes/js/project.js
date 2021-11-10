@@ -143,9 +143,4 @@ window.onload = (event) => {
   gallery_el.addEventListener("click", function(e) {
     return onImageClick();
   })
-
-  // Disable click event for touchscreens
-  gallery_el.addEventListener('touchend', event => {
-    event.preventDefault();
-  });
-}
+} 
