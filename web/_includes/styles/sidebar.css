@@ -2,6 +2,7 @@
 .sidebar {
   line-height: 1.675;
   background-color: var(--background-color);
+  transition: background-color 200ms;
   z-index: 1;
   width: 100%;
 }
@@ -10,9 +11,11 @@
   position:relative;
 }
 
-.sidebar-header:hover {
-  color: var(--hover-color);
-  cursor: pointer;
+@media (hover: hover) {
+  .sidebar-header:hover {
+    color: var(--hover-color);
+    cursor: pointer;
+  }
 }
 
 .sidebar-icons {
@@ -29,10 +32,10 @@
 }
 
 .sidebar-container {
-    overflow-y: scroll;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none;  /* Internet Explorer 10+ */
-    
+  overflow-y: scroll;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  height: 100vh;
 }
 .sidebar-container::-webkit-scrollbar { /* WebKit */
   width: 0;

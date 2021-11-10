@@ -79,6 +79,16 @@
   </h3>
 {%endblock%}
 
+{% block gridBottomRightButton %}
+  <div class="button is-hidden" id="gallery-presentation-button">
+    <input type="checkbox" class="button-checkbox" id="gallery-presentation" />
+    <label for="gallery-presentation">
+        <div class="button-icon button-icon--checked">{% heroicon_outline "arrows-expand" %}</div>
+        <div class="button-icon button-icon--unchecked">{% heroicon_solid "template" %}</div>
+    </label>
+  </div>
+{%endblock%}
+
 {% block js %}
   <script>
     {% include "js/gallery.js" %}

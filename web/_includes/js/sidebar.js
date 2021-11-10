@@ -15,7 +15,5 @@ if (sidebar) {
         last_scroll = scroll_top;
       }
     });
-  });
-
-  
+  }); 
 }

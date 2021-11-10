@@ -6,12 +6,14 @@ function showContainer(container) {
   const links = document.getElementsByClassName(`project-info--link`);
   const containers = document.getElementsByClassName('grid-right-content');
   const captions = document.getElementById('project-gallery-captions');
+  const presentation_btn = document.getElementById('gallery-presentation-button');
 
   Array.from(containers).forEach((elem) => { elem.classList.add('is-hidden'); });
   Array.from(links).forEach((elem) => { elem.classList.remove('container-active'); });
 
   // Only show captions when gallery is active
   captions.classList.toggle('is-hidden', _active_container != 'project-gallery');
+  presentation_btn.classList.toggle('is-hidden', _active_container != 'project-gallery');
 
   document.getElementById(container).classList.remove('is-hidden');
   document.querySelector(`[data-container="${_active_container}"]`).classList.add('container-active');
@@ -88,8 +90,24 @@ document.onkeyup = function (e) {
   }
 };
 
-document.addEventListener('swiped-left', goRight);
-document.addEventListener('swiped-right', goLeft);
+document.querySelector('.grid-middle').addEventListener('swiped-left', (e) => {
+  if (window.visualViewport.scale == 1) goRight();
+});
+
+document.querySelector('.grid-middle').addEventListener('swiped-right', (e) => {
+  if (window.visualViewport.scale == 1) goLeft();
+});
+
+document.querySelector('.grid-middle').addEventListener('swiped-up', (e) => {
+  e.stopPropagation();
+  e.preventDefault();
+});
+
+
+document.getElementById('gallery-presentation').addEventListener('input', (e) => {
+  let mode = e.target.checked;
+  document.getElementById('project-gallery').classList.toggle('gallery--presentation-mode', mode);
+});
 
 document.querySelectorAll('.project-info--link').forEach(item => {
   let container = item.getAttribute('data-container');
@@ -125,4 +143,9 @@ window.onload = (event) => {
   gallery_el.addEventListener("click", function(e) {
     return onImageClick();
   })
+
+  // Disable click event for touchscreens
+  gallery_el.addEventListener('touchend', event => {
+    event.preventDefault();
+  });
 }

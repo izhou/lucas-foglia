@@ -12,6 +12,11 @@
     <style>
       {{ baseCss | cssmin | safe }}
     </style>
+    <script>
+    {# Sets darkmode. Done immediately to prevent flash of inaccurate theme color #}
+      localStorage.getItem('mode') && 
+      document.documentElement.setAttribute('data-mode', localStorage.getItem('mode'));
+    </script>
 
     {# Fonts #}
     <link rel="preload" href="/assets/fonts/gotham-narrow/Gotham Narrow Thin.otf" as="font" type="font/otf" crossorigin="anonymous">
@@ -32,38 +37,31 @@
 
   </head>
   <body>
-    <div class="{% if templateClass %} {{ templateClass }} {% endif %} grid-container">
+    <div class="grid-container">
       <div class="grid-top-left">
         {% block gridTopLeft %}
             {# Show sidebar by default #}
-            <div class="sidebar-container">
-              <div class="sidebar-spacer"></div>
-
-              <div class="sidebar">
-                <div class="sidebar-header">
-                <h1><a {% if page.url != "/" %}href="/" {% endif %}>{{home.title}}</a></h1>
-                  <div class="sidebar-icons">
-                    <div class="sidebar-icon sidebar-icon-open">{% heroicon_outline "menu" %}</div>
-                    <div class="sidebar-icon sidebar-icon-close">{% heroicon_outline "x" %}</div>
-                  </div>
-                </div>
-                <div class="sidebar-dropdown">
-                  {%- for item in home.sidebar -%}
-                    {%if item.header %}<h2 class="sidebar-subheader">{{item.header}}</h2>{% endif %}
-                    {%if item._type == "project" or item._type == "page" %}
-                      <h3><a class="sidebar-item" href="/{{item.slug}}">{{item.title}}</a></h3>
-                    {% endif %}
-                  {%- endfor -%}
-                </div>
-              </div>
-            </div>
+            {% include "./sidebar.njk" %}
         {%endblock%}
+      </div>
+
+      <div class="grid-bottom-right">
+        <div class="buttons">
+          <div class="button" id="dark-mode-button">
+            <input type="checkbox" class="button-checkbox" id="dark-mode" />
+            <label for="dark-mode">
+                <div class="button-icon button-icon--checked">{% heroicon_solid "moon" %}</div>
+                <div class="button-icon button-icon--unchecked">{% heroicon_solid "sun" %}</div>
+            </label>
+          </div>
+
+          {% block gridBottomRightButton %}{% endblock %}
+        </div>
       </div>
 
       <div class="grid-middle">
         <div class="grid-middle-left">
-          {% block gridMiddleLeft %}
-          {%endblock%}
+          {% block gridMiddleLeft %}{%endblock%}
         </div>
 
         <div class="grid-middle-right">
@@ -72,12 +70,12 @@
       </div>
 
       <div class="grid-bottom-left">
-          {% block gridBottomLeft %}
-          {%endblock%}
+          {% block gridBottomLeft %}{%endblock%}
       </div>
     </div>
 
     <script>
+      {% include "js/base.js" %}
       {% include "js/accordion.js" %}
       {% include "js/sidebar.js" %}
       {% include "js/swiped-events.min.js" %}
@@ -86,6 +84,7 @@
 
     <script src="{{ "/assets/lazysizes.min.js" | url }}"></script>
 
-    {% block js %}{%endblock%}
+    {% block js %}
+    {%endblock%}
   </body>
 </html>

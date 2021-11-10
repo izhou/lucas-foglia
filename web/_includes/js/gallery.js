@@ -54,7 +54,7 @@ class Gallery {
     lazySizes.loader.unveil(next_photo);
     let gallery = this;
 
-    this.slideshow =  setTimeout((e) => {
+    this.slideshow = setTimeout((e) => {
       if (next_photo.classList.contains('lazyloaded')) {
         gallery.setActivePhotoByIndex(next_index);
         gallery.setSlideshow();
