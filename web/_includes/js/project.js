@@ -142,5 +142,5 @@ window.onload = (event) => {
 
   gallery_el.addEventListener("click", function(e) {
     return onImageClick();
-  })
+  });
 } 

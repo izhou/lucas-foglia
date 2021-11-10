@@ -41,6 +41,10 @@ html[data-mode="dark"] {
   --hover-color: darkseagreen;
 }
 
+html.hide-nav div {
+  cursor: none !important;
+}
+
 /* Base */
 html {
   position: fixed;

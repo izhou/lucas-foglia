@@ -1,24 +1,27 @@
 let buttons = document.querySelector('.buttons');
+let html = document.documentElement;
 let _hideButtons;
 let _scheduled;
 
-// Hide buttons unless mousemove
-document.addEventListener('mousemove', (e) => setButtonTimeout());
+// Hide buttons and cursor unless mousemove
+document.addEventListener('mousemove', (e) => setInactiveTimeout());
 
-function setButtonTimeout(timeout = 2000) {
+function setInactiveTimeout(timeout = 2000) {
   if (_scheduled) return;
 
   _scheduled = true;
   setTimeout(() => { _scheduled = false; }, 500);
   buttons.classList.remove('is-inactive');
+  html.classList.remove('hide-nav');
 
   window.clearTimeout(_hideButtons);
   _hideButtons = setTimeout(function () {
     buttons.classList.add('is-inactive');
+    html.classList.add('hide-nav');
   }, timeout);
 }
 
-setButtonTimeout(5000);
+setInactiveTimeout(5000);
 
 // Set dark mode button
 let dark_mode_btn = document.getElementById('dark-mode');
