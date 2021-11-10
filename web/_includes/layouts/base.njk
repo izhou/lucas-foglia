@@ -45,20 +45,6 @@
         {%endblock%}
       </div>
 
-      <div class="grid-bottom-right">
-        <div class="buttons">
-          <div class="button" id="dark-mode-button">
-            <input type="checkbox" class="button-checkbox" id="dark-mode" />
-            <label for="dark-mode">
-                <div class="button-icon button-icon--checked">{% heroicon_solid "moon" %}</div>
-                <div class="button-icon button-icon--unchecked">{% heroicon_solid "sun" %}</div>
-            </label>
-          </div>
-
-          {% block gridBottomRightButton %}{% endblock %}
-        </div>
-      </div>
-
       <div class="grid-middle">
         <div class="grid-middle-left">
           {% block gridMiddleLeft %}{%endblock%}
@@ -71,6 +57,20 @@
 
       <div class="grid-bottom-left">
           {% block gridBottomLeft %}{%endblock%}
+      </div>
+
+      <div class="grid-bottom-right">
+        <div class="buttons">
+          <div class="button" id="dark-mode-button">
+            <input type="checkbox" class="button-checkbox" id="dark-mode" />
+            <label for="dark-mode">
+                <div class="button-icon button-icon--checked">{% heroicon_solid "moon" %}</div>
+                <div class="button-icon button-icon--unchecked">{% heroicon_solid "sun" %}</div>
+            </label>
+          </div>
+
+          {% block gridBottomRightButton %}{% endblock %}
+        </div>
       </div>
     </div>
 

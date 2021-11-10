@@ -10,6 +10,7 @@
   grid-row-start: 1;
   grid-column-start: 1;
   transition: opacity 1500ms, filter 1500ms, -webkit-filter 1500ms;
+  touch-action: manipulation;
 }
 
 .gallery-slideshow .gallery-photo-container.is-hidden {

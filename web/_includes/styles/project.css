@@ -14,11 +14,6 @@
   max-height: 100%;
 }
 
-.gallery-photo-container {
-  /* touch-action: pinch-zoom; */
-  touch-action: manipulation;
-}
-
 .project-info div{
   padding-top: 6px;
 }
