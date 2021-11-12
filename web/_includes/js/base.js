@@ -5,6 +5,7 @@ let _scheduled;
 
 // Hide buttons and cursor unless mousemove
 document.addEventListener('mousemove', (e) => setInactiveTimeout());
+buttons.addEventListener('click', (e) => setInactiveTimeout());
 
 function setInactiveTimeout(timeout = 2000) {
   if (_scheduled) return;

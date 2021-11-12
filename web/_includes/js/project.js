@@ -141,6 +141,6 @@ window.onload = (event) => {
   });
 
   gallery_el.addEventListener("click", function(e) {
-    return onImageClick();
+    if (window.visualViewport.scale == 1) return onImageClick();
   });
 } 
