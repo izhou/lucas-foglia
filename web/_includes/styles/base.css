@@ -23,10 +23,10 @@
 /* Variable Declarations */
 :root {
   --padding: 1.5rem;
-  --inline-padding: 0.95rem;
+  --inline-padding: 1rem;
   --h1-font-size: 1.7rem;
   --h2-font-size: 1.1rem;
-  --body-font-size: 0.95rem;
+  --body-font-size: 1rem;
 
   --font-color: #666;
   --background-color: #fff;
@@ -352,11 +352,11 @@ html:not([data-mode="dark"]) #dark-mode + label .button-icon--unchecked {
 /* Small desktops  */
 @media (max-width: 992px) {
   :root {
-    --padding: 1.05rem;
-    --inline-padding: 0.95rem;
+    --padding: 1rem;
+    --inline-padding: 1rem;
     --h1-font-size: 1.5rem;
-    --h2-font-size: 1.05rem;
-    --body-font-size: 0.95rem;
+    --h2-font-size: 1.1rem;
+    --body-font-size: 1rem;
   }
 
   h1, h2, h3, body {
@@ -414,7 +414,7 @@ html:not([data-mode="dark"]) #dark-mode + label .button-icon--unchecked {
 
 /* iPads, Tablets */
 @media (max-width: 768px),
-(max-height: 480px) {
+(max-height: 560px) {
   .hide-on-mobile {
     display: none;
   }
@@ -427,7 +427,7 @@ html:not([data-mode="dark"]) #dark-mode + label .button-icon--unchecked {
     --inline-padding: 0.5rem;
     --h1-font-size: 1.25rem;
     --h2-font-size: 1rem;
-    --body-font-size: 0.95rem;
+    --body-font-size: 1rem;
   }
 
   .grid-middle-right > div {
