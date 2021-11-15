@@ -23,10 +23,10 @@
 /* Variable Declarations */
 :root {
   --padding: 1.5rem;
-  --inline-padding: 0.9rem;
+  --inline-padding: 0.95rem;
   --h1-font-size: 1.7rem;
   --h2-font-size: 1.1rem;
-  --body-font-size: 0.9rem;
+  --body-font-size: 0.95rem;
 
   --font-color: #666;
   --background-color: #fff;
@@ -166,7 +166,7 @@ a:hover, summary:hover {
 
 .grid-middle-left-spacer,
 .grid-middle-right-spacer {
-  height: 80px;
+  height: calc(var(--h1-font-size) * 3);
 }
 
 .grid-middle-left-spacer {
@@ -353,23 +353,14 @@ html:not([data-mode="dark"]) #dark-mode + label .button-icon--unchecked {
 @media (max-width: 992px) {
   :root {
     --padding: 1.05rem;
-    --inline-padding: 0.9rem;
+    --inline-padding: 0.925rem;
     --h1-font-size: 1.5rem;
     --h2-font-size: 1.05rem;
-    --body-font-size: 0.9rem;
+    --body-font-size: 0.925rem;
   }
 
   h1, h2, h3, body {
     margin: 0;
-  }
-
-  .grid-right-text-spacer {
-    height: 2.75rem;
-  }
-
-  .grid-middle-left-spacer,
-  .grid-middle-right-spacer {
-    height: 4rem;
   }
 }
 
@@ -437,11 +428,6 @@ html:not([data-mode="dark"]) #dark-mode + label .button-icon--unchecked {
     --h1-font-size: 1.25rem;
     --h2-font-size: 1rem;
     --body-font-size: 0.9rem;
-  }
-
-  .grid-middle-left-spacer,
-  .grid-middle-right-spacer {
-    height: 3.5rem;
   }
 
   .grid-middle-right > div {
