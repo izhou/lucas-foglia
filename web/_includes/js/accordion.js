@@ -57,7 +57,6 @@ class Accordion {
     });
 
     this.animation.onfinish = () => {
-      this.el.style.height = '';
       this.el.style.minHeight = endHeight;
       this.animation = null;
     }
