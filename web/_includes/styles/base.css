@@ -121,7 +121,7 @@ a:hover, summary:hover {
 .grid-top-left,
 .grid-bottom-left {
   width: 20%;
-  min-width: 205px;
+  min-width: 220px;
   position: absolute;
 }
 
@@ -142,7 +142,7 @@ a:hover, summary:hover {
 .grid-middle {
   display: grid;
   overflow: hidden;
-  grid-template-columns: minmax(20%, 205px) auto;
+  grid-template-columns: minmax(20%, 220px) auto;
   grid-auto-rows: 100%;
   max-height: 100%;
   grid-gap:var(--padding);
