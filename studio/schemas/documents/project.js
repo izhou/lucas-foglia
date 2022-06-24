@@ -81,6 +81,11 @@ export default {
         return true;
       })
     },
+    {
+      name: 'noindex',
+      title: 'Hide page from search engines',
+      type: 'boolean',
+    }
   ],
   preview: {
     select: {

@@ -5,6 +5,10 @@
   {% include "styles/gallery.css" %}
 {%endset%}
 
+{% if project.noindex %}
+  {% set noindex = true %}
+{% endif %}
+
 {%set title %}{{project.title | safe}}{%endset%}
 
 {% if project.description %}
