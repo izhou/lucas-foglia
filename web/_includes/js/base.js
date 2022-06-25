@@ -37,3 +37,12 @@ if (dark_mode_btn) {
   });
 }
 
+function adjustTitle() {
+  let title = document.getElementsByClassName('project-info--title')[0];
+  let spacers = document.querySelectorAll('.grid-middle-left-spacer, .grid-middle-right-spacer');
+  Array.from(spacers).forEach((spacer) => spacer.style.height = `calc(${title.offsetHeight}px + var(--h1-font-size) + 0.5rem)`);
+}
+
+adjustTitle();
+window.onresize = adjustTitle;
+
