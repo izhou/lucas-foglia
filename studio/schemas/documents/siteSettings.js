@@ -1,3 +1,5 @@
+import { isUniqueAcrossAllDocuments } from '../lib/isUniqueAcrossAllDocuments'
+
 export default {
   name: 'siteSettings',
   type: 'document',
@@ -58,6 +60,51 @@ export default {
           to: [{type: 'project'}]
         }
       ]
+    },
+
+
+    {
+      name: 'redirects',
+      type: 'array',
+      title: 'Redirect Rules',
+      description: 'Specify urls that should redirect to other certain pages',
+      of: [{
+        title: 'Redirect Rule',
+        type: 'object',
+        fields: [
+          {
+            type: 'slug',
+            title: 'Redirect Froma:',
+            name: 'redirectFrom',
+            validation: Rule => Rule.required(),
+            options: {
+              isUnique: isUniqueAcrossAllDocuments
+            }
+          },
+          {
+            type: 'reference',
+            title: 'Redirect To:',
+            name: 'redirectTo',
+            to: [
+              { type: 'project' },
+              { type: 'page' }
+            ],
+            validation: Rule => Rule.required(),
+          }
+        ],
+        preview: {
+          select: {
+            redirectFrom: 'redirectFrom.current',
+            redirectTo: 'redirectTo.title',
+          },
+          prepare(selection) {
+            const { redirectFrom, redirectTo } = selection
+            return {
+              title: `/${redirectFrom} redirects to ${redirectTo} page`
+            }
+          }
+        }
+      }],
     }
   ]
 }

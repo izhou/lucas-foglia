@@ -1,7 +1,6 @@
 const groq = require('groq')
 const client = require('../utils/sanityClient')
 
-
 module.exports = async function() {
   const projection =  await client.fetch(groq`
     *[_id == "siteSettings"]{
@@ -25,6 +24,12 @@ module.exports = async function() {
         },
         _type == "page" => {
           "title": @->title,
+          "slug": @->slug.current,
+        }
+      },
+      redirects[] {
+        ...,
+        redirectTo {
           "slug": @->slug.current,
         }
       }
