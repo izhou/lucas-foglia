@@ -49,7 +49,9 @@ module.exports = function(eleventyConfig) {
     "_includes/styles/fonts": "assets/fonts",
     "_includes/assets/":"assets/img",
     "node_modules/lazysizes/lazysizes.min.js": "assets/lazysizes.min.js",
+    "_redirects": "_redirects"
   });
+
 
   return {
     templateFormats: [
