@@ -68,6 +68,7 @@ body {
   font-size: var(--body-font-size);
   line-height: 1.4;
   transition: background-color 200ms, color 200ms;
+  overflow: hidden;
 }
 
 h1 {
