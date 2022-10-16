@@ -28,11 +28,11 @@
 }
 
 .gallery--nav-left {
-  cursor: url(../assets/img/chevron-left.svg), auto;
+  cursor: url(../assets/heroicons/chevron-left.svg), auto;
 }
 
 .gallery--nav-right {
-  cursor: url(../assets/img/chevron-right.svg), auto;
+  cursor: url(../assets/heroicons/chevron-right.svg), auto;
 }
 
 .gallery-photo-link {

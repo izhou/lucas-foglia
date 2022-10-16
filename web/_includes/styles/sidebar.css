@@ -26,8 +26,8 @@
   width: 1.5rem;
 }
 
-.sidebar-header:not(.open) .sidebar-icons .sidebar-icon-close,
-.sidebar-header.open .sidebar-icons .sidebar-icon-open {
+.sidebar-icons:not(.open) .sidebar-icon-close,
+.sidebar-icons.open .sidebar-icon-open {
   display: none;
 }
 

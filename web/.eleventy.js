@@ -6,7 +6,6 @@ const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 const markdownItCollapsible = require("markdown-it-collapsible");
 
-const heroicons = require('eleventy-plugin-heroicons');
 const favicon = require('eleventy-favicon');
 
 module.exports = function(eleventyConfig) {
@@ -37,8 +36,7 @@ module.exports = function(eleventyConfig) {
   });
 
   eleventyConfig.setLibrary("md", md);
-
-  eleventyConfig.addPlugin(heroicons);
+  
   eleventyConfig.addPlugin(favicon);
   
   eleventyConfig.addShortcode('imageUrlFor', (image, thumb) => {
@@ -47,7 +45,7 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy({
     "_includes/styles/fonts": "assets/fonts",
-    "_includes/assets/":"assets/img",
+    "_includes/assets/heroicons":"assets/heroicons",
     "node_modules/lazysizes/lazysizes.min.js": "assets/lazysizes.min.js",
     "_redirects": "_redirects"
   });

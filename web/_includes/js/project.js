@@ -16,7 +16,7 @@ function showContainer(container) {
   presentation_btn.classList.toggle('is-hidden', _active_container != 'project-gallery');
 
   document.getElementById(container).classList.remove('is-hidden');
-  document.querySelector(`[data-container="${_active_container}"]`).classList.add('container-active');
+  document.querySelector(`.project-info--link[data-container="${_active_container}"]`)?.classList.add('container-active');
 
 
   if (_active_container == 'project-index') {
@@ -24,6 +24,9 @@ function showContainer(container) {
     let elem = document.querySelector(`.project-index-photo[data-gallery-index="${photo_index}"]`);
     if (elem) elem.scrollIntoView({ block: "center" });
   }
+
+  document.querySelector('.project-nav-link--home').classList.toggle('is-hidden', _active_container != 'project-index');
+  document.querySelector('.project-nav-link--index').classList.toggle('is-hidden', _active_container == 'project-index');
 
   setWindowHash();
 };
@@ -109,7 +112,7 @@ document.getElementById('gallery-presentation').addEventListener('input', (e) =>
   document.getElementById('project-gallery').classList.toggle('gallery--presentation-mode', mode);
 });
 
-document.querySelectorAll('.project-info--link').forEach(item => {
+document.querySelectorAll('.project--container-link').forEach(item => {
   let container = item.getAttribute('data-container');
   item.addEventListener('click', event => showContainer(container));
 });

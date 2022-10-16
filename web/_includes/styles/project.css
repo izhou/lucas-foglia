@@ -43,7 +43,7 @@
   }
 }
 
-.project-home svg {
+.project-nav-link svg {
   stroke: var(--font-color);
   height: calc(var(--h2-font-size) + 1px);
   width: var(--h2-font-size);

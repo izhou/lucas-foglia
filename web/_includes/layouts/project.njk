@@ -17,8 +17,11 @@
 
 {% block gridTopLeft %}
   <h3>
-    <a class="project-home" href=  "/">
-      {% include "assets/chevron-left.svg" %}Home
+    <a class="project-nav-link project-nav-link--home" href=  "/">
+      {% include "assets/heroicons/chevron-left.svg" %}Home
+    </a>
+    <a class="project-nav-link project-nav-link--index project--container-link is-hidden" data-container="project-index">
+     {% include "assets/heroicons/chevron-left.svg" %}
     </a>
   </h3>
 {%endblock%}
@@ -77,9 +80,9 @@
   <h1 class="project-info--title">{{project.title}}</h1>
 
   <h3 class="project-info--links">
-    <a class="project-info--link" data-container="project-gallery">Gallery</a> / 
-    <a class="project-info--link container-active" data-container="project-index">Index</a> /
-    <a class="project-info--link" data-container="project-statement">Statement</a>
+    {# <a class="project-info--link project--container-link" data-container="project-gallery">Gallery</a> /  #}
+    <a class="project-info--link project--container-link container-active" data-container="project-index">Gallery</a> /
+    <a class="project-info--link project--container-link" data-container="project-statement">Statement</a>
   </h3>
 {%endblock%}
 
@@ -87,8 +90,8 @@
   <div class="button is-hidden" id="gallery-presentation-button">
     <input type="checkbox" class="button-checkbox" id="gallery-presentation" />
     <label for="gallery-presentation">
-        <div class="button-icon button-icon--checked">{% heroicon_outline "arrows-expand" %}</div>
-        <div class="button-icon button-icon--unchecked">{% heroicon_solid "template" %}</div>
+        <div class="button-icon button-icon--checked">{% include "assets/heroicons/arrows-pointing-out.svg" %}</div>
+        <div class="button-icon button-icon--unchecked">{% include "assets/heroicons/arrows-pointing-in.svg" %}</div>
     </label>
   </div>
 {%endblock%}

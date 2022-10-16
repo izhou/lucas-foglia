@@ -13,9 +13,7 @@ document.querySelectorAll('.gallery-photo-link').forEach(item => {
 function onImageClick(project_index, slug) {
   if (_active_project_index !== project_index) return setActiveProjectByIndex(project_index, true);
 
-  let active_photo_container = _active_project.gallery.getActiveContainer();
-  let photo_project_index = active_photo_container.getAttribute('data-project-gallery-index');
-  window.location = `/${slug}/#${photo_project_index}`;
+  window.location = `/${slug}`;
 }
 
 function setActiveProject(elem, index, scroll) {
